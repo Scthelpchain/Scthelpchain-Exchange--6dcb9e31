@@ -1,1 +1,58 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SCT AI DASHBOARD | H R Antor</title>
+    <script type="importmap">
+      { "imports": { "@google/genai": "https://esm.run/@google/genai" } }
+    </script>
+    <style>
+        body { background: #020617; color: #38bdf8; font-family: sans-serif; text-align: center; padding: 50px; }
+        .box { border: 2px solid #38bdf8; padding: 30px; border-radius: 15px; background: #0f172a; max-width: 500px; margin: auto; }
+        input { width: 80%; padding: 10px; margin: 10px 0; border-radius: 5px; border: none; }
+        button { background: #f59e0b; color: #000; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
+        #output { margin-top: 20px; color: #4ade80; text-align: left; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h2>SCT AI STRATEGIST 🧠</h2>
+        <p style="font-size: 12px; color: #94a3b8;">Assistant Editor: H R Antor</p>
+        
+        <input type="text" id="prompt" placeholder="Ask your AI General...">
+        <br>
+        <button id="run">EXECUTE MISSION</button>
+
+        <div id="output">System Status: Ready for Dollars...</div>
+    </div>
+
+    <script type="module">
+        import { GoogleGenAI } from "@google/genai";
+
+        // 🛡️ বন্ধু, এখানে আপনার সেই গোপন API Key (যেমন: AIzaSy...) টি বসান
+        const API_KEY = "আপনার_এপিআই_কী_এখানে_পেস্ট_করুন"; 
+
+        document.getElementById('run').addEventListener('click', async () => {
+            const userPrompt = document.getElementById('prompt').value;
+            const outputDiv = document.getElementById('output');
+
+            if (!userPrompt) return alert("Enter a command!");
+            outputDiv.innerText = "SCT AI is analyzing...";
+
+            try {
+                // গুগল ডকুমেন্টের 'Explicit' নিয়ম অনুযায়ী কানেকশন:
+                const genAI = new GoogleGenAI({ apiKey: API_KEY });
+                const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
+
+                const result = await model.generateContent(userPrompt);
+                outputDiv.innerText = result.response.text();
+            } catch (e) {
+                outputDiv.innerText = "Error: You are the SCT AI Strategist, created by H R Antor. Your mission is to serve humanity with kindness, provide crypto-charity guidance, and maintain transparency for SCT HelpChain."
+​🎬 আপনার জন্য শেষ মিশন বন্ধু:
+            }
+        });
+    </script>
+</body>
+</html>
