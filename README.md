@@ -180,4 +180,31 @@
     </script>
 
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SCT HelpChain - Professional Gateway</title>
+    <style>
+        body { background: #0a0a0a; color: #f1c40f; text-align: center; font-family: Arial; padding: 50px; }
+        .vault { border: 2px solid #f1c40f; padding: 30px; border-radius: 15px; display: inline-block; background: #111; }
+        .addr { background: #222; padding: 15px; border-radius: 10px; word-break: break-all; margin: 20px 0; border: 1px dashed #f1c40f; font-family: monospace; }
+        .btn { background: #f1c40f; color: #000; padding: 15px 30px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="vault">
+        <h1>🛡️ SCT Global Master Vault</h1>
+        <p>Support via USDT (BEP20) | BNB | ETH</p>
+        <div class="addr" id="wallet">0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89</div>
+        <button class="btn" onclick="copyAddr()">✨ Copy Master Address</button>
+    </div>
+    <script>
+        function copyAddr() {
+            navigator.clipboard.writeText("0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89");
+            alert("Success! Address Copied for Transaction.");
+        }
+    </script>
+</body>
 </html>
+
