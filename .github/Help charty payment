@@ -1,0 +1,62 @@
+# These are supported funding model platforms
+
+github: # Replace with up to 4 GitHub Sponsors-enabled usernames e.g., [user1, user2]
+patreon: # Replace with a single Patreon username
+open_collective: # Replace with a single Open Collective username
+ko_fi: # Replace with a single Ko-fi username
+tidelift: # Replace with a single Tidelift platform-name/package-name e.g., npm/babel
+community_bridge: # Replace with a single Community Bridge project-name e.g., cloud-foundry
+liberapay: # Replace with a single Liberapay username
+issuehunt: # Replace with a single IssueHunt username
+lfx_crowdfunding: # Replace with a single LFX Crowdfunding project-name e.g., cloud-foundry
+polar: # Replace with a single Polar username
+buy_me_a_coffee: # Replace with a single Buy Me a Coffee username
+thanks_dev: # Replace with a single thanks.dev username
+custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
+<section class="glass-morphism p-10 rounded-[3rem] gold-glow my-10 relative overflow-hidden">
+    <div class="absolute top-0 left-0 bg-blue-600 text-white px-6 py-1 font-black text-[10px] uppercase">International Gateway Active</div>
+    
+    <h2 class="text-3xl font-black hero-font text-yellow-500 mb-8 italic text-center uppercase tracking-widest">Global Investment Hub</h2>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        
+        <div class="bg-gradient-to-br from-blue-900 to-black p-8 rounded-3xl border border-blue-500/50 shadow-[0_0_20px_rgba(59,130,246,0.5)]">
+            <div class="flex items-center gap-3 mb-6">
+                <i class="fab fa-ethereum text-3xl text-blue-400"></i>
+                <h3 class="text-xl font-black uppercase">Web3 Wallet (USDT/ETH)</h3>
+            </div>
+            <div class="bg-black/50 p-4 rounded-xl border border-white/10 break-all mb-4">
+                <p class="text-[10px] text-blue-400 uppercase font-bold mb-1">Global Wallet Address:</p>
+                <p class="text-sm font-mono text-white selection:bg-blue-500">0x0a083bDBA9c8C7b3d4B9509164B90C72c29a2F62</p>
+            </div>
+            <p class="text-[10px] text-gray-500 italic uppercase tracking-tighter">* Accepts MetaMask, TrustWallet & Binance Transfers</p>
+        </div>
+
+        <div class="space-y-4">
+            <div class="bg-gradient-to-r from-red-900/40 to-black p-6 rounded-2xl border border-red-500/30">
+                <div class="flex justify-between items-center mb-2">
+                    <span class="text-xs font-black uppercase text-red-400">IFIC Bank Account</span>
+                    <i class="fas fa-university text-lg text-red-500"></i>
+                </div>
+                <p class="text-xl font-black tracking-widest">1072039140001</p>
+                <p class="text-[9px] text-gray-400 uppercase">Md Habibur Rahman Antor | Global Settlements</p>
+            </div>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-pink-600/10 p-4 rounded-xl border border-pink-500/20 text-center">
+                    <p class="text-[8px] uppercase font-bold text-pink-500">bKash</p>
+                    <p class="text-xs font-black">01974522152</p>
+                </div>
+                <div class="bg-orange-500/10 p-4 rounded-xl border border-orange-500/20 text-center">
+                    <p class="text-[8px] uppercase font-bold text-orange-500">Nagad</p>
+                    <p class="text-xs font-black">01724522152</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-10 text-center border-t border-white/10 pt-8">
+        <p class="text-sm text-gray-400 italic mb-4">"Direct investment ensures the survival and growth of the SCT Helpchain Empire."</p>
+        <a href="mailto:scthelpchainantorai@gmail.com" class="inline-block bg-yellow-500 text-black font-black py-3 px-10 rounded-full uppercase text-xs tracking-widest hover:scale-110 transition-all">Submit Transfer Proof</a>
+    </div>
+</section>
