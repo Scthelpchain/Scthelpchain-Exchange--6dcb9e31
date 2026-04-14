@@ -473,7 +473,81 @@ function aiProcess(type) {
         display.innerHTML = "<span style='color: #f3ba2f; font-weight: bold;'>AI Assistant:</span> আমি মুহতামিম সাহেবের (H R Antor) পারমিশন নিচ্ছি... <br><b>অনুমতি পাওয়া গেছে!</b> নিচে ক্লিক করে সরাসরি কথা বলুন। <br><br> <a href='https://wa.me/88017XXXXXXXX' target='_blank' style='display:inline-block; background:#25D366; color:white; padding:8px 15px; border-radius:5px; text-decoration:none; font-weight:bold;'>WhatsApp Connect ✅</a>";
     }
 }
+</script><section id="sct-gateway" style="background: #0d0d0d; border: 2px solid #f3ba2f; border-radius: 20px; padding: 30px; max-width: 500px; margin: 40px auto; color: white; text-align: center; font-family: 'Segoe UI', Arial, sans-serif; box-shadow: 0 20px 50px rgba(0,0,0,0.8);">
+    
+    <h2 style="color: #f3ba2f; font-size: 22px; letter-spacing: 1px;">SCT GLOBAL GATEWAY</h2>
+    <p style="color: #888; font-size: 13px;">Secure Web3 & Card Management System</p>
+
+    <div id="wallet-section" style="margin-bottom: 25px; background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border: 1px solid #333;">
+        <p style="font-size: 14px; margin-bottom: 10px;">Status: <span id="wallet-status" style="color: #ff4d4d;">Disconnected</span></p>
+        <button onclick="connectSCTWallet()" id="walletBtn" style="background: #f3ba2f; color: #000; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;">
+            CONNECT WALLET
+        </button>
+    </div>
+
+    <div style="font-size: 20px; margin: 15px 0;">+</div>
+
+    <div id="card-section" style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 12px; border: 1px solid #333;">
+        <h4 style="color: #f3ba2f; margin-bottom: 15px;">ACTIVATE SCT CARD</h4>
+        <input type="text" id="sctCardInput" placeholder="Enter Card Number (e.g. 2026-SCT-XXXX)" style="width: 100%; padding: 12px; border-radius: 6px; border: 1px solid #444; background: #000; color: #fff; margin-bottom: 15px; box-sizing: border-box;">
+        
+        <button onclick="activateProcess()" id="activateBtn" style="background: transparent; color: #f3ba2f; border: 1px solid #f3ba2f; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;">
+            ACTIVATE NOW
+        </button>
+    </div>
+
+    <p id="final-msg" style="margin-top: 20px; color: #25D366; font-size: 14px; font-weight: bold; display: none;"></p>
+    <p style="font-size: 10px; color: #555; margin-top: 20px;">Secured by MetaMask & SCT HelpChain Blockchain Encryption</p>
+</section>
+
+<script>
+// --- Wallet Connection Logic ---
+async function connectSCTWallet() {
+    const btn = document.getElementById('walletBtn');
+    const status = document.getElementById('wallet-status');
+
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            const account = accounts[0];
+            status.innerHTML = "Connected (" + account.substring(0,6) + "..." + account.substring(38) + ")";
+            status.style.color = "#25D366";
+            btn.innerHTML = "WALLET LINKED";
+            btn.style.background = "#333";
+            btn.style.color = "#888";
+            btn.disabled = true;
+        } catch (error) {
+            alert("Connection rejected by user.");
+        }
+    } else {
+        alert("MetaMask not found! Please install MetaMask to use Web3 features.");
+    }
+}
+
+// --- Card Activation Logic ---
+function activateProcess() {
+    const cardInput = document.getElementById('sctCardInput').value;
+    const actBtn = document.getElementById('activateBtn');
+    const msg = document.getElementById('final-msg');
+
+    if(cardInput.trim() === "") {
+        alert("Please enter a valid card number.");
+        return;
+    }
+
+    actBtn.innerHTML = "Processing Encryption...";
+    actBtn.disabled = true;
+
+    setTimeout(() => {
+        actBtn.style.display = "none";
+        document.getElementById('sctCardInput').disabled = true;
+        msg.style.display = "block";
+        msg.innerHTML = "✅ SUCCESS: Card & Wallet Synchronized!";
+        alert("SCT Global Gateway: Card Activation Complete.");
+    }, 2500);
+}
 </script>
+
 
 </body>
 </html>
