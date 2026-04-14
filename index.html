@@ -53,7 +53,31 @@
             }
         });
     </script>
-</body>
+</body>// মেটামাস্ক কানেক্ট করার ফাংশন
+async function connectWallet() {
+    if (window.ethereum) {
+        try {
+            // ইউজারের কাছ থেকে পারমিশন চাওয়া
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const account = accounts[0];
+            
+            // আপনার দেওয়া ওয়ালেট অ্যাড্রেসটির সাথে ম্যাচ করছে কি না চেক করা
+            const myWallet = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+            
+            if (account.toLowerCase() === myWallet.toLowerCase()) {
+                alert("Master Admin Wallet Connected Successfully!");
+                document.getElementById('wallet-address').innerText = "Connected: " + account;
+            } else {
+                alert("Warning: This is not the Master Admin Wallet!");
+            }
+        } catch (error) {
+            console.error("User denied account access", error);
+        }
+    } else {
+        alert("Please install MetaMask or use a Web3 Browser!");
+    }
+}
+
 </html>
 
 <html lang="en">
