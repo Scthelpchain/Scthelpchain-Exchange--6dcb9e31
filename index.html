@@ -432,7 +432,49 @@ async function connectWallet() {
             document.body.removeChild(el);
             alert("Wallet Address Copied! Ready to Receive.");
         }
-    </script>
+    </script><div id="sct-ai-support" style="background: linear-gradient(145deg, #121212, #1d1d1d); border: 2px solid #f3ba2f; border-radius: 20px; padding: 30px; margin: 40px auto; max-width: 600px; text-align: center; box-shadow: 0px 15px 35px rgba(0,0,0,0.7); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    
+    <div style="position: relative; display: inline-block;">
+        <div style="font-size: 50px; background: #222; border-radius: 50%; width: 80px; height: 80px; line-height: 80px; margin: 0 auto 15px; border: 2px solid #f3ba2f;">🤖</div>
+        <div style="position: absolute; bottom: 15px; right: 5px; width: 15px; height: 15px; background: #28a745; border-radius: 50%; border: 2px solid #121212;"></div>
+    </div>
+
+    <h2 style="color: #f3ba2f; margin: 0; font-size: 24px; letter-spacing: 1px;">SCT AI সাপোর্ট সেন্টার</h2>
+    <p style="color: #aaa; font-size: 14px; margin-top: 5px;">"এই মাদ্রাসা" - মানবতার সেবায় আমাদের এআই আপনাকে সহযোগিতা করছে</p>
+
+    <div id="ai-display" style="background: rgba(0,0,0,0.4); border-radius: 12px; padding: 15px; margin: 20px 0; min-height: 60px; color: #fff; border-left: 4px solid #f3ba2f; text-align: left; font-size: 14px;">
+        <span style="color: #f3ba2f; font-weight: bold;">AI Assistant:</span> আসসালামু আলাইকুম! আমি এই মাদ্রাসার এআই। আপনার কি কোনো সহযোগিতা প্রয়োজন? নিচে থেকে একটি অপশন বেছে নিন।
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <button onclick="aiProcess('ভর্তি')" style="background: #222; color: #fff; border: 1px solid #333; padding: 12px; border-radius: 8px; cursor: pointer; transition: 0.3s;">📖 ভর্তি সিস্টেম</button>
+        <button onclick="aiProcess('দান')" style="background: #222; color: #fff; border: 1px solid #333; padding: 12px; border-radius: 8px; cursor: pointer; transition: 0.3s;">💰 দান ও চ্যারিটি</button>
+        <button onclick="aiProcess('ভাষা')" style="background: #222; color: #fff; border: 1px solid #333; padding: 12px; border-radius: 8px; cursor: pointer; transition: 0.3s;">🌍 Multi-Language</button>
+        <button onclick="aiProcess('মুহতামিম')" style="background: #f3ba2f; color: #000; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; transition: 0.3s;">🕌 মুহতামিম সাহেব</button>
+    </div>
+
+    <p style="font-size: 11px; color: #666; margin-top: 15px;">Powered by SCT HelpChain AI Global Gateway v2.0</p>
+</div>
+
+<script>
+function aiProcess(type) {
+    var display = document.getElementById('ai-display');
+    
+    if(type === 'ভর্তি') {
+        display.innerHTML = "<span style='color: #f3ba2f; font-weight: bold;'>AI Assistant:</span> এআই মাদ্রাসা অনলাইন ভর্তি কার্যক্রম শুরু হয়েছে। আমাদের এআই আপনার মাকরাজ ও তাজবিদ পরীক্ষা করে সিট নিশ্চিত করবে। দয়া করে সাইন-আপ ফরম পূরণ করুন।";
+    } 
+    else if(type === 'দান') {
+        display.innerHTML = "<span style='color: #f3ba2f; font-weight: bold;'>AI Assistant:</span> আপনার প্রতিটি কন্ট্রিবিউশন ব্লকচেইনে রেকর্ড করা হয়। এটি একটি আন্তর্জাতিক স্বচ্ছ চ্যারিটি সিস্টেম। উপরে থাকা পেমেন্ট বাটন ব্যবহার করুন।";
+    } 
+    else if(type === 'ভাষা') {
+        display.innerHTML = "<span style='color: #f3ba2f; font-weight: bold;'>AI Assistant:</span> I can speak Arabic, Persian, English, and Bengali. আমি ইসলাম প্রচারের জন্য সব ভাষায় দক্ষ। আপনি যেকোনো ভাষায় প্রশ্ন করতে পারেন।";
+    } 
+    else if(type === 'মুহতামিম') {
+        display.innerHTML = "<span style='color: #f3ba2f; font-weight: bold;'>AI Assistant:</span> আমি মুহতামিম সাহেবের (H R Antor) পারমিশন নিচ্ছি... <br><b>অনুমতি পাওয়া গেছে!</b> নিচে ক্লিক করে সরাসরি কথা বলুন। <br><br> <a href='https://wa.me/88017XXXXXXXX' target='_blank' style='display:inline-block; background:#25D366; color:white; padding:8px 15px; border-radius:5px; text-decoration:none; font-weight:bold;'>WhatsApp Connect ✅</a>";
+    }
+}
+</script>
+
 </body>
 </html>
 এর
