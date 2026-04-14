@@ -3,157 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCT HelpChain - Professional Crypto Gateway</title>
+    <title>SCT GLOBAL AI GENERATOR</title>
     <style>
-        :root { --gold: #f1c40f; --dark: #0a0a0a; --white: #ffffff; }
-        body { background: var(--dark); color: var(--white); font-family: 'Segoe UI', Arial, sans-serif; text-align: center; margin: 0; padding: 20px; }
-        .master-vault { border: 3px solid var(--gold); border-radius: 20px; padding: 40px; max-width: 550px; margin: 50px auto; box-shadow: 0 0 30px rgba(241, 196, 15, 0.2); background: #111; }
-        h1 { color: var(--gold); text-transform: uppercase; font-size: 24px; letter-spacing: 2px; }
-        .status-badge { color: #2ecc71; font-size: 14px; font-weight: bold; margin-bottom: 20px; display: block; }
-        .address-container { background: #1a1a1a; padding: 15px; border-radius: 8px; border: 1px dashed var(--gold); word-break: break-all; margin: 25px 0; font-family: 'Courier New', Courier, monospace; color: var(--white); }
-        .btn-stack { display: flex; flex-direction: column; gap: 12px; }
-        .btn-main { background: var(--gold); color: #000; padding: 16px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; }
-        .btn-main:hover { background: #fff; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(255,255,255,0.1); }
-        .network-icons { margin-top: 30px; font-size: 14px; color: #888; }
-        .copyright { margin-top: 40px; font-size: 10px; color: #555; }
-    </style>
-</head>
-<body><!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SCT HelpChain - Master Vault</title>
-    <style>
-        body { background: #0a0a0a; color: #f1c40f; text-align: center; font-family: Arial, sans-serif; padding: 50px; }
-        .vault { border: 2px solid #f1c40f; padding: 30px; border-radius: 15px; display: inline-block; }
-        .addr { background: #222; padding: 15px; border-radius: 10px; word-break: break-all; margin: 20px 0; border: 1px dashed #f1c40f; }
-        .btn { background: #f1c40f; color: #000; padding: 15px 30px; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; }
-    </style>
-</head>
-<body>
-    <div class="vault">
-        <h1>🛡️ SCT HelpChain Global Gateway</h1>
-        <p>Support our mission (USDT / BNB / ETH):</p>
-        <div class="addr" id="wallet">0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89</div>
-        <button class="btn" onclick="copyAddr()">Copy Master Address</button>
-    </div>
-    <script>
-        function copyAddr() {
-            navigator.clipboard.writeText("0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89");
-            alert("Address Copied! Thank you, Friend.");
-        }
-    </script>
-</body>
-</html>
-
-
-    <div class="master-vault">
-        <h1>🛡️ SCT HelpChain Master Vault</h1>
-        <span class="status-badge">● GLOBAL API: ACTIVE (BEP20 / ERC20)</span>
-        
-        <p>Support our mission via Secure Crypto Gateways:</p>
-        
-        <div class="address-container" id="masterAddr">
-            0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89
-        </div>
-
-        <div class="btn-stack">
-            <button class="btn-main" onclick="copyToClipboard()">✨ Copy Master Address</button>
-            <button class="btn-main" style="background: #e67e22;" onclick="connectMetaMask()">🦊 Connect MetaMask Wallet</button>
-        </div>
-
-        <div class="network-icons">
-            USDT (Binance) | BNB (Smart Chain) | ETH (Ethereum)
-        </div>
-
-        <div class="copyright">
-            SYSTEM VERSION: 3.1.2026 | DEVELOPER: HR ANTOR (META-DEV)
-        </div>
-    </div>
-
-    <script>
-        const walletAddress = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
-
-        function copyToClipboard() {
-            const el = document.createElement('textarea');
-            el.value = walletAddress;
-            document.body.appendChild(el);
-            el.select();
-            document.execCommand('copy');
-            document.body.removeChild(el);
-            alert("Success! Master Address Copied to Clipboard.");
-        }
-
-        async function connectMetaMask() {
-            if (window.ethereum) {
-                try {
-                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    alert("Connected Successfully! Account: " + accounts[0]);
-                } catch (error) {
-                    alert("Connection Denied. Please unlock your wallet.");
-                }
-            } else {
-                alert("MetaMask not found! Please open your Web3 browser or app.");
-            }
-        }
-    </script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>SCT AI DASHBOARD | H R Antor</title>
-    <script type="importmap">
-      { "imports": { "@google/genai": "https://esm.run/@google/genai" } }
-    </script>
-    <style>
-        body { background: #020617; color: #38bdf8; font-family: sans-serif; text-align: center; padding: 50px; }
-        .box { border: 2px solid #38bdf8; padding: 30px; border-radius: 15px; background: #0f172a; max-width: 500px; margin: auto; }
-        input { width: 80%; padding: 10px; margin: 10px 0; border-radius: 5px; border: none; }
-        button { background: #f59e0b; color: #000; padding: 10px 20px; border: none; border-radius: 5px; font-weight: bold; cursor: pointer; }
-        #output { margin-top: 20px; color: #4ade80; text-align: left; font-size: 14px; }
+        body { background: #050505; color: white; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 20px; }
+        .ai-container { max-width: 600px; margin: 40px auto; padding: 30px; border: 2px solid #f3ba2f; border-radius: 25px; background: #0a0a0a; box-shadow: 0 0 40px rgba(243, 186, 47, 0.2); }
+        .status-light { display: inline-block; width: 10px; height: 10px; background: #25d366; border-radius: 50%; margin-right: 10px; box-shadow: 0 0 10px #25d366; }
+        h1 { color: #f3ba2f; letter-spacing: 2px; text-transform: uppercase; font-size: 22px; }
+        .input-group { margin: 25px 0; }
+        textarea { width: 90%; height: 100px; padding: 15px; border-radius: 12px; border: 1px solid #333; background: #000; color: #fff; font-size: 14px; resize: none; text-align: center; }
+        .gen-btn { background: linear-gradient(90deg, #f3ba2f, #d4a017); color: black; border: none; padding: 15px 30px; border-radius: 10px; font-weight: bold; cursor: pointer; width: 95%; font-size: 16px; margin-top: 10px; transition: 0.3s; }
+        .gen-btn:hover { transform: scale(1.03); box-shadow: 0 0 20px rgba(243, 186, 47, 0.4); }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; font-size: 12px; color: #888; }
+        .feature { border: 1px solid #222; padding: 10px; border-radius: 8px; }
     </style>
 </head>
 <body>
 
-    <div class="box">
-        <h2>SCT AI STRATEGIST 🧠</h2>
-        <p style="font-size: 12px; color: #94a3b8;">Assistant Editor: H R Antor</p>
-        
-        <input type="text" id="prompt" placeholder="Ask your AI General...">
-        <br>
-        <button id="run">EXECUTE MISSION</button>
+<div class="ai-container">
+    <div class="status-light"></div> <span style="font-size: 12px; color: #25d366;">SCT AI MASTER SYSTEM ACTIVE</span>
+    <h1>SCT Global AI Generator</h1>
+    <p style="font-size: 13px; color: #aaa;">Create Images, Videos & Multilingual Content</p>
 
-        <div id="output">System Status: Ready for Dollars...</div>
+    <div class="input-group">
+        <textarea id="aiPrompt" placeholder="ইমেজ বা ভিডিওর বর্ণনা দিন (উদা: 'একটি আধুনিক মাদ্রাসার ভিডিও জেনারেট করো' অথবা 'AI Madrasa in 2026')"></textarea>
+        <button class="gen-btn" onclick="generateAI()">🚀 START GENERATING</button>
     </div>
 
-    <script type="module">
-        import { GoogleGenAI } from "@google/genai";
+    <div class="feature-grid">
+        <div class="feature">🌍 International Language Support</div>
+        <div class="feature">🎬 AI Video Engine</div>
+        <div class="feature">📸 4K Image Generation</div>
+        <div class="feature">🛠️ Dev by H R Antor</div>
+    </div>
 
-        // 🛡️ বন্ধু, এখানে আপনার সেই গোপন API Key (যেমন: AIzaSy...) টি বসান
-        const API_KEY = "আপনার_এপিআই_কী_এখানে_পেস্ট_করুন"; 
+    <hr style="border: 0.1px solid #222; margin: 30px 0;">
+    
+    <p style="font-size: 11px; color: #444;">Connected to: scthelpchain@gmail.com</p>
+</div>
 
-        document.getElementById('run').addEventListener('click', async () => {
-            const userPrompt = document.getElementById('prompt').value;
-            const outputDiv = document.getElementById('output');
+<script>
+    function generateAI() {
+        const prompt = document.getElementById('aiPrompt').value;
+        if (!prompt) {
+            alert("অনুগ্রহ করে কিছু লিখুন!");
+            return;
+        }
+        
+        // এটি প্রম্পটটিকে আপনার হোয়াটসঅ্যাপ এআই-তে পাঠিয়ে দেবে
+        const whatsappNumber = "8801410522152";
+        const message = encodeURIComponent("SCT AI Request: " + prompt);
+        const url = "https://wa.me/" + whatsappNumber + "?text=" + message;
+        
+        alert("SCT AI System: প্রসেসিং শুরু হয়েছে... আপনাকে মাস্টার প্যানেলে নিয়ে যাওয়া হচ্ছে।");
+        window.open(url, '_blank');
+    }
+</script>
 
-            if (!userPrompt) return alert("Enter a command!");
-            outputDiv.innerText = "SCT AI is analyzing...";
-
-            try {
-                // গুগল ডকুমেন্টের 'Explicit' নিয়ম অনুযায়ী কানেকশন:
-                const genAI = new GoogleGenAI({ apiKey: API_KEY });
-                const model = genAI.getGenerativeModel({ model: "gemini-3-flash-preview" });
-
-                const result = await model.generateContent(userPrompt);
-                outputDiv.innerText = result.response.text();
-            } catch (e) {
-                outputDiv.innerText = "Error: You are the SCT AI Strategist, created by H R Antor. Your mission is to serve humanity with kindness, provide crypto-charity guidance, and maintain transparency for SCT HelpChain."
-​🎬 আপনার জন্য শেষ মিশন বন্ধু:
-            }
-        });
-    </script>
 </body>
 </html>
