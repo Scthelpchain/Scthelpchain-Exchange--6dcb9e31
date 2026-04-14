@@ -57,7 +57,87 @@
         alert("SCT AI System: প্রসেসিং শুরু হয়েছে... আপনাকে মাস্টার প্যানেলে নিয়ে যাওয়া হচ্ছে।");
         window.open(url, '_blank');
     }
-</script>
+</script><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT GLOBAL AI MASTER SYSTEM</title>
+    
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({pageLanguage: 'en'}, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <style>
+        body { background: #000; color: white; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 15px; }
+        .master-container { max-width: 600px; margin: 20px auto; padding: 30px; border: 2px solid #f3ba2f; border-radius: 25px; background: rgba(10,10,10,0.9); box-shadow: 0 0 50px rgba(243, 186, 47, 0.2); position: relative; overflow: hidden; }
+        
+        /* Language Bar Style */
+        #google_translate_element { margin-bottom: 20px; padding: 5px; background: #111; border-radius: 10px; border: 1px solid #222; }
+        
+        .status-header { display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 20px; font-size: 12px; color: #25d366; text-transform: uppercase; font-weight: bold; }
+        .blink { animation: blinker 1.5s linear infinite; width: 10px; height: 10px; background: #25d366; border-radius: 50%; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        h1 { color: #f3ba2f; letter-spacing: 3px; font-size: 24px; text-shadow: 0 0 10px rgba(243, 186, 47, 0.5); }
+        textarea { width: 90%; height: 120px; padding: 15px; border-radius: 15px; border: 1px solid #333; background: #050505; color: #fff; font-size: 15px; margin: 20px 0; text-align: center; }
+        
+        .action-btn { background: linear-gradient(45deg, #f3ba2f, #ffd700); color: #000; border: none; padding: 18px; border-radius: 12px; font-weight: bold; width: 95%; cursor: pointer; font-size: 18px; transition: 0.4s; }
+        .action-btn:hover { box-shadow: 0 0 30px #f3ba2f; transform: translateY(-2px); }
+
+        .feature-box { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 25px 0; }
+        .feature-item { background: #111; padding: 12px; border-radius: 10px; border: 1px solid #222; font-size: 12px; color: #f3ba2f; }
+    </style>
+</head>
+<body>
+
+    <div class="master-container">
+        <div id="google_translate_element"></div>
+
+        <div class="status-header">
+            <div class="blink"></div> SCT AI CORE ONLINE (GLOBAL SERVER)
+        </div>
+
+        <h1>SCT AI GENERATOR</h1>
+        <p style="color: #888; font-size: 13px;">AI Strategist: H R Antor | Assistant Editor</p>
+
+        <textarea id="userPrompt" placeholder="Write your command (e.g. Generate 4K AI Madrasa Video or High-Tech Card Image)"></textarea>
+
+        <button class="action-btn" onclick="processAI()">🚀 LAUNCH AI GENERATOR</button>
+
+        <div class="feature-box">
+            <div class="feature-item">📸 4K Image Render</div>
+            <div class="feature-item">🎬 Veo Video Engine</div>
+            <div class="feature-item">📜 Quran & Hadith AI</div>
+            <div class="feature-item">🔓 Global Master Link</div>
+        </div>
+
+        <hr style="border: 0.1px solid #222; margin: 20px 0;">
+        
+        <button onclick="window.open('https://wa.me/8801410522152')" style="background: transparent; color: #25d366; border: 1px solid #25d366; padding: 10px; border-radius: 8px; cursor: pointer; font-size: 12px;">
+            💬 WHATSAPP AI SUPPORT CENTER
+        </button>
+
+        <p style="font-size: 10px; color: #444; margin-top: 30px;">
+            Powered by Meta & SCT HelpChain AI 2026
+        </p>
+    </div>
+
+    <script>
+        function processAI() {
+            const prompt = document.getElementById('userPrompt').value;
+            if(!prompt) { alert("Please enter your command!"); return; }
+            
+            alert("SCT AI Master System: Processing Command...");
+            window.location.href = "https://wa.me/8801410522152?text=SCT_AI_COMMAND: " + encodeURIComponent(prompt);
+        }
+    </script>
+</body>
+</html>
+
 
 </body>
 </html>
