@@ -397,7 +397,19 @@ async function connectWallet() {
 
         function receivePayment() {
             const el = document.createElement('textarea');
-            el.value = MASTER_WALLET;
+            el.value = MASTER_WALLET;<div style="background: rgba(40, 167, 69, 0.1); border: 1px solid #28a745; border-radius: 10px; padding: 12px; margin-top: 20px;">
+    <p style="font-size: 14px; color: #28a745; margin: 0; font-weight: bold;">✅ SYSTEM STATUS: SECURE</p>
+    <p style="font-size: 11px; color: #888; margin: 5px 0;">Staking Address: 0xF5D9...BB89</p>
+    <a href="https://bscscan.com/address/0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89" target="_blank" 
+       style="color: #f3ba2f; text-decoration: none; font-size: 13px; font-weight: bold; border: 1px solid #f3ba2f; padding: 5px 10px; border-radius: 5px; display: inline-block; margin-top: 5px;">
+       🔍 Track on BscScan
+    </a>
+</div>
+
+<div style="margin-top: 15px; font-size: 11px; color: #555;">
+    <p>Assistant Editor (Crime): H R Antor | Official TIN Verified</p>
+</div>
+
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
