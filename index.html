@@ -552,7 +552,119 @@ function activateProcess() {
 </script>
 
 
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HelpChain | Global Digital Gateway</title>
+    <meta name="description" content="SCT HelpChain - International Digital Exchange and AI Madrasa Mission. Secure Web3 Gateway by H R Antor.">
+    <style>
+        body { background-color: #050505; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: auto; border: 1px solid #333; padding: 20px; border-radius: 20px; background: #0a0a0a; box-shadow: 0 0 30px rgba(243, 186, 47, 0.1); }
+        .btn { background: #f3ba2f; color: black; border: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; cursor: pointer; width: 100%; margin: 10px 0; transition: 0.3s; }
+        .btn:hover { background: #d4a017; transform: scale(1.02); }
+        input { width: 90%; padding: 12px; border-radius: 8px; border: 1px solid #444; background: #111; color: white; margin-bottom: 10px; text-align: center; }
+        .card-box { border: 1px dashed #f3ba2f; padding: 20px; border-radius: 15px; margin: 20px 0; background: rgba(243, 186, 47, 0.05); }
+        .footer-text { font-size: 11px; color: #444; margin-top: 50px; cursor: pointer; transition: 0.2s; }
+        .footer-text:hover { color: #f3ba2f; }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<a href="https://wa.me/8801410522152?text=আসসালামু%20আলাইকুম%20মুহতামিম%20সাহেব,%20SCT%20সাপোর্ট%20প্রয়োজন।" class="whatsapp-float" target="_blank">
+    <span style="font-size: 25px;">💬</span>
+</a>
+
+<div class="container">
+    <h1 style="color: #f3ba2f; letter-spacing: 2px;">SCT GLOBAL GATEWAY</h1>
+    <p style="font-size: 14px; color: #888;">AI Strategist: H R Antor</p>
+    
+    <hr style="border: 0.5px solid #222; margin: 20px 0;">
+
+    <div id="wallet-area">
+        <p id="wallet-status">Status: <span style="color: #ff4d4d;">Disconnected</span></p>
+        <button class="btn" onclick="connectWallet()">🔗 CONNECT MASTER METAMASK</button>
+    </div>
+
+    <div class="card-box">
+        <h3 style="color: #f3ba2f; margin-top: 0;">💳 SCT LUXURY MASTER CARD</h3>
+        <p style="font-size: 12px; color: #aaa;">IFIC Bank International Terminal Link</p>
+        <input type="text" id="sctCardInput" placeholder="এখানে ১৬ ডিজিট কার্ড নম্বর দিন">
+        <button class="btn" style="background: transparent; border: 1px solid #f3ba2f; color: #f3ba2f;" id="actBtn" onclick="activateSCTCard()">ACTIVATE NOW</button>
+        <p id="actStatus" style="display:none; color: #25D366; font-weight: bold; margin-top: 10px;"></p>
+    </div>
+
+    <div onclick="window.open('https://wa.me/8801410522152', '_blank')" style="background: #111; padding: 15px; border-radius: 10px; border: 1px solid #222; cursor: pointer;">
+        <h4 style="margin: 0; color: #f3ba2f;">🤖 SCT AI সাপোর্ট সেন্টার (WhatsApp)</h4>
+        <p style="font-size: 12px;">যেকোনো সমস্যায় সরাসরি মুহতামিম সাহেবের সাথে কথা বলুন</p>
+        <span style="color: #25d366; font-size: 12px;">● Online Support Active</span>
+    </div>
+
+    <p class="footer-text" onclick="secretAdminAccess()">
+        © 2026 Scthelpchain | Proprietor: Habibur Rahman Antor <br>
+        TIN: 129836322560 | Secured System Admin
+    </p>
+</div>
+
+<script>
+    // ১. ওয়াレット কানেক্ট ফাংশন
+    async function connectWallet() {
+        if (window.ethereum) {
+            try {
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                const masterWallet = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+                const userWallet = accounts[0];
+                document.getElementById('wallet-status').innerHTML = "Status: <span style='color: #25D366;'>Connected (" + userWallet.substring(0,6) + "...)</span>";
+                if (userWallet.toLowerCase() === masterWallet.toLowerCase()) { alert("Welcome Master Admin!"); }
+            } catch (err) { alert("Denied."); }
+        } else { alert("MetaMask not found!"); }
+    }
+
+    // ২. কার্ড অ্যাক্টিভেশন ফাংশন
+    function activateSCTCard() {
+        const cardNum = document.getElementById('sctCardInput').value;
+        if(cardNum.length < 10) { alert("সঠিক নম্বর দিন।"); return; }
+        document.getElementById('actBtn').innerHTML = "🔗 Connecting to IFIC...";
+        setTimeout(() => {
+            document.getElementById('actBtn').style.display = "none";
+            document.getElementById('actStatus').style.display = "block";
+            document.getElementById('actStatus').innerHTML = "✅ Card Linked Successfully!";
+        }, 3000);
+    }
+
+    // ৩. সিক্রেট এডমিন এক্সেস
+    function secretAdminAccess() {
+        let pass = prompt("Master Admin Password:");
+        if (pass === "Admin@SCT2026") {
+            window.location.href = "https://github.com/scthelpchain-ai"; 
+        } else { alert("Unauthorized!"); }
+    }
+</script>
+
 </body>
+</html>
+
 </html>
 এর
 
