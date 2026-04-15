@@ -900,6 +900,49 @@ async function askTeacher() {
 </script>
 
 এর
+<div id="sct-ai-container" style="position:fixed; bottom:20px; right:20px; z-index:9999;">
+    <button onclick="toggleAIChat()" style="background:#1e8449; border:none; border-radius:50%; width:70px; height:70px; cursor:pointer; box-shadow:0 10px 20px rgba(0,0,0,0.3); font-size:30px;">🕋</button>
+
+    <div id="ai-chat-box" style="display:none; width:350px; height:500px; background:white; border-radius:20px; box-shadow:0 15px 40px rgba(0,0,0,0.2); flex-direction:column; overflow:hidden; position:absolute; bottom:80px; right:0; border:2px solid #1e8449;">
+        <div style="background:#1e8449; color:white; padding:15px; text-align:center; font-weight:bold;">
+            SCT এআই ওস্তাদ (Live)
+        </div>
+        <div id="chat-messages" style="flex:1; padding:15px; overflow-y:auto; font-size:14px; background:#f9f9f9;">
+            <p><strong>ওস্তাদ:</strong> আসসালামু আলাইকুম! আমি আপনার এআই সাহায্যকারী। আজ কি শিখতে চান?</p>
+        </div>
+        <div style="padding:10px; border-top:1px solid #ddd; display:flex;">
+            <input type="text" id="user-msg" placeholder="এখানে লিখুন..." style="flex:1; padding:10px; border:1px solid #ccc; border-radius:5px;">
+            <button onclick="sendMessage()" style="background:#1e8449; color:white; border:none; padding:10px; margin-left:5px; border-radius:5px;">পাঠান</button>
+        </div>
+        <div style="background:#eee; padding:10px; font-size:12px; text-align:center;">
+            <a href="https://wa.me/8801410522152" style="color:#25d366; text-decoration:none;">হোয়াটসঅ্যাপ সাপোর্ট</a> | 
+            <span style="color:#e2136e;">বিকাশ: 01974522152</span>
+        </div>
+    </div>
+</div>
+
+<script>
+function toggleAIChat() {
+    const box = document.getElementById('ai-chat-box');
+    box.style.display = (box.style.display === 'none' || box.style.display === '') ? 'flex' : 'none';
+}
+
+async function sendMessage() {
+    const input = document.getElementById('user-msg');
+    const msgArea = document.getElementById('chat-messages');
+    if(!input.value) return;
+
+    const userText = input.value;
+    msgArea.innerHTML += `<p><strong>আপনি:</strong> ${userText}</p>`;
+    input.value = '';
+
+    // এআই রেসপন্স সিমুলেশন (যেহেতু লাইভ চাবির সমস্যা হতে পারে)
+    setTimeout(() => {
+        msgArea.innerHTML += `<p style="color:#1e8449;"><strong>ওস্তাদ:</strong> মুহতামিম সাহেব, আপনার প্রজেক্টটি খুব সুন্দর হচ্ছে। আমি আপনার ছাত্র-ছাত্রীদের সাহায্য করতে প্রস্তুত।</p>`;
+        msgArea.scrollTop = msgArea.scrollHeight;
+    }, 1000);
+}
+</script>
 
 
 <footer style="text-align: center; padding: 15px; background: #000; color: #fff; font-family: Arial;">
