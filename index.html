@@ -764,7 +764,44 @@ function copyBkash() {
 </script>
 
 
-</html>
+</html><div id="ai-teacher-module" style="margin-top:20px; border:2px solid #27ae60; border-radius:15px; padding:15px; background:#f9fefb;">
+    <h3 style="color:#2c3e50; font-family: 'SolaimanLipi', sans-serif;">🎓 এআই ওস্তাদ (AI Teacher)</h3>
+    <p style="font-size:14px; color:#7f8c8d;">ছাত্র-ছাত্রীরা এখানে যেকোনো বিষয় (কুরআন, গণিত, বিজ্ঞান) নিয়ে প্রশ্ন করতে পারো।</p>
+    
+    <div id="teacher-chat-window" style="height:200px; overflow-y:auto; background:white; border:1px solid #ddd; padding:10px; margin-bottom:10px; border-radius:10px;">
+        <p><strong>ওস্তাদ:</strong> আসসালামু আলাইকুম! আজ তুমি কী শিখতে চাও?</p>
+    </div>
+
+    <input type="text" id="student-query" placeholder="তোমার প্রশ্ন এখানে লেখো..." style="width:75%; padding:10px; border-radius:5px; border:1px solid #ccc;">
+    <button onclick="askTeacher()" style="width:20%; padding:10px; background:#27ae60; color:white; border:none; border-radius:5px; cursor:pointer;">প্রশ্ন করো</button>
+</div>
+
+<script>
+async function askTeacher() {
+    const query = document.getElementById('student-query').value;
+    const window = document.getElementById('teacher-chat-window');
+    
+    if(!query) return;
+
+    window.innerHTML += `<p><strong>তুমি:</strong> ${query}</p>`;
+    document.getElementById('student-query').value = '';
+
+    // এআই-কে নির্দেশ দেওয়া হচ্ছে সে যেন একজন শিক্ষকের মতো আচরণ করে
+    const systemPrompt = "তুমি একজন বিশেষজ্ঞ শিক্ষক। ছাত্র-ছাত্রীদের সহজভাবে বুঝিয়ে দাও এবং প্রয়োজনে কুইজ নাও।";
+    
+    try {
+        // এখানে আপনার সেই API Key ব্যবহার হবে যা আপনি আগে দিয়েছেন
+        // এই ফাংশনটি আপনার মেইন AI কানেকশনের সাথে যুক্ত থাকবে
+        const response = "মুহতামিম সাহেবের এআই ওস্তাদ তোমার প্রশ্নের উত্তর তৈরি করছে... (আপনার API কানেক্ট থাকলে এখানে উত্তর আসবে)";
+        
+        window.innerHTML += `<p style="color:#1e8449;"><strong>ওস্তাদ:</strong> ${response}</p>`;
+        window.scrollTop = window.scrollHeight;
+    } catch (error) {
+        window.innerHTML += `<p style="color:red;">ওস্তাদ এই মুহূর্তে ব্যস্ত আছেন।</p>`;
+    }
+}
+</script>
+
 এর
 
 
