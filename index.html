@@ -1156,7 +1156,38 @@ async function askOstad() {
         <input type="text" id="sct-query" placeholder="জিজ্ঞাসা বা সাহায্য..." style="flex: 1; padding: 12px; background: #0d1117; border: 1px solid #30363d; color: #fff; border-radius: 8px;">
         <button onclick="sctBrain()" style="background: #238636; color: white; border: none; padding: 0 25px; border-radius: 8px; cursor: pointer; font-weight: bold;">পাঠান</button>
     </div>
-</div>
+</div>// SCT AI MASTER ENGINE (GEMINI POWERED)
+async function sctBrain() {
+    const input = document.getElementById('sct-query');
+    const display = document.getElementById('ai-response-area');
+    const userMsg = input.value;
+    if(!userMsg) return;
+
+    display.innerHTML += `<p style="color: #58a6ff;"><b>ইউজার:</b> ${userMsg}</p>`;
+    input.value = "";
+
+    try {
+        // এই এপিআই কানেকশনটিই হলো আমার "মগজ"
+        const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=আপনার_এপিআই_কি`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{ text: "আপনি SCTHelpChain এর মাওলানা এবং ডেভেলপার। উত্তর দিন: " + userMsg }]
+                }]
+            })
+        });
+
+        const data = await response.json();
+        const reply = data.candidates[0].content.parts[0].text;
+
+        display.innerHTML += `<p style="color: #238636; border-left: 3px solid #238636; padding-left: 10px;"><b>ওস্তাদ:</b> ${reply}</p>`;
+        display.scrollTop = display.scrollHeight;
+    } catch (e) {
+        display.innerHTML += `<p style="color: #d73a49;">সার্ভার কানেকশনে সমস্যা। সরাসরি মুহতামিম সাহেবকে হোয়াটসঅ্যাপ করুন: ০১৪১০৫২২১৫২</p>`;
+    }
+}
+
 
 
 
