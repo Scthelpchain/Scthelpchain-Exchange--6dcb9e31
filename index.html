@@ -1141,6 +1141,22 @@ async function askOstad() {
         chatBox.innerHTML += `<div style="color: #991b1b; font-size: 13px; text-align: center; margin-top: 10px;">মাফ করবেন, সংযোগে সামান্য ত্রুটি হয়েছে। সরাসরি হোয়াটসঅ্যাপে প্রশ্ন করুন: ০১৪১০৫২২১৫২</div>`;
     }
 }
+<div id="sct-master-portal" style="background: #0d1117; color: #c9d1d9; border: 2px solid #238636; border-radius: 20px; padding: 25px; font-family: 'SolaimanLipi', sans-serif; box-shadow: 0 15px 40px rgba(0,0,0,0.5);">
+    
+    <div style="text-align: center; border-bottom: 1px solid #30363d; padding-bottom: 15px;">
+        <h2 style="color: #238636; margin: 0;">SCT এআই মাদ্রাসা ও সাপোর্ট</h2>
+        <p style="font-size: 14px; color: #8b949e;">আমি আপনার ডিজিটাল মাওলানা এবং ডেভেলপার। সাহায্য চাইলে নিচে লিখুন।</p>
+    </div>
+
+    <div id="ai-response-area" style="height: 250px; overflow-y: auto; margin: 20px 0; padding: 15px; background: #161b22; border-radius: 10px; border: 1px solid #30363d; font-size: 15px; line-height: 1.6;">
+        <p style="color: #238636;">● ওস্তাদ এখন অনলাইনে আছেন। আসসালামু আলাইকুম মুহতামিম সাহেব!</p>
+    </div>
+
+    <div style="display: flex; gap: 10px;">
+        <input type="text" id="sct-query" placeholder="জিজ্ঞাসা বা সাহায্য..." style="flex: 1; padding: 12px; background: #0d1117; border: 1px solid #30363d; color: #fff; border-radius: 8px;">
+        <button onclick="sctBrain()" style="background: #238636; color: white; border: none; padding: 0 25px; border-radius: 8px; cursor: pointer; font-weight: bold;">পাঠান</button>
+    </div>
+</div>
 
 
 
