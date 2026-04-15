@@ -370,5 +370,73 @@ function openSCTChat() {
         location.reload(); // যদি কোড লোড না হয় তবে অটো রিফ্রেশ হবে
     }
 }
+</script><div id="sct-ai-master-container" style="display: block !important;">
+    <div id="ai-launcher" onclick="launchSCTStudio()" style="position:fixed; bottom:30px; right:30px; background:linear-gradient(135deg, #2ecc71, #27ae60); color:white; width:70px; height:70px; border-radius:50%; display:flex; align-items:center; justify-content:center; cursor:pointer; box-shadow:0 15px 35px rgba(46,204,113,0.5); z-index:9999999; animation: sct-pulse 2s infinite; border: 3px solid #fff;">
+        <span style="font-size:35px;">🤖</span>
+    </div>
+
+    <div id="sct-ai-studio" style="position:fixed; bottom:110px; right:20px; z-index:9999999; display:none; width:360px; background:#fff; border-radius:20px; box-shadow:0 25px 60px rgba(0,0,0,0.3); overflow:hidden; border:1px solid #ddd; font-family: 'SolaimanLipi', sans-serif;">
+        <div style="background:#2ecc71; color:white; padding:20px; font-weight:bold; text-align:center;">
+            <div style="font-size:18px;">SCT Global AI Service</div>
+            <div style="font-size:12px; font-weight:normal; opacity:0.9;">হাবিবুর রহমান (অন্তর) সাহেবের অফিশিয়াল এআই</div>
+        </div>
+        <div id="sct-chat-flow" style="height:350px; overflow-y:auto; padding:20px; background:#f4f7f6; display:flex; flex-direction:column; gap:10px;">
+            <div style="background:#fff; padding:12px; border-radius:15px; box-shadow:0 2px 5px rgba(0,0,0,0.05); font-size:14px; color:#333;">
+                আসসালামু আলাইকুম মুহতামিম সাহেব! আপনার ডিজিটাল সার্ভিস এআই এখন পুরোপুরি প্রস্তুত। আমি আপনাকে কীভাবে সাহায্য করতে পারি?
+            </div>
+        </div>
+        <div style="padding:15px; background:white; border-top:1px solid #eee; display:flex; gap:10px;">
+            <input type="text" id="sct-msg-input" placeholder="এখানে লিখুন..." style="flex:1; padding:12px; border:1px solid #ddd; border-radius:25px; outline:none;">
+            <button onclick="talkToSCT()" style="background:#2ecc71; color:white; border:none; width:45px; height:45px; border-radius:50%; cursor:pointer;">➔</button>
+        </div>
+    </div>
+</div>
+
+<style>
+    @keyframes sct-pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46,204,113, 0.7); }
+        70% { transform: scale(1.1); box-shadow: 0 0 0 20px rgba(46,204,113, 0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(46,204,113, 0); }
+    }
+</style>
+
+<script>
+    // এই ফাংশনটি এআই স্টুডিও ওপেন করবে
+    function launchSCTStudio() {
+        var studio = document.getElementById('sct-ai-studio');
+        studio.style.display = (studio.style.display === 'none') ? 'block' : 'none';
+    }
+
+    async function talkToSCT() {
+        const input = document.getElementById('sct-msg-input');
+        const flow = document.getElementById('sct-chat-flow');
+        const msg = input.value.trim();
+        if(!msg) return;
+
+        flow.innerHTML += `<div style="align-self:flex-end; background:#2ecc71; color:white; padding:10px 15px; border-radius:15px; max-width:80%; font-size:14px;">${msg}</div>`;
+        input.value = '';
+        flow.scrollTop = flow.scrollHeight;
+
+        try {
+            const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer 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'
+                },
+                body: JSON.stringify({
+                    model: "gpt-3.5-turbo",
+                    messages: [{role: "system", content: "You are the Official AI Assistant for Habibur Rahman Antor. Answer in Bengali and English."}, {role: "user", content: msg}]
+                })
+            });
+            const data = await response.json();
+            const reply = data.choices[0].message.content;
+            flow.innerHTML += `<div style="align-self:flex-start; background:#fff; padding:10px 15px; border-radius:15px; box-shadow:0 2px 5px rgba(0,0,0,0.1); max-width:80%; font-size:14px; color:#333;">${reply}</div>`;
+            flow.scrollTop = flow.scrollHeight;
+        } catch (e) {
+            flow.innerHTML += `<div style="text-align:center; color:red; font-size:12px;">সার্ভিস লোড হচ্ছে... অনুগ্রহ করে একটু অপেক্ষা করুন।</div>`;
+        }
+    }
 </script>
+
 
