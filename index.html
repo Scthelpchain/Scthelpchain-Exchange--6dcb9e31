@@ -1083,6 +1083,23 @@ function checkAdmin() {
     }
 }
 </script>
+<div id="ai-madrasa-portal" style="max-width: 600px; margin: 30px auto; background: linear-gradient(to bottom, #ffffff, #f0fdf4); border: 2px solid #166534; border-radius: 25px; overflow: hidden; font-family: 'SolaimanLipi', sans-serif; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
+    <div style="background: #166534; color: #f0fdf4; padding: 25px; text-align: center;">
+        <h2 style="margin: 0; font-size: 24px;">SCT এআই মাদ্রাসা</h2>
+        <p style="margin: 5px 0; font-size: 14px; opacity: 0.9;">আপনার ডিজিটাল মাওলানা, কারী ও মুহতামিম এখানে আছেন</p>
+    </div>
+    
+    <div id="madrasa-chat" style="height: 350px; overflow-y: auto; padding: 20px; display: flex; flex-direction: column; gap: 15px;">
+        <div style="background: #dcfce7; padding: 15px; border-radius: 15px; align-self: flex-start; max-width: 80%; border-bottom-left-radius: 0; color: #14532d; font-size: 15px; line-height: 1.6;">
+            আসসালামু আলাইকুম! আমি আপনার ওস্তাদ। কুরআন শিক্ষা, নামাজের দোয়া বা হাদিস নিয়ে আপনার যা কিছু জানার আছে, নিঃসংকোচে আমাকে বলুন।
+        </div>
+    </div>
+
+    <div style="padding: 15px; background: white; border-top: 1px solid #e5e7eb; display: flex; gap: 10px; align-items: center;">
+        <input type="text" id="student-query" placeholder="জিজ্ঞাসা করুন..." style="flex: 1; padding: 15px; border: 2px solid #d1fae5; border-radius: 30px; outline: none; font-size: 16px;">
+        <button onclick="askOstad()" style="background: #166534; color: white; border: none; width: 55px; height: 55px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 22px; transition: transform 0.2s;">📩</button>
+    </div>
+</div>
 
 
 
