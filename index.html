@@ -1052,6 +1052,37 @@ async function sendMessage() {
     <input type="password" id="adminKey" placeholder="গোপন পিন কোড দিন..." style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 8px; margin-bottom: 15px;">
     <button onclick="checkAdmin()" style="width: 100%; padding: 12px; background: #1e3c72; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">লগইন করুন</button>
 </div>
+<div id="admin-controls" style="display:none; margin-top: 20px; background: #f4f7f6; padding: 20px; border-radius: 15px; border: 1px solid #1e8449; font-family: 'SolaimanLipi', sans-serif;">
+    <h3 style="color: #1e8449; border-bottom: 2px solid #1e8449; padding-bottom: 10px;">📊 ম্যানেজমেন্ট ড্যাশবোর্ড</h3>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px;">
+        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #ddd;">
+            <small>মোট অনুদান (ফান্ড)</small>
+            <h2 style="color: #e2136e; margin: 5px 0;">৳ ০.০০</h2>
+        </div>
+        <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #ddd;">
+            <small>সাপোর্ট রিকোয়েস্ট</small>
+            <h2 style="color: #1e3c72; margin: 5px 0;">০ টি</h2>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px;">
+        <button style="width: 100%; padding: 10px; margin-bottom: 10px; background: #27ae60; color: white; border: none; border-radius: 5px;">মাদ্রাসা নোটিশ আপডেট করুন</button>
+        <button style="width: 100%; padding: 10px; background: #c0392b; color: white; border: none; border-radius: 5px;">সকল এআই বট রিসেট করুন</button>
+    </div>
+</div>
+
+<script>
+function checkAdmin() {
+    const key = document.getElementById('adminKey').value;
+    if(key === "1234") { // আপনি এখানে আপনার গোপন পিন দিতে পারেন
+        document.getElementById('admin-controls').style.display = 'block';
+        alert('আসসালামু আলাইকুম মুহতামিম সাহেব! স্বাগতম।');
+    } else {
+        alert('ভুল পিন! দয়া করে সঠিক কোড দিন।');
+    }
+}
+</script>
 
 
 
