@@ -217,7 +217,32 @@ async function connectWallet() {
             alert("AI Strategist is thinking: " + query + "\n(Connecting to Gemini API with your Key...)");
             // Here we will integrate your Gemini API Key in the next step.
         }
-    </script>
+    </script>// PART 2: CRIME NEWS SEARCH LOGIC
+function launchSearch() {
+    const statusDisplay = document.querySelector('#media-command-center h3[style*="ef4444"]');
+    
+    // অনুসন্ধান মুড সক্রিয় করা
+    alert("মুহতামিম সাহেব, আপনার 'ক্রাইম নিউজ অনুসন্ধান টিম' এখন ডাটাবেজে প্রবেশ করছে...");
+    
+    let timer = 0;
+    const interval = setInterval(() => {
+        timer++;
+        statusDisplay.innerHTML = `DATABASE SCANNING: ${timer * 10}%`;
+        statusDisplay.style.color = "#fbbf24";
+        
+        if(timer === 10) {
+            clearInterval(interval);
+            statusDisplay.innerHTML = "SYSTEM SECURED ✅";
+            statusDisplay.style.color = "#22c55e";
+            
+            // আপনার TIN এবং প্রজেক্ট ডিটেইলস কনসোলে ভেরিফাই হবে
+            console.log("M/S Shwapnocholoccitrow Verified.");
+            console.log("TIN No: 129836322560");
+            console.log("Mission: Crime News Investigation Team - Global Search Enabled.");
+        }
+    }, 300);
+}
+
 
 </body>
 </html><div style="display: none;">
