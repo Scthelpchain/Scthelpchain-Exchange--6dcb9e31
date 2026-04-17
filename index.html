@@ -561,7 +561,15 @@ async function connectAndDeploy() {
             
         } catch (error) {
             status.innerHTML = `<b style="color: #FF0000;">CONNECTION FAILED</b>`;
-            console.error(error);
+            console.error(error);<div id="vault-section" style="text-align: center; margin-top: 50px;">
+    <p id="wallet-status" style="font-weight: bold; color: #FF0000; font-size: 20px;">
+        Wallet: Not Connected
+    </p>
+    <button onclick="connectAndDeploy()" style="font-weight: bold; padding: 15px 30px; background-color: #f3841d; color: white; border: none; border-radius: 8px; cursor: pointer; font-size: 18px;">
+        DEPLOY DOLLARS TO VAULT
+    </button>
+</div>
+
         }
     } else {
         alert("Please install MetaMask to deploy dollars to vault!");
