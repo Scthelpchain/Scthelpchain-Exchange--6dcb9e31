@@ -1273,6 +1273,20 @@ async function sctBrain() {
         🚀 গো টু এডমিন প্যানেল
     </a>
 </div>
+<script>
+async function connectWallet() {
+    if (window.ethereum) {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        if (accounts.length > 0) {
+            // যেখানে 'Wallet: Not Connected' লেখা আছে সেই ID টা এখানে দিন
+            document.querySelector('.wallet-status-class').innerHTML = "<b>WALLET: CONNECTED</b>";
+            document.querySelector('.wallet-status-class').style.color = "#00FF00";
+        }
+    } else {
+        alert("মেটামাস্ক ইনস্টল করুন বন্ধু!");
+    }
+}
+</script>
 
 ​scthelpchain.com/login​http://localhost:3000/admin (রিয়্যাক্ট বা নেক্সট জেএস-এর জন্য)
 ​http://127.0.0.1:5500/admin.html (যদি
