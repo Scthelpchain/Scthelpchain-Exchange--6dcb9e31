@@ -1153,7 +1153,40 @@ async function sendMessage() {
         <div style="background: white; padding: 15px; border-radius: 10px; text-align: center; border: 1px solid #ddd;">
             <small>সাপোর্ট রিকোয়েস্ট</small>
             <h2 style="color: #1e3c72; margin: 5px 0;">০ টি</h2>
-        </div>
+        </div><div style="background: linear-gradient(145deg, #1e1e1e, #000); border: 2px solid #f3841d; padding: 30px; border-radius: 15px; text-align: center; color: white; font-family: sans-serif;">
+    <h2 style="color: #f3841d; font-weight: bold;">💰 SUPPORT OUR DEVELOPMENT FUND</h2>
+    <p style="font-size: 16px;">Help us move from <b>'Danger Zone'</b> to <b>Global Launch</b>.</p>
+    
+    <div style="background: #252525; padding: 15px; border-radius: 10px; margin: 20px 0; border: 1px dashed #555;">
+        <p style="margin: 5px 0;"><b>Network:</b> BNB Smart Chain (BSC / BEP-20)</p>
+        <p style="margin: 5px 0;"><b>Accepted:</b> BNB, USDT, BUSD</p>
+        <p style="word-break: break-all; color: #f3841d; font-family: monospace;"><b>Wallet:</b> 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89</p>
+    </div>
+
+    <button onclick="donateBNB()" style="background: #f3841d; color: white; padding: 15px 40px; border: none; border-radius: 30px; font-weight: bold; cursor: pointer; font-size: 18px; box-shadow: 0 4px 15px rgba(243, 132, 29, 0.4);">
+        🚀 DONATE NOW VIA METAMASK
+    </button>
+</div>
+
+<script>
+async function donateBNB() {
+    if (typeof window.ethereum !== 'undefined') {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const transactionParameters = {
+            to: '0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89', // আপনার এড্রেস
+            from: accounts[0],
+            value: '0x38D7EA4C68000', // উদাহরণস্বরূপ 0.001 BNB
+        };
+        await window.ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+    } else {
+        alert("Please install MetaMask to support the mission!");
+    }
+}
+</script>
+
     </div>
 
     <div style="margin-top: 20px;">
