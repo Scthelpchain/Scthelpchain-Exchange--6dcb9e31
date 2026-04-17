@@ -543,7 +543,36 @@ function aiProcess(type) {
         <button onclick="connectSCTWallet()" id="walletBtn" style="background: #f3ba2f; color: #000; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%;">
             CONNECT WALLET
         </button>
-    </div>
+    </div>// BOLD WALLET CONNECTION SCRIPT
+async function connectAndDeploy() {
+    const status = document.getElementById('wallet-status');
+    
+    if (window.ethereum) {
+        try {
+            // মেটামাস্ক কানেক্ট করার রিকোয়েস্ট
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const walletAddress = accounts[0];
+            
+            // কানেকশন সাকসেস হলে বোল্ড মেসেজ
+            status.innerHTML = `<b style="color: #00FF00;">WALLET CONNECTED: ${walletAddress.substring(0, 6)}...${walletAddress.substring(38)}</b>`;
+            
+            // ডলার ভল্টে পাঠানোর ফাংশন কল করুন
+            deployToVault();
+            
+        } catch (error) {
+            status.innerHTML = `<b style="color: #FF0000;">CONNECTION FAILED</b>`;
+            console.error(error);
+        }
+    } else {
+        alert("Please install MetaMask to deploy dollars to vault!");
+    }
+}
+
+function deployToVault() {
+    console.log("SCT HelpChain: Deploying Dollars to Secure Vault...");
+    // এখানে আপনার ভল্টের স্মার্ট কন্ট্রাক্ট কাজ করবে
+}
+
 
     <div style="font-size: 20px; margin: 15px 0;">+</div>
 
