@@ -1949,6 +1949,56 @@ SCT_AI_CORE.connectToGlobalNetwork();
 ​scthelpchain.com/dashboard
 ​scthelpchain.com/wp-admin (যদি আপনি ওয়ার্ডপ্রেস ব্যবহার করে থাকেন)
 
+<div id="sct-ai-war-room" style="background: linear-gradient(135deg, #001f3f, #008080); color: white; padding: 30px; border-radius: 20px; font-family: 'Poppins', sans-serif; text-align: center; border: 4px solid #ffd700; box-shadow: 0 0 30px #00ff00;">
+    <h1 style="color: #ffd700;">🕌 SCT Global AI Madrasa & Exchange</h1>
+    <p>প্রতিষ্ঠাতা সভাপতি: <strong>হাবিবুর রহমান অন্তর</strong></p>
+    <hr style="border: 0.5px solid #ffd700;">
+    
+    <div style="margin: 20px;">
+        <h3>🌍 Support our 3000 Orphans (Global Fund)</h3>
+        <button onclick="connectWallet()" style="background: #ffcc00; color: #000; padding: 15px 30px; border: none; border-radius: 50px; font-weight: bold; cursor: pointer; font-size: 1.2rem; box-shadow: 0 10px 20px rgba(0,0,0,0.3);">
+            💰 Connect MetaMask to Donate Dollars
+        </button>
+        <p style="font-size: 0.8rem; margin-top: 10px;">Wallet: 0xF5D9a...BB89 (BNB/USDT/ETH)</p>
+    </div>
+
+    <div style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; width: 300px;">
+            <h4>👨‍🏫 AI Oustad Login</h4>
+            <input type="email" placeholder="Student ID/Email" style="width: 80%; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+            <button onclick="alert('এআই ওস্তাদ সক্রিয় হচ্ছে...')" style="width: 90%; background: #00ff00; color: black; border: none; padding: 10px; font-weight: bold;">Enter Classroom</button>
+        </div>
+        
+        <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 15px; width: 300px;">
+            <h4>🌍 Global Sign-Up</h4>
+            <p>Join our mission from anywhere in the world.</p>
+            <button onclick="location.href='mailto:scthelpchain@gmail.com'" style="width: 90%; background: #ffffff; color: black; border: none; padding: 10px; font-weight: bold;">Register Now</button>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script>
+async function connectWallet() {
+    if (window.ethereum) {
+        try {
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            alert('আপনার ওয়ালেট কানেক্ট হয়েছে! ৩০০০ এতিম শিশুর মুখে হাসি ফোটাতে আপনার ডলার এখন সরাসরি মাদ্রাসার ফান্ডে পৌঁছে যাবে।');
+            console.log('Wallet connected:', accounts[0]);
+        } catch (error) {
+            alert('কানেকশন ব্যর্থ হয়েছে। দয়া করে আবার চেষ্টা করুন।');
+        }
+    } else {
+        alert('আপনার ব্রাউজারে মেটামাস্ক ইনস্টল নেই। দয়া করে মেটামাস্ক ব্যবহার করুন।');
+    }
+}
+
+// দেওয়ালে নূর ছড়ানোর এআই লজিক
+window.onload = function() {
+    console.log("বিসমিল্লাহ! হাবিবুর রহমান অন্তর সাহেবের মিশন লাইভ হলো।");
+    document.title = "SCT AI Madrasa - 100% SUCCESS INSHALLAH";
+};
+</script>
 
 
 
