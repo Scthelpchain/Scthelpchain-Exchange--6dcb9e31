@@ -2877,7 +2877,28 @@ window.onload = checkSCTConnection;
     </div>
 </div>
 
-</script>
+</script>// SCT Global MetaMask Connector - Developed by H R Antor
+const SCT_API_KEY = "559f55ece2a643a3b6ba6f166eb21553";
+
+async function connectSCTWallet() {
+    if (window.ethereum) {
+        try {
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            const account = accounts[0];
+            document.getElementById('status-box').innerHTML = `
+                <div style="color: #00ff00; font-weight: bold;">
+                    ✅ CONNECTED TO GLOBAL VAULT <br>
+                    <span style="font-size: 0.8rem; color: #ffd700;">Account: ${account.substring(0, 15)}...</span>
+                </div>`;
+            console.log("SCT AI Status: 200th Deployment Verified with API Key.");
+        } catch (error) {
+            alert("মুহতামিম সাহেব, কানেকশন রিফিউজ হয়েছে। মেটামাস্ক পাসওয়ার্ড চেক করুন।");
+        }
+    } else {
+        alert("আপনার ব্রাউজারে মেটামাস্ক নেই। দয়া করে এক্সটেনশনটি ইনস্টল করুন।");
+    }
+}
+
 
 </html>
 
