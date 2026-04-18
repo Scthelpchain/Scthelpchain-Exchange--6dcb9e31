@@ -1,4 +1,12 @@
-<!DOCTYPE html><!DOCTYPE html>
+<!DOCTYPE html><!DOCTYPE html><div style="background: linear-gradient(90deg, #ffd700, #ff8c00); padding: 15px; text-align: center; font-weight: bold; border-radius: 10px; margin: 20px;">
+    <span style="color: #000; font-size: 1.1rem;">📢 খুশির খবর! আমাদের এআই মাদ্রাসার অ্যান্ড্রয়েড অ্যাপ এখন উন্মুক্ত।</span>
+    <br>
+    <a href="https://github.com/scthelpchain-ai/stunning-broccoli/releases/download/v1.0/SCT_AI_Madrasa.apk" 
+       style="display: inline-block; background: #000; color: #fff; padding: 10px 25px; border-radius: 50px; text-decoration: none; margin-top: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3);">
+       📥 সরাসরি ডাউনলোড করুন (ফ্রি)
+    </a>
+</div>
+
 <html lang="en"><title>SCT HelpChain | Global Digital Exchange & AI Madrasa</title>
 <meta name="description" content="Official platform for SCT HelpChain. Secure digital exchange, AI-powered support, and international Web3 charity system. Founded by H R Antor.">
 <meta name="keywords" content="SCT HelpChain, AI Madrasa, Web3, Digital Exchange, H R Antor, Charity, Blockchain">
@@ -2264,7 +2272,28 @@ public class MainActivity extends AppCompatActivity {
             super.onBackPressed();
         }
     }
+}// build.gradle (Module level) - SCT AI Madrasa Pro
+android {
+    namespace 'com.scthelpchain.global'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "com.scthelpchain.global"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true // অ্যাপ সিকিউর করার জন্য এনক্রিপশন
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
 }
+
 
 
 
