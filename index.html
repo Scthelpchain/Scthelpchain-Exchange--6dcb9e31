@@ -2405,6 +2405,37 @@ function submitAttendance() {
 
 
 
+<script>
+    // আপনার আগের মেটামাস্ক কানেক্ট করার কোড এখানে থাকবে...
+
+    // --- এই নিচে নতুন ডেভলপ করা পেমেন্ট কোডটি দিন ---
+    async function sendSCTDonation() {
+        if (typeof window.ethereum !== 'undefined') {
+            const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+            const amount = prompt("কত ডলার (BNB/USDT) অনুদান দিতে চান?"); // ইউজারের কাছ থেকে ইনপুট নেওয়া
+            
+            if (amount) {
+                const transactionParameters = {
+                    to: '0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89', // আপনার মাস্টার ওয়ালেট
+                    from: accounts[0],
+                    value: (amount * 1e18).toString(16), // অ্যামাউন্ট ক্যালকুলেশন
+                };
+
+                try {
+                    const txHash = await ethereum.request({
+                        method: 'eth_sendTransaction',
+                        params: [transactionParameters],
+                    });
+                    alert("আলহামদুলিল্লাহ! আপনার ডোনেশন সফল হয়েছে। ট্রানজ্যাকশন আইডি: " + txHash);
+                } catch (error) {
+                    alert("মেটামাস্ক কানেকশনে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+                }
+            }
+        } else {
+            alert("অনুগ্রহ করে মেটামাস্ক ইনস্টল করুন!");
+        }
+    }
+</script>
 
 
 
