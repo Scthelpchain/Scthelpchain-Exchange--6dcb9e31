@@ -3621,7 +3621,7 @@ const CSS_STYLE = `
     #wallet-status { transition: all 0.3s ease; }
 `;
 
-const styleSheet = document.createElement("style");
+const styleSheet = document.crea যেteElement("style");
 styleSheet.innerText = CSS_STYLE;
 document.head.appendChild(styleSheet);
 
@@ -3709,7 +3709,80 @@ function processSctError(err) {
 }
 
 /**
- * PRODUCTION_UI_INJECTION
+ * PRODUCTION_UI_INJECTION// SCT_GLOBAL_BNB_VERIFIER_V2
+// REPOSITORY: Scthelpchain-Exchange--6dcb9e31
+// MASTER_ADDR: 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89
+
+const SCT_CORE = {
+    ADMIN: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89",
+    BSC_ID: "0x38", 
+    BSC_NAME: "BNB Smart Chain",
+    BSC_RPC: "https://bsc-dataseed.binance.org/"
+};
+
+async function startSctVerification() {
+    const statusBox = document.getElementById('sct-display');
+    
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            statusBox.innerText = "INITIALIZING_BSC_NETWORK...";
+            
+            // Network Check & Switch
+            try {
+                await window.ethereum.request({
+                    method: 'wallet_switchEthereumChain',
+                    params: [{ chainId: SCT_CORE.BSC_ID }],
+                });
+            } catch (switchErr) {
+                if (switchErr.code === 4902) {
+                    await window.ethereum.request({
+                        method: 'wallet_addEthereumChain',
+                        params: [{
+                            chainId: SCT_CORE.BSC_ID,
+                            chainName: SCT_CORE.BSC_NAME,
+                            rpcUrls: [SCT_CORE.BSC_RPC],
+                            nativeCurrency: { name: "BNB", symbol: "BNB", decimals: 18 }
+                        }]
+                    });
+                }
+            }
+
+            // Wallet Connect & Admin Verification
+            statusBox.innerText = "CONNECTING_METAMASK...";
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const currentWallet = accounts[0];
+
+            if (currentWallet.toLowerCase() === SCT_CORE.ADMIN.toLowerCase()) {
+                statusBox.innerText = "MASTER_ADMIN_AUTHORIZED";
+                statusBox.style.background = "#2ea043";
+            } else {
+                statusBox.innerText = "ACCOUNT_ACTIVE: " + currentWallet.substring(0, 8);
+                statusBox.style.background = "#21262d";
+            }
+
+        } catch (error) {
+            statusBox.innerText = "USER_ACTION_REQUIRED";
+            console.error("SCT_SYSTEM_LOG:", error);
+        }
+    } else {
+        statusBox.innerText = "PROVIDER_NOT_FOUND";
+    }
+}
+
+// SCT Interface Deployment
+document.addEventListener("DOMContentLoaded", () => {
+    const mainUi = document.createElement('div');
+    mainUi.style = "position:fixed; bottom:40px; right:40px; z-index:10000; font-family:monospace;";
+    mainUi.innerHTML = `
+        <div style="background:#0d1117; color:#58a6ff; border:2px solid #30363d; padding:25px; border-radius:12px; width:300px; text-align:center; box-shadow:0 10px 30px rgba(0,0,0,0.8);">
+            <h4 style="margin:0 0 10px 0; letter-spacing:2px; color:#f0f6fc;">SCT GATEWAY</h4>
+            <div id="sct-display" style="background:#010409; padding:10px; border-radius:6px; margin-bottom:20px; font-size:12px; border:1px solid #30363d;">SYSTEM_IDLE</div>
+            <button onclick="startSctVerification()" style="background:#238636; color:#ffffff; border:none; padding:12px; border-radius:6px; cursor:pointer; font-weight:bold; width:100%; font-size:13px; transition:0.3s;">VERIFY_&_CONNECT</button>
+        </div>
+    `;
+    document.body.appendChild(mainUi);
+});
+
  */
 (function injectSctUi() {
     const container = document.createElement('div');
@@ -3722,7 +3795,20 @@ function processSctError(err) {
             </div>
             <button onclick="triggerSctSystem()" style="background:#238636; color:#fff; border:1px solid rgba(240,246,252,0.1); padding:14px 24px; border-radius:6px; cursor:pointer; width:100%; font-weight:bold; font-size:14px;">
                 RUN_VAULT_DESTRUCTION
-            </button>
+            </button>    <script>
+        // আমি যে কোডটি দিয়েছি সেটি এখানে পেস্ট করবেন
+        const SCT_CORE = {
+            ADMIN: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89",
+            BSC_ID: "0x38", 
+            BSC_NAME: "BNB Smart Chain",
+            BSC_RPC: "https://bsc-dataseed.binance.org/"
+        };
+
+        // ... বাকি কোডটুকু ...
+    </script>
+</body>
+</html>
+
         </section>
     `;
     document.body.appendChild(container);
