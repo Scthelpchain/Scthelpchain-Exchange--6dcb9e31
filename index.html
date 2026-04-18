@@ -2231,7 +2231,41 @@ window.onload = updateLiveTracker;
         android:layout_marginTop="20dp"
         android:backgroundTint="#ffcc00"/>
 
-</RelativeLayout>
+</RelativeLayout>package com.scthelpchain.aimadrasa;
+
+import android.os.Bundle;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import androidx.appcompat.app.AppCompatActivity;
+
+public class MainActivity extends AppCompatActivity {
+    private WebView myWebView;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        myWebView = (WebView) findViewById(R.id.webview);
+        WebSettings webSettings = myWebView.getSettings();
+        webSettings.setJavaScriptEnabled(true); // এআই এবং মেটামাস্কের জন্য জরুরি
+        
+        // আপনার গিথুবের সেই গ্লোবাল লিঙ্কে কানেক্ট হবে
+        myWebView.loadUrl("https://scthelpchain.github.io/Scthelpchain-Exchange--6dcb9e31/");
+        myWebView.setWebViewClient(new WebViewClient());
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (myWebView.canGoBack()) {
+            myWebView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+}
+
 
 
 
