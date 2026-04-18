@@ -2796,7 +2796,42 @@ window.addEventListener('load', initSCTGlobalSystem);
     setInterval(getMarket, 20000); getMarket();
 </script>
 
-</body>
+</body><div style="background: #0d1117; border: 2px solid #ffd700; border-radius: 15px; padding: 25px; margin-top: 20px; text-align: center;">
+    <h2 style="color: #ffd700;">🛡️ SCT INTERNATIONAL HUB</h2>
+    <p style="color: #8b949e;">Status: <span style="color: #00ff00;">Active 198 Deployments ✅</span></p>
+    
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 20px 0;">
+        <div style="background: #161b22; padding: 10px; border-radius: 10px; border: 1px solid #30363d;">
+            <p style="font-size: 0.8rem;">Daily Quota</p>
+            <h4 style="color: #ffd700; margin: 5px 0;">3M Credits</h4>
+        </div>
+        <div style="background: #161b22; padding: 10px; border-radius: 10px; border: 1px solid #30363d;">
+            <p style="font-size: 0.8rem;">Active Endpoints</p>
+            <h4 style="color: #ffd700; margin: 5px 0;">46/46</h4>
+        </div>
+        <div style="background: #161b22; padding: 10px; border-radius: 10px; border: 1px solid #30363d;">
+            <p style="font-size: 0.8rem;">SCT Master Link</p>
+            <h4 style="color: #ffd700; margin: 5px 0;">Verified</h4>
+        </div>
+    </div>
+
+    <button onclick="deploySCTMaster()" style="background: linear-gradient(45deg, #f6851b, #ffcc33); border: none; padding: 15px 30px; border-radius: 50px; color: #000; font-weight: bold; cursor: pointer; font-size: 1.1rem; box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);">
+        🔗 CONNECT GLOBAL VAULT
+    </button>
+</div>
+
+<script>
+    function deploySCTMaster() {
+        if(window.ethereum) {
+            ethereum.request({ method: 'eth_requestAccounts' })
+            .then(acc => alert("মুহতামিম সাহেব, আপনার গ্লোবাল গেটওয়ে সফলভাবে কানেক্ট হয়েছে!"))
+            .catch(err => console.log(err));
+        } else {
+            alert("মেটামাস্ক ডিটেক্ট করা যাচ্ছে না।");
+        }
+    }
+</script>
+
 </html>
 
 
