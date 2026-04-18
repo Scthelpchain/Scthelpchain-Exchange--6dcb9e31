@@ -2293,6 +2293,28 @@ android {
         }
     }
 }
+<div id="id-generator" style="background: #161b22; border: 2px solid #00ff00; padding: 25px; border-radius: 20px; color: white; text-align: center; margin: 20px auto; max-width: 500px;">
+    <h3 style="color: #ffd700;">📇 ডিজিটাল ছাত্র পরিচয়পত্র</h3>
+    <input type="text" id="studentName" placeholder="ছাত্রের নাম লিখুন" style="width: 80%; padding: 10px; margin-bottom: 10px; border-radius: 5px; border: none;">
+    <button onclick="generateCard()" style="background: #00ff00; color: black; font-weight: bold; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">আইডি কার্ড তৈরি করুন</button>
+    
+    <div id="cardPreview" style="margin-top: 20px; display: none; border: 1px solid #fff; padding: 15px; border-radius: 10px; background: linear-gradient(45deg, #001f3f, #004d40);">
+        <h4 style="color: #ffd700; margin: 0;">SCT AI MADRASA</h4>
+        <p id="displayName" style="font-size: 1.2rem; font-weight: bold; margin: 10px 0;"></p>
+        <p style="font-size: 0.8rem;">Status: <span style="color: #00ff00;">Verified Student</span></p>
+        <p style="font-size: 0.7rem;">Founder: Habibur Rahman Antor</p>
+    </div>
+</div>
+
+<script>
+function generateCard() {
+    const name = document.getElementById('studentName').value;
+    if(name) {
+        document.getElementById('displayName').innerText = name;
+        document.getElementById('cardPreview').style.display = 'block';
+    }
+}
+</script>
 
 
 
