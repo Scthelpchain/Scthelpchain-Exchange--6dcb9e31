@@ -3938,6 +3938,69 @@ document.addEventListener("DOMContentLoaded", () => {
         sctPanel.style.color = "#2ea043";
     }
 });
+/* * SCT GLOBAL GATEWAY - CARD ISSUANCE MODULE
+ * AUTHORIZED BY: FOUNDER H R ANTOR
+ * REPOSITORY: Scthelpchain-Exchange
+ */
+
+const SCT_GATEWAY = {
+    ADMIN_ID: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89",
+    NETWORK: "BNB_SMART_CHAIN"
+};
+
+async function executeCardIssuance() {
+    const statusDisplay = document.getElementById('sct-display');
+    
+    // Step 1: Request City Name Input
+    const userCity = prompt("ENTER_CITY_NAME_FOR_CARD_REGISTRATION:");
+    
+    if (!userCity || userCity.trim() === "") {
+        alert("ACTION_REQUIRED: CITY_NAME_IS_MANDATORY");
+        return;
+    }
+
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            statusDisplay.innerText = "CONNECTING_CORE_PROTOCOL...";
+            
+            // Step 2: Wallet Verification
+            const userAccounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const activeWallet = userAccounts[0];
+
+            // Step 3: Global Line Change & Activation
+            statusDisplay.innerText = "EXECUTING_LINE_CHANGE...";
+            
+            setTimeout(() => {
+                statusDisplay.innerHTML = `
+                    <div style="color:#2ea043; font-weight:bold;">CARD_STATUS: ACTIVE</div>
+                    <div style="font-size:11px; margin-top:5px;">LOCATION: ${userCity.toUpperCase()}</div>
+                    <div style="font-size:10px; color:#8b949e;">ID: ${activeWallet.substring(0, 12)}...</div>
+                `;
+                console.log("SCT_LOG: CARD_ISSUED_IN_" + userCity.toUpperCase());
+            }, 2500);
+
+        } catch (authError) {
+            statusDisplay.innerText = "PROTOCOL_ERROR: RE-AUTH_FAILED";
+            console.error("SCT_ERROR_LOG:", authError);
+        }
+    } else {
+        statusDisplay.innerText = "ERROR: WEB3_PROVIDER_NOT_DETECTED";
+    }
+}
+
+// UI Initialization - Professional English Interface
+document.addEventListener("DOMContentLoaded", () => {
+    const masterPanel = document.getElementById('sct-display')?.parentElement;
+    
+    if (masterPanel) {
+        const actionButton = document.createElement('button');
+        actionButton.innerText = "ISSUE_NEW_SCT_CARD";
+        actionButton.style = "background:#238636; color:#ffffff; border:none; padding:12px; border-radius:6px; cursor:pointer; font-weight:bold; width:100%; font-size:13px; margin-top:10px; border:1px solid rgba(255,255,255,0.1);";
+        
+        actionButton.onclick = executeCardIssuance;
+        masterPanel.appendChild(actionButton);
+    }
+});
 
 
 
