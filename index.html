@@ -683,7 +683,40 @@ function openSCTChat() {
             } else {
                 alert("Please install MetaMask to deploy Dollars!");
             }
+        }// BOLD WALLET CONNECTION & VAULT SCRIPT
+// Authorized by: Founder Habibur Rahman Antor (H R Antor)
+
+async function connectAndDeploy() {
+    const status = document.getElementById('wallet-status');
+    
+    if (window.ethereum) {
+        try {
+            // মেটামাস্ক কানেক্ট করার রিকোয়েস্ট
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const walletAddress = accounts[0];
+            
+            // কানেকশন সাকসেস হলে বোল্ড মেসেজ ও স্টাইল পরিবর্তন
+            status.innerHTML = `<b style="color: #238636;">WALLET CONNECTED:</b> ${walletAddress.substring(0, 6)}...${walletAddress.substring(38)}`;
+            status.style.borderColor = "#238636";
+            
+            // ডলার ভল্টে পাঠানোর ফাংশন কল
+            deployToVault(walletAddress);
+            
+        } catch (error) {
+            status.innerHTML = `<b style="color: #ff3e3e;">CONNECTION FAILED</b>`;
+            console.error("SCT Error:", error);
         }
+    } else {
+        status.innerHTML = `<b style="color: #ffd700;">PLEASE INSTALL METAMASK</b>`;
+    }
+}
+
+// ভল্ট ফাংশন (যেখানে ৩০০০ ছাত্রের ডোনেশন জমা হবে)
+function deployToVault(address) {
+    console.log("Deploying to SCT Vault from:", address);
+    // এখানে আপনার এপিআই কী: 559f55ece2a643a3b6ba6f166eb21553 ব্যবহার হবে
+}
+
 
         function askAI() {
             const query = document.getElementById('aiQuery').value;
