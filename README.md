@@ -42,4 +42,45 @@ To help us complete the international mastercard integration and server maintena
 - **Wallet Address:** `0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89`
 
 *Your contribution will help us move from 'Danger Zone' to a Global Launch. Every dollar counts!*
+# 🛡️ SCTHelpChain International Digital Exchange & AI Madrasa
+
+## 🌍 Vision: Bridging Web3 & Divine Education
+SCTHelpChain is a world-first hybrid ecosystem that integrates a secure **Blockchain-based Crypto Exchange** with a modern **AI-Powered Madrasa**. Our mission is to transform traditional education into a high-tech digital experience while providing a secure gateway for international digital assets.
+
+---
+
+### 🕌 AI Madrasa Project (Offline & Online)
+We are currently supporting and transforming local madrasas into **AI Madrasas**.
+* **Students:** 300+ Orphans and underprivileged children.
+* **Focus:** Combining Hifz-ul-Quran with AI, Web3, and Programming skills.
+* **Status:** Running (Online & Offline).
+
+### 💰 International Digital Exchange
+A secure, blockchain-based charity ecosystem and crypto payment gateway.
+* **Network:** BNB Smart Chain (BSC / BEP-20).
+* **Gateway:** Integrated with Bkash and MetaMask.
+* **Goal:** Moving from 'Danger Zone' to a Global Launch.
+
+---
+
+### 🛡️ Secure Payment Gateway (Development Fund)
+
+If you wish to support our mission and help the 300+ students, you can contribute to our official vault:
+
+| Asset | Details |
+| :--- | :--- |
+| **📱 Bkash (Personal)** | `01974522152` |
+| **💎 Ethereum / BSC** | `0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89` |
+| **🌐 Accepted Assets** | BNB, USDT, ETH, BUSD |
+
+---
+
+### 🛠️ Development & Tech Stack
+- **Web3:** MetaMask Integration, Blockchain-based Vault.
+- **AI:** Developing AI-Tutors for Tajweed and Coding.
+- **Platform:** GitHub Pages (Live Deployment).
+
+---
+**Founder & Chairman:** *Habibur Rahman Antor (Hero H R Antor)*
+*Moving from local charity to Global Digital Revolution.*
 
