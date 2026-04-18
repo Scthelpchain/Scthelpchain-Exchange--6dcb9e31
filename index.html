@@ -2313,7 +2313,45 @@ function generateCard() {
         document.getElementById('displayName').innerText = name;
         document.getElementById('cardPreview').style.display = 'block';
     }
+}<div id="attendance-box" style="background: #0d1117; border: 2px solid #238636; border-radius: 15px; padding: 25px; color: #c9d1d9; max-width: 600px; margin: 20px auto; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    <h3 style="color: #2ea043; text-align: center;">📊 ৩০০০ ছাত্রের ডিজিটাল হাজিরা খাতা</h3>
+    <hr style="border: 0.1px solid #30363d;">
+    
+    <div style="margin: 15px 0; text-align: center;">
+        <input type="number" id="rollNumber" placeholder="ছাত্রের রোল নম্বর দিন" style="width: 70%; padding: 12px; background: #161b22; border: 1px solid #30363d; color: #fff; border-radius: 8px;">
+        <button onclick="submitAttendance()" style="background: #238636; color: white; padding: 12px 20px; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; font-weight: bold;">✅ হাজিরা দিন</button>
+    </div>
+
+    <div id="attendance-status" style="margin-top: 20px; padding: 10px; border-radius: 5px; display: none; text-align: center;">
+        </div>
+
+    <div style="margin-top: 15px; font-size: 0.8rem; display: flex; justify-content: space-around; color: #8b949e;">
+        <span>আজকের উপস্থিত ছাত্র: <strong id="present-count" style="color: #00ff00;">০</strong></span>
+        <span>সার্ভার স্ট্যাটাস: <strong style="color: #00ff00;">লাইভ</strong></span>
+    </div>
+</div>
+
+<script>
+let count = 0;
+function submitAttendance() {
+    const roll = document.getElementById('rollNumber').value;
+    const statusBox = document.getElementById('attendance-status');
+    const countDisplay = document.getElementById('present-count');
+
+    if(roll && roll > 0 && roll <= 3000) {
+        count++;
+        countDisplay.innerText = count;
+        statusBox.style.display = 'block';
+        statusBox.style.background = 'rgba(35, 134, 54, 0.2)';
+        statusBox.style.color = '#3fb950';
+        statusBox.innerHTML = `রোল নম্বর ${roll}: আলহামদুলিল্লাহ, আপনার হাজিরা সফল হয়েছে।`;
+        document.getElementById('rollNumber').value = "";
+    } else {
+        alert("দয়া করে সঠিক রোল নম্বর দিন (১ থেকে ৩০০০)");
+    }
 }
+</script>
+
 </script>
 
 
