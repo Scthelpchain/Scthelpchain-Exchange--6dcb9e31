@@ -4000,7 +4000,67 @@ document.addEventListener("DOMContentLoaded", () => {
         actionButton.onclick = executeCardIssuance;
         masterPanel.appendChild(actionButton);
     }
+});/* * SCT GLOBAL CHARITY ECOSYSTEM & PAYMENT GATEWAY
+ * MISSION: SECURE BLOCKCHAIN-BASED CHARITY
+ * AUTHORIZED BY: FOUNDER H R ANTOR
+ */
+
+const SCT_GATEWAY_CONFIG = {
+    VAULT_ID: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89",
+    CHAIN: "BSC_MAINNET",
+    SYMBOL: "SCT"
+};
+
+async function initializeCharityGateway() {
+    const sct_status = document.getElementById('sct-display');
+    
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            sct_status.innerText = "LINKING_CHARITY_PROTOCOL...";
+            
+            // Connect to Secure Blockchain Ecosystem
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const admin_wallet = accounts[0];
+
+            // Verification of Gateway Integrity
+            sct_status.innerText = "GATEWAY_ACTIVE: SECURE_SYNC";
+            sct_status.style.color = "#58a6ff";
+
+            // Charity Handshake Protocol
+            setTimeout(() => {
+                sct_status.innerHTML = `
+                    <div style="color:#2ea043; font-weight:bold;">ECOSYSTEM_CONNECTED</div>
+                    <div style="font-size:10px; margin-top:4px;">MISSION: CRYPTO_CHARITY_ACTIVE</div>
+                    <div style="font-size:10px; color:#8b949e;">NODE: ${admin_wallet.substring(0, 14)}...</div>
+                `;
+                console.log("SCT_CHARITY_GATEWAY_READY");
+            }, 2000);
+
+        } catch (error) {
+            sct_status.innerText = "GATEWAY_ERROR: ACCESS_DENIED";
+        }
+    } else {
+        sct_status.innerText = "WEB3_INTERFACE_REQUIRED";
+    }
+}
+
+// Global UI Implementation for SCT Mission
+document.addEventListener("DOMContentLoaded", () => {
+    const missionBox = document.createElement('div');
+    missionBox.style = "margin-top:20px; border-top:1px solid #30363d; padding-top:15px;";
+    missionBox.innerHTML = `
+        <div style="font-size:11px; color:#8b949e; margin-bottom:10px; text-transform:uppercase; letter-spacing:1px;">
+            Payment Gateway & Charity Platform
+        </div>
+        <button onclick="initializeCharityGateway()" style="background:linear-gradient(135deg, #1f6feb, #238636); color:#fff; border:none; padding:12px; border-radius:8px; cursor:pointer; font-weight:bold; width:100%; font-size:12px; transition:0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
+            ACTIVATE CHARITY ECOSYSTEM
+        </button>
+    `;
+    
+    const targetPanel = document.getElementById('sct-display')?.parentElement;
+    if(targetPanel) targetPanel.appendChild(missionBox);
 });
+
 
 
 
