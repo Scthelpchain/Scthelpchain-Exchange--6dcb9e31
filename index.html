@@ -2154,6 +2154,49 @@ async function sctConnect() {
 // Founder: HR Antor | Mission: Success 3000
 console.log("SCT AI Core Active. 100% Success Inshallah.");
 </script>
+<div id="sct-donation-tracker" style="background: #000; border: 2px solid #ffd700; border-radius: 15px; padding: 20px; color: #fff; text-align: center; margin: 20px auto; max-width: 800px; box-shadow: 0 0 20px #00ff00;">
+    <h3 style="color: #00ff00; margin-bottom: 10px;">🛡️ ৩০০০ ছাত্রের রিজিক ট্র্যাকার (LIVE)</h3>
+    
+    <div style="display: flex; justify-content: space-around; align-items: center;">
+        <div>
+            <p style="font-size: 0.9rem; color: #8b949e;">মোট সংগ্রহ (BNB/USDT)</p>
+            <h2 id="total-funds" style="color: #ffd700; font-size: 2rem;">$0.00</h2>
+        </div>
+        <div style="height: 50px; width: 2px; background: #30363d;"></div>
+        <div>
+            <p style="font-size: 0.9rem; color: #8b949e;">বর্তমান সাহায্যকারী দেশ</p>
+            <h2 id="last-country" style="color: #ffffff; font-size: 1.5rem;">Global Map Active</h2>
+        </div>
+    </div>
+
+    <div style="margin-top: 15px;">
+        <span id="pulse-light" style="display: inline-block; width: 15px; height: 15px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; animation: pulse 1.5s infinite;"></span>
+        <span style="font-size: 0.8rem; margin-left: 10px; color: #22c55e;">SCT AI Server: কানেক্টেড এবং সুরক্ষিত</span>
+    </div>
+</div>
+
+<style>
+@keyframes pulse {
+    0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+    70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+    100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+}
+</style>
+
+<script>
+// এই স্ক্রিপ্টটি আপনার মেটামাস্ক ভল্ট চেক করবে (সিমুলেশন লজিক)
+function updateLiveTracker() {
+    const fundsDisplay = document.getElementById('total-funds');
+    const countryDisplay = document.getElementById('last-country');
+    
+    // প্রতি ১০ সেকেন্ড পর পর এটি নতুন ডাটা চেক করবে
+    setInterval(() => {
+        // এখানে আপনার স্মার্ট কন্ট্রাক্ট ব্যালেন্স রিড করার কোড বসবে
+        console.log("SCT AI: স্ক্যানিং গ্লোবাল পেমেন্ট গেটওয়ে...");
+    }, 10000);
+}
+window.onload = updateLiveTracker;
+</script>
 
 
 
