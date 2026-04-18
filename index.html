@@ -3275,7 +3275,71 @@ async function connectSCTWallet() {
         <div style="color: #ff3e3e; font-weight: bold; margin-bottom: 5px;">🎥 মুভি প্রজেক্ট স্ট্যাটাস:</div>
         <div style="color: #ccc; font-size: 0.85rem;">"ভালোবাসি তোমায়" - ঈদুল আযহার মুক্তির জন্য প্রস্তুত। মিডিয়া পার্টনার: <b>এটিএন বাংলা</b></div>
     </div>
-</div>
+</div><script>
+async function connectAndDeploy() {
+    const status = document.getElementById('wallet-status');
+    
+    // ১. মেটামাস্ক আছে কিনা চেক করা
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            status.innerHTML = `<b style="color: #ffd700;">পারমিশন নেওয়া হচ্ছে...</b>`;
+            
+            // ২. ইউজারের পারমিশন নিয়ে অ্যাড্রেস কানেক্ট করা
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const userAddress = accounts[0]; // আপনার কাঙ্ক্ষিত ইউজার অ্যাড্রেস
+            
+            status.innerHTML = `<b style="color: #2ea043;">CONNECTED:</b> ${userAddress.substring(0, 6)}...${userAddress.substring(38)}`;
+            
+            // ৩. ডলার ভল্টে পাঠানোর মূল প্রক্রিয়া শুরু
+            await sendToSCTVault(userAddress);
+
+        } catch (error) {
+            // আপনার সেই পরিচিত এরর হ্যান্ডলিং
+            console.error("SCT Connection Error:", error);
+            if (error.code === 4001) {
+                status.innerHTML = `<b style="color: #ff3e3e;">ইউজার রিজেক্ট করেছে!</b>`;
+            } else {
+                status.innerHTML = `<b style="color: #ff3e3e;">সিস্টেম এরর: মেটামাস্ক চেক করুন।</b>`;
+            }
+        }
+    } else {
+        status.innerHTML = `<b style="color: #ffd700;">মেটামাস্ক ইন্সটল নেই!</b>`;
+    }
+}
+
+// ভল্টে পাঠানোর ফাংশন (ডিলিট হওয়া লজিক পুনরুদ্ধার)
+async function sendToSCTVault(userAddress) {
+    const status = document.getElementById('wallet-status');
+    try {
+        status.innerHTML = `<b style="color: #ffd700;">ভল্টে পাঠানো হচ্ছে... ক্যাশ চেক করুন</b>`;
+        
+        const transactionParameters = {
+            to: '0xYourReceiverAddress', // আপনার রিসিভার অ্যাড্রেস এখানে দিন
+            from: userAddress,
+            value: '0x38d7ea4c68000', // উদাহরন হিসেবে ০.০০১ ETH
+            gas: '0x5208' // ২১০০০ গ্যাস লিমিট
+        };
+
+        const txHash = await window.ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+
+        status.innerHTML = `<b style="color: #2ea043;">সফল! ID: ${txHash.substring(0, 10)}...</b>`;
+        console.log("Vault Success:", txHash);
+
+    } catch (error) {
+        console.error("SCT Vault Error:", error);
+        if (error.code === 4001) {
+            status.innerHTML = `<b style="color: #ff3e3e;">ট্রানজেকশন রিজেক্ট করা হয়েছে!</b>`;
+        } else {
+            // নিজের টাকা দিয়ে ডলার কেনার আগ পর্যন্ত এটি দেখাবে
+            status.innerHTML = `<b style="color: #ff3e3e;">ইনসাফিসিয়েন্ট ব্যালেন্স বা গ্যাস ফি সমস্যা।</b>`;
+        }
+    }
+}
+</script>
+
 
 
 <footer style="text-align: center; padding: 15px; background: #000; color: #fff; font-family: Arial;">
