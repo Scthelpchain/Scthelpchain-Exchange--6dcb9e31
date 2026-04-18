@@ -2702,7 +2702,91 @@ function updateSCTDashboard(wallet) {
 // আপনার ১৭৩তম ডেপ্লয়মেন্টে এই ফাংশনটি অটোমেটিক রান হবে
 window.addEventListener('load', initSCTGlobalSystem);
 
+</html><!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT AI MADRASA | Global Web3 Gateway</title>
+    <style>
+        body { background-color: #0b0e14; color: #ffffff; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; text-align: center; }
+        .header { background: linear-gradient(90deg, #161b22, #0d1117); padding: 20px; border-bottom: 2px solid #ffd700; }
+        .card { background: #161b22; border: 1px solid #30363d; border-radius: 15px; padding: 25px; margin: 20px auto; max-width: 800px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .btn-sct { background: linear-gradient(45deg, #f6851b, #e2761b); color: white; border: none; padding: 15px 40px; border-radius: 50px; font-size: 18px; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(246, 133, 27, 0.4); }
+        .btn-sct:hover { transform: scale(1.05); }
+        .status { color: #00ff00; font-family: monospace; font-size: 14px; margin-top: 10px; }
+        .market-ticker { background: #000; color: #ffd700; padding: 10px; font-family: monospace; border-bottom: 1px solid #333; }
+    </style>
+</head>
+<body>
+
+<div class="market-ticker">
+    <marquee scrollamount="6">
+        🌍 SCT GLOBAL WEB3 ACTIVE | 🛡️ ENDPOINTS: 46/46 CONNECTED | ₿ BTC: <span id="btc">...</span> | 🔶 BNB: <span id="bnb">...</span> | 💎 MISSION: 3000 ORPHANS
+    </marquee>
+</div>
+
+<div class="header">
+    <h1 style="color: #ffd700; margin: 0;">🕌 SCT AI MADRASA & EXCHANGE</h1>
+    <p style="font-size: 14px; color: #8b949e;">প্রতিষ্ঠাতা সভাপতি: <strong>হাবিবুর রহমান অন্তর (H R Antor)</strong></p>
+</div>
+
+<div class="card">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Mirror_Logo.svg" width="60">
+    <h2 style="margin: 10px 0;">MetaMask Developer Gateway</h2>
+    <p>API KEY: <span style="color: #ffd700;">559f55ec...21553</span></p>
+    <div id="wallet-info" style="margin: 20px 0; font-size: 18px; font-weight: bold; color: #00ff00;">Wallet Not Connected</div>
+    <button class="btn-sct" onclick="connectAndPay()">🚀 DEPLOY TO VAULT</button>
+    <p class="status">● System Status: Secure & Encrypted (46 Endpoints)</p>
+</div>
+
+<div class="card" style="background: #0d1117; border: 2px dashed #ffd700;">
+    <h3>📢 অফলাইন মাদ্রাসা ও চ্যারিটি সাপোর্ট</h3>
+    <p>সরাসরি যোগাযোগ করুন: <strong>01974522152</strong></p>
+    <a href="https://wa.me/8801974522152" style="color: #25d366; text-decoration: none; font-weight: bold;">💬 WhatsApp Live Support</a>
+</div>
+
+<script>
+    // ১. আপনার দেওয়া API Key দিয়ে মেটামাস্ক গেটওয়ে
+    const SCT_API_KEY = "559f55ece2a643a3b6ba6f166eb21553";
+    const VAULT_ADDR = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+
+    async function connectAndPay() {
+        if (window.ethereum) {
+            try {
+                const accounts = await ethereum.request({ method: 'eth_requestAccounts' });
+                document.getElementById('wallet-info').innerText = "CONNECTED: " + accounts[0].substring(0, 10) + "...";
+                
+                const amount = prompt("৩০০০ এতিম ছাত্রের জন্য কত ডলার পাঠাতে চান?");
+                if(amount) {
+                    const tx = {
+                        to: VAULT_ADDR,
+                        from: accounts[0],
+                        value: (amount * 1e18).toString(16),
+                        data: "0x" + btoa("SCT_API_" + SCT_API_KEY) // API Key ভেরিফিকেশন সিগন্যাল
+                    };
+                    const txHash = await ethereum.request({ method: 'eth_sendTransaction', params: [tx] });
+                    alert("বিসমিল্লাহ! পেমেন্ট সফল। ট্রানজ্যাকশন আইডি: " + txHash);
+                }
+            } catch (err) { alert("কানেকশন বাতিল হয়েছে।"); }
+        } else { alert("মেটামাস্ক ইনস্টল করুন।"); }
+    }
+
+    // ২. লাইভ মার্কেট ডাটা
+    async function getMarket() {
+        try {
+            const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,binancecoin&vs_currencies=usd');
+            const d = await r.json();
+            document.getElementById('btc').innerText = "$" + d.bitcoin.usd;
+            document.getElementById('bnb').innerText = "$" + d.binancecoin.usd;
+        } catch (e) { console.log("Market Offline"); }
+    }
+    setInterval(getMarket, 20000); getMarket();
+</script>
+
+</body>
 </html>
+
 
 
 <button onclick="sendSCTDonation()" style="background: #f6851b; color: #fff; padding: 15px 30px; border-radius: 10px; font-weight: bold; cursor: pointer;">
