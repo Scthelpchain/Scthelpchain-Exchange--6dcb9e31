@@ -2435,7 +2435,30 @@ function submitAttendance() {
             alert("অনুগ্রহ করে মেটামাস্ক ইনস্টল করুন!");
         }
     }
-</script>
+</script>// SCT Global MetaMask Developer Integration
+// Powered by: Habibur Rahman Antor (Core Plan)
+
+const SCT_MM_CONFIG = {
+    apiKey: "আপনার_মেটামাস্ক_এপিআই_কী_এখানে_দিন", // ড্যাশবোর্ড থেকে প্রাপ্ত Key
+    network: "0x38", // BSC Mainnet
+    quota: "3 Million Credits Daily"
+};
+
+async function checkSCTNetwork() {
+    if (window.ethereum) {
+        try {
+            // মেটামাস্ককে আপনার প্রজেক্টের ভেরিফাইড স্ট্যাটাস জানানো
+            const chainId = await window.ethereum.request({ method: 'eth_chainId' });
+            if (chainId !== SCT_MM_CONFIG.network) {
+                alert("মুহতামিম সাহেব, সেরা পারফরম্যান্সের জন্য স্মার্ট চেইন নেটওয়ার্ক সিলেক্ট করুন।");
+            }
+            console.log("SCT HelpChain: Core API Status - Active");
+        } catch (error) {
+            console.error("MetaMask Developer API Error:", error);
+        }
+    }
+}
+
 <button onclick="sendSCTDonation()" style="background: #f6851b; color: #fff; padding: 15px 30px; border-radius: 10px; font-weight: bold; cursor: pointer;">
    🦊 মেটামাস্কের মাধ্যমে ডলার পাঠান
 </button>
