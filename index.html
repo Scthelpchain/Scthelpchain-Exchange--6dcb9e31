@@ -208,7 +208,23 @@ async function connectAndDeploy() {
             status.innerHTML = `<b style="color: #ff3e3e;">PERMISSION DENIED / ERROR</b>`;
         }
     }
+}} catch (error) {
+    // ইউজারের পারমিশন রিজেক্ট করা বা একাউন্ট ডিনাইড করা হ্যান্ডেল করা
+    console.error("SCT Security Log:", error);
+
+    if (error.code === 4001) {
+        // ইউজার যখন মেটামাস্ক পপ-আপ কেটে দেয় বা রিজেক্ট করে
+        status.innerHTML = `<b style="color: #ff3e3e;">ইউজার একাউন্ট পারমিশন ডিনাইড করেছেন!</b>`;
+        console.warn("User Denied Account Access - H R Antor Gateway");
+    } else if (error.code === -32002) {
+        // যদি মেটামাস্ক অলরেডি একটি রিকোয়েস্ট পেন্ডিং রাখে
+        status.innerHTML = `<b style="color: #ffd700;">মেটামাস্ক চেক করুন, একটি রিকোয়েস্ট পেন্ডিং আছে।</b>`;
+    } else {
+        // অন্য কোনো টেকনিক্যাল এরর
+        status.innerHTML = `<b style="color: #ff3e3e;">অ্যাকাউন্ট এরর: ${error.message}</b>`;
+    }
 }
+
 
 </html>
 
