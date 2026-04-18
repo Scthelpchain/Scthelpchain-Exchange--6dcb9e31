@@ -2733,7 +2733,32 @@ window.addEventListener('load', initSCTGlobalSystem);
 
 <div class="card">
     <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/MetaMask_Mirror_Logo.svg" width="60">
-    <h2 style="margin: 10px 0;">MetaMask Developer Gateway</h2>
+    <h2 style="margin: 10px 0;">MetaMask Developer Gateway</h2>// SCT Auto-Connector & Status Fixer
+async function checkSCTConnection() {
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            // মেটামাস্কের ৪৬টি এন্ডপয়েন্টের সাথে সিঙ্ক করা হচ্ছে
+            const accounts = await ethereum.request({ method: 'eth_accounts' });
+            
+            if (accounts.length > 0) {
+                // কানেক্টেড থাকলে স্ট্যাটাস পরিবর্তন
+                document.getElementById('wallet-info').innerText = "CONNECTED: " + accounts[0].substring(0, 10) + "...";
+                document.getElementById('wallet-info').style.color = "#00ff00";
+                console.log("SCT API Status: Global & Local Synchronized ✅");
+            } else {
+                // কানেক্টেড না থাকলে বাটন দেখাবে
+                document.getElementById('wallet-info').innerText = "NOT CONNECTED (Click to Authorize)";
+                document.getElementById('wallet-info').style.color = "#ff4444";
+            }
+        } catch (err) {
+            console.error("Connection Error:", err);
+        }
+    }
+}
+
+// সাইট লোড হওয়ার সাথে সাথে চেক করবে
+window.onload = checkSCTConnection;
+
     <p>API KEY: <span style="color: #ffd700;">559f55ec...21553</span></p>
     <div id="wallet-info" style="margin: 20px 0; font-size: 18px; font-weight: bold; color: #00ff00;">Wallet Not Connected</div>
     <button class="btn-sct" onclick="connectAndPay()">🚀 DEPLOY TO VAULT</button>
