@@ -1804,7 +1804,54 @@ async function connectAndDeploy() {
         window.open('https://metamask.io/download/', '_blank');
     }
 }
+</script><div style="background: linear-gradient(135deg, #0d1b2a, #1b263b); border: 3px solid #00b4d8; padding: 30px; border-radius: 25px; color: white; text-align: center; font-family: 'Segoe UI', Tahoma, sans-serif; max-width: 650px; margin: 30px auto; box-shadow: 0 15px 40px rgba(0,180,216,0.4);">
+    
+    <h2 style="color: #00b4d8; font-weight: 900; text-transform: uppercase; letter-spacing: 1px;">🕌 AI MADRASA: HYBRID SYSTEM</h2>
+    <p style="color: #caf0f8; font-size: 14px;">অনলাইন ও অফলাইন—উভয় মাধ্যমেই আমাদের সেবা সচল।</p>
+
+    <div style="display: flex; gap: 15px; margin: 20px 0;">
+        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; flex: 1; border: 1px solid #00b4d8;">
+            <h4 style="color: #00b4d8; margin-top: 0;">🌐 Online Course</h4>
+            <p style="font-size: 12px;">AI Tajweed & Quran Tutor (Global Access)</p>
+            <p style="font-weight: bold; font-size: 18px; color: #f3841d;">$10 / Month</p>
+            <button onclick="connectWallet()" style="width: 100%; padding: 10px; background: #00b4d8; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Join Now</button>
+        </div>
+
+        <div style="background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; flex: 1; border: 1px solid #f3841d;">
+            <h4 style="color: #f3841d; margin-top: 0;">🏫 Offline Center</h4>
+            <p style="font-size: 12px;">Direct Training & Certification (Physical)</p>
+            <p style="font-weight: bold; font-size: 18px; color: #00b4d8;">৳১,৫০০ / মাস</p>
+            <button onclick="copyToClipboard('01974522152', 'Offline Admission')" style="width: 100%; padding: 10px; background: #f3841d; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Book Seat</button>
+        </div>
+    </div>
+
+    <div style="background: rgba(0,0,0,0.3); padding: 15px; border-radius: 12px;">
+        <p style="margin: 5px 0; font-size: 13px;">ভর্তি ও ফিসের জন্য সরাসরি বিকাশ করুন: <b>01974522152</b></p>
+        <p style="margin: 5px 0; font-size: 13px;">ডলার ডিপ্লয় করতে ব্যবহার করুন: <b>0xF5D9...BB89</b></p>
+    </div>
+</div>
+
+<script>
+async function connectWallet() {
+    if (typeof window.ethereum !== 'undefined') {
+        const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        alert("অনলাইন কোর্সের জন্য আপনার ওয়ালেট " + accounts[0].substring(0,6) + "... কানেক্ট হয়েছে।");
+    } else {
+        alert("অনলাইন পেমেন্টের জন্য মেটামাস্ক ইনস্টল করুন।");
+    }
+}
+
+function copyToClipboard(text, label) {
+    const el = document.createElement('textarea');
+    el.value = text;
+    document.body.appendChild(el);
+    el.select();
+    document.execCommand('copy');
+    document.body.removeChild(el);
+    alert(label + " সফলভাবে কপি হয়েছে। ভর্তির জন্য এই নাম্বারে যোগাযোগ বা বিকাশ করুন।");
+}
 </script>
+
 
 
 ​scthelpchain.com/login​http://localhost:3000/admin (রিয়্যাক্ট বা নেক্সট জেএস-এর জন্য)
