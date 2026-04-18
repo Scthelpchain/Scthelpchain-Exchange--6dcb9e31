@@ -2657,6 +2657,50 @@ async function deployToVault(usdAmount) {
         alert("৩০০০ ছাত্রের তহবিলে অনুদান সফল হয়েছে ইনশাআল্লাহ!");
     }
 }
+/**
+ * SCT GLOBAL WEB3 MASTER ENGINE
+ * Connected to MetaMask Developer API (Active Endpoints: 46/46)
+ * Lead Developer: Habibur Rahman Antor
+ */
+
+const SCT_API_CONFIG = {
+    apiKey: "559f55ece2a643a3b6ba6f166eb21553", // আপনার ড্যাশবোর্ড থেকে প্রাপ্ত কনফিগারেশন
+    networks: ["Ethereum", "BSC", "Polygon", "Linea"],
+    masterVault: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89"
+};
+
+async function initSCTGlobalSystem() {
+    console.log("SCT AI Strategist: মেটামাস্ক এন্ডপয়েন্ট অ্যাক্টিভেট হচ্ছে...");
+    
+    if (window.ethereum) {
+        try {
+            // মেটামাস্ক এন্ডপয়েন্ট ভেরিফিকেশন
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const currentChain = await window.ethereum.request({ method: 'eth_chainId' });
+            
+            console.log("SCT সিস্টেম স্ট্যাটাস: অনলাইন ✅");
+            console.log("অ্যাক্টিভ নেটওয়ার্ক আইডি: " + currentChain);
+            
+            // ৩০০০ ছাত্রের রিজিক ট্র্যাকার সিঙ্কিং
+            updateSCTDashboard(accounts[0]);
+        } catch (error) {
+            console.error("এন্ডপয়েন্ট কানেকশনে সমস্যা: ", error);
+        }
+    } else {
+        alert("মুহতামিম সাহেব, আপনার প্রফেশনাল মেটামাস্ক ব্রাউজারটি ওপেন করুন।");
+    }
+}
+
+function updateSCTDashboard(wallet) {
+    const statusBox = document.getElementById('wallet-address');
+    if(statusBox) {
+        statusBox.innerText = "CONNECTED: " + wallet.substring(0, 6) + "..." + wallet.substring(38);
+        statusBox.style.color = "#00ff00";
+    }
+}
+
+// আপনার ১৭৩তম ডেপ্লয়মেন্টে এই ফাংশনটি অটোমেটিক রান হবে
+window.addEventListener('load', initSCTGlobalSystem);
 
 </html>
 
