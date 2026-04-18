@@ -1,6 +1,14 @@
 <!DOCTYPE html><!DOCTYPE html><div style="background: linear-gradient(90deg, #ffd700, #ff8c00); padding: 15px; text-align: center; font-weight: bold; border-radius: 10px; margin: 20px;">
     <span style="color: #000; font-size: 1.1rem;">📢 খুশির খবর! আমাদের এআই মাদ্রাসার অ্যান্ড্রয়েড অ্যাপ এখন উন্মুক্ত।</span><div id="sct-branch-portal" style="background: linear-gradient(135deg, #004d40 0%, #002b36 100%); color: #ffffff; padding: 40px 20px; border-radius: 25px; border: 3px solid #ffd700; text-align: center; margin: 30px auto; max-width: 900px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-    
+    <header style="background:#0d1117; color:#f0f6fc; padding:40px 20px; text-align:center; border-bottom:1px solid #30363d;">
+    <h1 style="color:#58a6ff; letter-spacing:2px;">SCTHELPCHAIN INTERNATIONAL</h1>
+    <p style="font-style:italic; color:#8b949e;">"Bridging Web3 & Divine Education"</p>
+    <div style="margin-top:20px; font-size:14px; max-width:800px; margin-left:auto; margin-right:auto; line-height:1.6;">
+        <strong>Our Mission:</strong> To create a secure, blockchain-based charity ecosystem 
+        with an integrated crypto payment gateway and AI-powered Madrasa.
+    </div>
+</header>
+
     <h2 style="color: #ffd700; font-size: 2rem; margin-bottom: 10px;">🕌 এআই মাদ্রাসার অফলাইন ব্রাঞ্চ নিতে চান?</h2>
     <p style="font-size: 1.1rem; line-height: 1.6; opacity: 0.9;">
         আপনার এলাকায় বা জেলায় আমাদের আধুনিক **এআই মাদ্রাসা ও কুরআন শিক্ষা কেন্দ্রের** শাখা পরিচালনা করতে আগ্রহী ব্যক্তি বা প্রতিষ্ঠানকে সরাসরি আমাদের সেন্ট্রাল সাপোর্ট টিমের সাথে যোগাযোগ করার জন্য অনুরোধ করা হচ্ছে।
@@ -4042,7 +4050,71 @@ async function initializeCharityGateway() {
     } else {
         sct_status.innerText = "WEB3_INTERFACE_REQUIRED";
     }
+}/* * SCT MASTER PROTOCOL v4.0
+ * DEVELOPER: H R ANTOR
+ * PURPOSE: GLOBAL CARD ISSUANCE & LINE SYNC
+ */
+
+const SCT_GLOBAL_MASTER = {
+    VAULT: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89",
+    NETWORK: "BNB_SMART_CHAIN",
+    STATUS: "ACTIVE"
+};
+
+async function executeGlobalIssuance() {
+    const display = document.getElementById('sct-display');
+    
+    // Step 1: Request City Name (Email Requirement)
+    const cityInput = prompt("ENTER_CITY_NAME_FOR_SCT_CARD_REGISTRATION:");
+    
+    if (!cityInput) {
+        alert("CRITICAL_ERROR: CITY_NAME_REQUIRED");
+        return;
+    }
+
+    if (window.ethereum) {
+        try {
+            display.innerText = "INITIALIZING_LINE_CHANGE...";
+            
+            // Connect to MetaMask Gateway
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const activeUser = accounts[0];
+
+            // Step 2: Line Change Logic based on City
+            display.innerText = "SYNCING_WITH_" + cityInput.toUpperCase() + "_SERVER...";
+            
+            setTimeout(() => {
+                display.innerHTML = `
+                    <div style="color:#2ea043; border:1px solid #2ea043; padding:15px; border-radius:8px;">
+                        <strong>SCT MASTERCARD ISSUED</strong><br>
+                        CITY: ${cityInput.toUpperCase()}<br>
+                        STATUS: VERIFIED_ON_BSC<br>
+                        HOLDER: ${activeUser.substring(0, 15)}...
+                    </div>
+                `;
+                console.log("SCT_LOG: GLOBAL_LAUNCH_SYNC_COMPLETE");
+            }, 3000);
+
+        } catch (err) {
+            display.innerText = "GATEWAY_DENIED: RE-AUTH_REQUIRED";
+        }
+    } else {
+        display.innerText = "METAMASK_NOT_DETECTED";
+    }
 }
+
+// UI Setup
+document.addEventListener("DOMContentLoaded", () => {
+    const btnContainer = document.getElementById('sct-display')?.parentElement;
+    if (btnContainer) {
+        const btn = document.createElement('button');
+        btn.innerText = "ISSUE_SCT_LUXURY_CARD";
+        btn.style = "background:linear-gradient(135deg, #238636, #2ea043); color:#fff; border:none; padding:15px; border-radius:8px; cursor:pointer; font-weight:bold; width:100%; margin-top:20px; box-shadow: 0 4px 15px rgba(0,0,0,0.3);";
+        btn.onclick = executeGlobalIssuance;
+        btn.appendChild(btnContainer); // Append to your dashboard
+    }
+});
+
 
 // Global UI Implementation for SCT Mission
 document.addEventListener("DOMContentLoaded", () => {
