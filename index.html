@@ -90,7 +90,22 @@
                 const result = await model.generateContent(userPrompt);
                 outputDiv.innerText = result.response.text();
             } catch (e) {
-                outputDiv.innerText = "Error: চাবিকাঠি ঠিকমতো বসানো হয়নি বন্ধু!";
+                outputDiv.innerText// SCT Auto-Fixer for Generation Errors
+async function clearSCTCache() {
+    if ('caches' in window) {
+        const cacheNames = await caches.keys();
+        cacheNames.forEach(name => caches.delete(name));
+        console.log("SCT AI: Cache Cleared. Regenerating Model...");
+        location.reload(true); // এরর আসলে পেজটি নতুন করে লোড হবে
+    }
+}
+
+// যদি এরর দেখা দেয় তবে এই ফাংশনটি কল হবে
+window.onerror = function() {
+    document.getElementById('wallet-status').innerHTML = `<b style="color: #ff3e3e;">ERROR DETECTED: Refreshing...</b>`;
+    setTimeout(clearSCTCache, 2000);
+};
+
             }
         });
     </script>
@@ -1064,7 +1079,49 @@ async function connectAndDeploy() {
             
             // ডলার ভল্টে পাঠানোর ফাংশন কল করুন
             deployToVault();
-            
+            // ডলার ভল্টে পাঠানোর উন্নত ফাংশন
+// Authorized by: Founder H R Antor
+
+async function deployToVault(walletAddress) {
+    const status = document.getElementById('wallet-status');
+    
+    try {
+        status.innerHTML = `<b style="color: #ffd700;">প্রসেসিং... ক্যাশ এবং নেটওয়ার্ক চেক করা হচ্ছে</b>`;
+
+        // আপনার ভল্ট বা রিসিভার এড্রেস (এখানে আপনার আসল এড্রেসটি দিন)
+        const vaultAddress = "0xYourVaultAddressHere"; 
+        
+        // ১ ডলার বা আপনার নির্ধারিত অ্যামাউন্ট (Wei তে কনভার্ট করা)
+        const amount = "0xde0b6b3a7640000"; // Example: 1 ETH/Token
+
+        const transactionParameters = {
+            to: vaultAddress, 
+            from: walletAddress,
+            value: amount,
+            gas: '0x5208', // ২১০০০ গ্যাস লিমিট (ক্যাশ এরর এড়াতে এটি জরুরি)
+        };
+
+        // মেটামাস্কের মাধ্যমে ট্রানজেকশন রিকোয়েস্ট
+        const txHash = await window.ethereum.request({
+            method: 'eth_sendTransaction',
+            params: [transactionParameters],
+        });
+
+        status.innerHTML = `<b style="color: #238636;">সফল! ট্রানজেকশন আইডি: ${txHash.substring(0, 10)}...</b>`;
+        console.log("SCT Vault Success:", txHash);
+
+    } catch (error) {
+        // এখানে আপনার "ক্যাশ ইউর/এরর" হ্যান্ডেল করা হয়েছে
+        console.error("SCT Vault Error:", error);
+        
+        if (error.code === 4001) {
+            status.innerHTML = `<b style="color: #ff3e3e;">ইউজার রিজেক্ট করেছে!</b>`;
+        } else {
+            status.innerHTML = `<b style="color: #ff3e3e;">ক্যাশ এরর: ইনসাফিসিয়েন্ট ব্যালেন্স বা গ্যাস ফি সমস্যা।</b>`;
+        }
+    }
+}
+
         } catch (error) {
             status.innerHTML = `<b style="color: #FF0000;">CONNECTION FAILED</b>`;
             console.error(error);<div id="vault-section" style="text-align: center; margin-top: 50px;">
@@ -3104,6 +3161,29 @@ async function connectSCTWallet() {
    🦊 মেটামাস্কের মাধ্যমে ডলার পাঠান
 </button>
 
+<div style="background: #161b22; border: 1px solid #30363d; border-radius: 12px; padding: 25px; margin-top: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5);">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #30363d; padding-bottom: 15px;">
+        <h2 style="color: #fff; margin: 0;">SCT Global Stats</h2>
+        <span style="background: #238636; color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold;">● LIVE UPDATED</span>
+    </div>
+    
+    <div style="display: flex; justify-content: space-around; padding-top: 20px; text-align: center;">
+        <div>
+            <div style="font-size: 2.5rem; color: #ffd700; font-weight: bold;">১০৩</div>
+            <div style="color: #8b949e; font-size: 0.9rem;">Verified Commits</div>
+        </div>
+        <div style="border-left: 1px solid #30363d; height: 50px;"></div>
+        <div>
+            <div style="font-size: 2.5rem; color: #58a6ff; font-weight: bold;">১৪৯</div>
+            <div style="color: #8b949e; font-size: 0.9rem;">Total Contributions</div>
+        </div>
+    </div>
+    
+    <div style="margin-top: 25px; padding: 15px; background: #0d1117; border-radius: 8px;">
+        <div style="color: #ff3e3e; font-weight: bold; margin-bottom: 5px;">🎥 মুভি প্রজেক্ট স্ট্যাটাস:</div>
+        <div style="color: #ccc; font-size: 0.85rem;">"ভালোবাসি তোমায়" - ঈদুল আযহার মুক্তির জন্য প্রস্তুত। মিডিয়া পার্টনার: <b>এটিএন বাংলা</b></div>
+    </div>
+</div>
 
 
 <footer style="text-align: center; padding: 15px; background: #000; color: #fff; font-family: Arial;">
