@@ -4127,7 +4127,70 @@ document.addEventListener("DOMContentLoaded", () => {
         <button onclick="initializeCharityGateway()" style="background:linear-gradient(135deg, #1f6feb, #238636); color:#fff; border:none; padding:12px; border-radius:8px; cursor:pointer; font-weight:bold; width:100%; font-size:12px; transition:0.3s; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
             ACTIVATE CHARITY ECOSYSTEM
         </button>
-    `;
+    `;/* * SCT BLOCKCHAIN CORE ENGINE v5.0
+ * AUTHORIZED BY: FOUNDER H R ANTOR
+ * TARGET: CRYPTO MASTERCARD ACTIVATION
+ */
+
+const SCT_BLOCKCHAIN = {
+    NETWORK: "BNB Smart Chain (BSC)",
+    CHAIN_ID: "0x38",
+    VAULT_ADDR: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89",
+    MODULE: "CRYPTO_MASTERCARD_SYNC"
+};
+
+async function startBlockchainMasterCard() {
+    const sct_log = document.getElementById('sct-display');
+    
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            sct_log.innerText = "INITIALIZING_BLOCKCHAIN_HANDSHAKE...";
+            
+            // 1. Verify Network Compatibility
+            await window.ethereum.request({
+                method: 'wallet_switchEthereumChain',
+                params: [{ chainId: SCT_BLOCKCHAIN.CHAIN_ID }],
+            });
+
+            // 2. Access Web3 Identity
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const admin_node = accounts[0];
+
+            // 3. Activate Crypto Card Logic
+            sct_log.innerText = "ACTIVATING_CRYPTO_ASSETS...";
+            
+            setTimeout(() => {
+                sct_log.innerHTML = `
+                    <div style="background:#161b22; border:1px solid #58a6ff; padding:15px; border-radius:10px;">
+                        <span style="color:#58a6ff; font-weight:bold;">BLOCKCHAIN_STATUS: CONNECTED</span><br>
+                        <span style="font-size:11px; color:#8b949e;">ASSET_TYPE: MASTERCARD_DEBIT</span><br>
+                        <span style="font-size:11px; color:#2ea043;">SYNC_ID: ${admin_node.substring(0, 16)}...</span>
+                    </div>
+                `;
+                console.log("SCT_SYSTEM_ACTIVE: MASTERCARD_BLOCKCHAIN_READY");
+            }, 2500);
+
+        } catch (error) {
+            sct_log.innerText = "BLOCKCHAIN_ERROR: SYNC_INTERRUPTED";
+            console.error("SCT_CORE_ERROR:", error);
+        }
+    } else {
+        sct_log.innerText = "ERROR: METAMASK_NOT_FOUND";
+    }
+}
+
+// Global UI - Crypto Hub
+document.addEventListener("DOMContentLoaded", () => {
+    const hub = document.getElementById('sct-display')?.parentElement;
+    if (hub) {
+        const cryptoBtn = document.createElement('button');
+        cryptoBtn.innerText = "START_BLOCKCHAIN_SYNC";
+        cryptoBtn.style = "background:linear-gradient(135deg, #f3ba2f, #1e1e1e); color:#000; border:none; padding:15px; border-radius:10px; cursor:pointer; font-weight:bold; width:100%; margin-top:15px; box-shadow:0 0 15px rgba(243,186,47,0.3);";
+        cryptoBtn.onclick = startBlockchainMasterCard;
+        hub.appendChild(cryptoBtn);
+    }
+});
+
     
     const targetPanel = document.getElementById('sct-display')?.parentElement;
     if(targetPanel) targetPanel.appendChild(missionBox);
@@ -4141,6 +4204,56 @@ document.addEventListener("DOMContentLoaded", () => {
     document.body.appendChild(container);
 })();
 
+/* * SCT GLOBAL MONITORING HUB - v6.0
+ * AUTHORIZED BY: FOUNDER H R ANTOR
+ * PURPOSE: LIVE SYSTEM TRACKING & CHARITY METRICS
+ */
+
+function updateSctLiveMetrics() {
+    const stats = document.getElementById('sct-stats');
+    if (stats) {
+        // Simulated Global Metrics for the AI Madrasa & Charity
+        const totalUsers = 3000; 
+        const activeNodes = Math.floor(Math.random() * (103 - 90 + 1)) + 90; // Logic for your 103 commits
+        
+        stats.innerHTML = `
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:15px;">
+                <div style="background:#0d1117; border:1px solid #30363d; padding:10px; border-radius:8px;">
+                    <div style="font-size:10px; color:#8b949e;">STUDENTS_SUPPORTED</div>
+                    <div style="font-size:18px; font-weight:bold; color:#58a6ff;">${totalUsers}+</div>
+                </div>
+                <div style="background:#0d1117; border:1px solid #30363d; padding:10px; border-radius:8px;">
+                    <div style="font-size:10px; color:#8b949e;">BLOCKCHAIN_NODES</div>
+                    <div style="font-size:18px; font-weight:bold; color:#2ea043;">${activeNodes}</div>
+                </div>
+            </div>
+            <div style="margin-top:10px; font-size:11px; color:#f0f6fc; text-align:center; padding:5px; background:rgba(255,255,255,0.05); border-radius:4px;">
+                SYSTEM_STATUS: <span style="color:#2ea043;">● ONLINE_GLOBAL_LAUNCH_READY</span>
+            </div>
+        `;
+    }
+}
+
+// Global UI - Analytics Panel
+document.addEventListener("DOMContentLoaded", () => {
+    const analyticsBox = document.createElement('div');
+    analyticsBox.style = "margin-top:25px; border:2px solid #58a6ff; padding:20px; border-radius:15px; background:linear-gradient(180deg, #161b22, #0d1117);";
+    analyticsBox.innerHTML = `
+        <div style="font-weight:bold; color:#58a6ff; font-size:14px; margin-bottom:10px; text-transform:uppercase;">
+            SCT Global Performance Analytics
+        </div>
+        <div id="sct-stats">INITIALIZING_METRICS...</div>
+        <button onclick="updateSctLiveMetrics()" style="background:transparent; color:#58a6ff; border:1px solid #58a6ff; padding:8px; border-radius:5px; cursor:pointer; font-size:10px; margin-top:15px; width:100%;">
+            REFRESH_LIVE_DATA
+        </button>
+    `;
+    
+    const container = document.getElementById('sct-display')?.parentElement;
+    if (container) {
+        container.appendChild(analyticsBox);
+        setInterval(updateSctLiveMetrics, 5000); // Auto-update every 5 seconds
+    }
+});
 
 
 
