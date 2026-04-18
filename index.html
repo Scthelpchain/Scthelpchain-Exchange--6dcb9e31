@@ -1998,7 +1998,63 @@ window.onload = function() {
     console.log("বিসমিল্লাহ! হাবিবুর রহমান অন্তর সাহেবের মিশন লাইভ হলো।");
     document.title = "SCT AI Madrasa - 100% SUCCESS INSHALLAH";
 };
+</script><section id="sct-global-war-room" style="background: linear-gradient(180deg, #0d1117 0%, #004d40 100%); color: #ffffff; padding: 60px 20px; border-top: 5px solid #ffcc00; text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+    
+    <div style="max-width: 900px; margin: 0 auto; background: rgba(0, 0, 0, 0.6); padding: 40px; border-radius: 30px; border: 2px solid #00ff00; box-shadow: 0 0 50px rgba(0, 255, 0, 0.2);">
+        
+        <h1 style="color: #ffcc00; font-size: 2.5rem; text-shadow: 2px 2px #000;">🕌 SCT AI MADRASA GLOBAL LAUNCH</h1>
+        <p style="font-size: 1.2rem; color: #00ff00;">প্রতিষ্ঠাতা সভাপতি: <strong>হাবিবুর রহমান অন্তর</strong></p>
+        <p style="margin-bottom: 30px;">আমাদের লক্ষ্য: ৩০০ থেকে ৩০০০ এতিম ছাত্রকে এআই ও দ্বীনি শিক্ষায় শিক্ষিত করা।</p>
+
+        <div style="background: #161b22; padding: 25px; border-radius: 20px; border: 1px solid #30363d; margin-bottom: 30px;">
+            <h2 style="color: #ffffff;">💰 Global Development Fund</h2>
+            <p>সরাসরি ডলার পাঠিয়ে ৩০০০ ছাত্রের আহার ও শিক্ষার অংশীদার হোন।</p>
+            <button onclick="connectAndPay()" style="background: #f3ba2f; color: #000; padding: 18px 40px; border: none; border-radius: 12px; font-size: 1.3rem; font-weight: bold; cursor: pointer; transition: 0.3s; box-shadow: 0 5px 15px rgba(243, 186, 47, 0.4);">
+                Connect MetaMask & Donate
+            </button>
+            <p style="margin-top: 15px; font-family: monospace; font-size: 0.9rem; color: #8b949e;">Address: 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+            <div style="background: rgba(0, 255, 0, 0.05); padding: 25px; border-radius: 15px; border: 1px dashed #00ff00;">
+                <h3 style="color: #00ff00;">👨‍🎓 Student Sign-Up</h3>
+                <p>সারা বিশ্ব থেকে নতুন ছাত্ররা এখানে যুক্ত হতে পারবে।</p>
+                <button onclick="alert('রেজিস্ট্রেশন ওপেন হচ্ছে...')" style="width: 100%; padding: 12px; background: #00ff00; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Register Today</button>
+            </div>
+            
+            <div style="background: rgba(255, 204, 0, 0.05); padding: 25px; border-radius: 15px; border: 1px dashed #ffcc00;">
+                <h3 style="color: #ffcc00;">🤖 AI Oustad Live</h3>
+                <p>এআই এর মাধ্যমে সরাসরি তিলাওয়াত ও কোডিং শিক্ষা।</p>
+                <button onclick="alert('এআই ওস্তাদ এখন আপনার অপেক্ষায়...')" style="width: 100%; padding: 12px; background: #ffcc00; color: #000; border: none; border-radius: 8px; font-weight: bold; cursor: pointer;">Enter Class</button>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<script>
+async function connectAndPay() {
+    if (typeof window.ethereum !== 'undefined') {
+        const web3 = new Web3(window.ethereum);
+        try {
+            await window.ethereum.enable();
+            const accounts = await web3.eth.getAccounts();
+            alert("আপনার ওয়ালেট কানেক্ট হয়েছে! ৩০০০ এতিম শিশুর রিজিকের ব্যবস্থা করার জন্য ধন্যবাদ।");
+            // এখানে আপনি সরাসরি ট্রানজ্যাকশন ফাংশন যোগ করতে পারেন
+        } catch (error) {
+            console.error(error);
+            alert("কানেকশন এরর। আবার চেষ্টা করুন।");
+        }
+    } else {
+        alert("মেটামাস্ক পাওয়া যায়নি। দয়া করে মেটামাস্ক ব্রাউজার ব্যবহার করুন।");
+    }
+}
+
+// এআই মিশন ট্র্যাকার
+console.log("SCT AI Mission 3000 Active | Founder: Habibur Rahman Antor");
 </script>
+
 
 
 
