@@ -1458,7 +1458,7 @@ function activateProcess() {
 
         // ইউজারের মেসেজ
         container.innerHTML += `<div style="align-self:flex-end; background:#2ecc71; color:white; padding:10px 15px; border-radius:15px; border-bottom-right-radius:2px; max-width:85%; font-size:14px;">${text}</div>`;
-        input.value = '';
+        input.value = ''; জন্য
         container.scrollTop = container.scrollHeight;
 
         try {
@@ -3188,7 +3188,55 @@ async function connectSCTWallet() {
         <li style="padding: 10px 0;">🎓 Student Database</li>
         <li style="padding: 10px 0;">⚙️ API Settings</li>
     </ul>
-</div>
+</div>/* * SCT GLOBAL BLOCKCHAIN CORE v12.0
+ * AUTHORIZED BY: FOUNDER H R ANTOR
+ * FOCUS: HIGH-SPEED WEB3 INJECTION & SECURITY
+ */
+
+const SCT_GLOBAL_SYNC = {
+    NODE_PROVIDER: "BNB_SMART_CHAIN",
+    EXECUTIVE_ID: "CHAIRMAN_ANTOR_001",
+    SYNC_SPEED: "ULTRA_FAST"
+};
+
+async function executeSctGlobalProtocol() {
+    const display = document.getElementById('system-status');
+    
+    if (window.ethereum || window.trustwallet) {
+        try {
+            display.innerHTML = `<span style="color:#58a6ff;">EXECUTING_SYNC_PROTOCOL...</span>`;
+            
+            const provider = window.trustwallet || window.ethereum;
+            const accounts = await provider.request({ method: 'eth_requestAccounts' });
+            
+            // Success State - Direct Blockchain Feedback
+            display.innerHTML = `
+                <div style="padding:15px; border:1px solid #2ea043; background:rgba(46, 160, 67, 0.1); border-radius:10px;">
+                    <strong style="color:#2ea043;">BLOCKCHAIN_LINK_STABLE</strong><br>
+                    <small style="color:#f0f6fc;">EXECUTIVE_NODE: ${accounts[0].substring(0, 20)}...</small><br>
+                    <small style="color:#8b949e;">PROTOCOL: SCT_WEB3_v12_ACTIVE</small>
+                </div>
+            `;
+            
+            console.log("SCT_SYSTEM_NOTICE: BLOCKCHAIN_PERMISSION_VERIFIED");
+
+        } catch (error) {
+            display.innerHTML = `<span style="color:#ff7b72;">SYNC_ERROR: ACCESS_DENIED</span>`;
+        }
+    } else {
+        display.innerHTML = `<span style="color:#ff7b72;">ERROR: WEB3_BROWSER_NOT_FOUND</span>`;
+    }
+}
+
+// Global Event Initialization
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("SCT_CORE: INITIALIZING_EXECUTIVE_ENVIRONMENT");
+    // Auto-syncing with the Blockchain Pulse
+    if (document.getElementById('system-status')) {
+        executeSctGlobalProtocol();
+    }
+});
+
 
 <div class="main-content">
     <h1>অ্যাডমিন ড্যাশবোর্ড (Control Panel)</h1>
