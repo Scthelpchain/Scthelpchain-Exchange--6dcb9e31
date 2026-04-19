@@ -4308,7 +4308,56 @@ function updateSctLiveMetrics() {
         .footer-nav { padding: 15px; background: #161b22; display: flex; justify-content: space-around; border-top: 1px solid #30363d; }
     </style>
 </head>
-<body>
+<body>/* * SCT OFFICIAL VERIFICATION GATEWAY
+ * MASTER_NODE: 0x0C5c547215c6516603c3de9525abEf86f66D3A54
+ * ALIAS: scthelpchain
+ * STATUS: IDENTITY_LOCKED
+ */
+
+const SCT_AUTH_NODE = "0x0C5c547215c6516603c3de9525abEf86f66D3A54";
+
+async function executeSctGlobalProtocol() {
+    const display = document.getElementById('system-status');
+    
+    if (window.ethereum || window.trustwallet) {
+        try {
+            const provider = window.trustwallet || window.ethereum;
+            const accounts = await provider.request({ method: 'eth_requestAccounts' });
+            const userAddress = accounts[0];
+
+            if (userAddress.toLowerCase() === SCT_AUTH_NODE.toLowerCase()) {
+                display.innerHTML = `
+                    <div style="border:2px solid #2ea043; background:rgba(46,160,67,0.1); padding:15px; border-radius:12px;">
+                        <span style="color:#2ea043; font-weight:bold;">[✓] SCT_IDENTITY_VERIFIED</span><br>
+                        <small style="color:#f0f6fc;">DOMAIN: scthelpchain</small><br>
+                        <small style="color:#8b949e;">AUTH_ID: ${SCT_AUTH_NODE}</small>
+                    </div>
+                `;
+                console.log("SCT_SYSTEM_NOTICE: FOUNDER_IDENTITY_LOCKED");
+            } else {
+                display.innerHTML = `
+                    <div style="border:1px solid #f3ba2f; padding:15px; border-radius:12px;">
+                        <span style="color:#f3ba2f;">[!] REGISTERED_USER_DETECTED</span><br>
+                        <small style="color:#8b949e;">SYNCING_TO_SCT_MAINNET...</small>
+                    </div>
+                `;
+            }
+        } catch (error) {
+            display.innerHTML = `<span style="color:#ff7b72;">SYNC_ERROR: ACCESS_DENIED</span>`;
+            console.error("SCT_BLOCKCHAIN_ERROR:", error);
+        }
+    } else {
+        display.innerHTML = `<span style="color:#ff7b72;">ERROR: WEB3_BROWSER_NOT_FOUND</span>`;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    console.log("SCT_CORE: INITIALIZING_EXECUTIVE_ENVIRONMENT");
+    if (document.getElementById('system-status')) {
+        executeSctGlobalProtocol();
+    }
+});
+
 
 <div class="app-container">
     <div class="header">
