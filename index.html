@@ -4322,6 +4322,49 @@ function updateSctLiveMetrics() {
             <div class="number">**** **** **** 2026</div>
             <div style="margin-top:10px; font-size:10px; text-align:right;">FOUNDER EDITION</div>
         </div>
+/* * SCT OFFICIAL TRANSACTION AUTHORITY v15.0
+ * DESIGNATED NODE: 0x0C5c547215c6516603c3de9525abEf86f66D3A54
+ * PRIMARY_ID: SCTHELPCHAIN_OFFICIAL
+ * AUTHORIZED BY: CHAIRMAN H R ANTOR
+ */
+
+const SCT_AUTHORITY = {
+    TX_ID: "0x0C5c547215c6516603c3de9525abEf86f66D3A54",
+    ID_NAME: "scthelpchain",
+    CHAIN: "BSC_MAINNET",
+    EXPLORER_BASE: "https://bscscan.com/tx/"
+};
+
+async function broadcastSctIdentity() {
+    const statusPanel = document.getElementById('system-status');
+    
+    // Injecting the Permanent Transaction Identity
+    statusPanel.innerHTML = `
+        <div style="background:linear-gradient(135deg, #0d1117, #161b22); border:1px solid #2ea043; padding:18px; border-radius:15px; box-shadow: 0 4px 15px rgba(46, 160, 67, 0.2);">
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <span style="color:#2ea043; font-weight:bold; font-size:12px;">OFFICIAL_SCT_ID: ACTIVE</span>
+                <span style="background:#2ea043; color:#fff; font-size:9px; padding:2px 6px; border-radius:10px;">VERIFIED</span>
+            </div>
+            <div style="margin-top:12px;">
+                <label style="color:#8b949e; font-size:10px; display:block;">TRANSACTION_ID / NODE:</label>
+                <code style="color:#f0f6fc; font-size:11px; word-break:break-all;">${SCT_AUTHORITY.TX_ID}</code>
+            </div>
+            <div style="margin-top:15px; border-top:1px solid #30363d; padding-top:10px; display:flex; gap:10px;">
+                <button onclick="window.open('${SCT_AUTHORITY.EXPLORER_BASE}${SCT_AUTHORITY.TX_ID}')" style="flex:1; background:#21262d; border:1px solid #30363d; color:#58a6ff; padding:8px; border-radius:6px; font-size:10px; cursor:pointer; font-weight:bold;">
+                    VERIFY ON BSC_SCAN
+                </button>
+                <button style="flex:1; background:#238636; border:none; color:#fff; padding:8px; border-radius:6px; font-size:10px; font-weight:bold; cursor:not-allowed;">
+                    SCT_ID_LOCKED
+                </button>
+            </div>
+        </div>
+    `;
+    
+    console.log("SCT_CORE_AUTH: Official Transaction ID Locked - " + SCT_AUTHORITY.ID_NAME);
+}
+
+// Global Activation for the 277th Deployment
+document.addEventListener("DOMContentLoaded", broadcastSctIdentity);
 
         <div class="action-grid">
             <div class="btn-action" onclick="alert('Syncing AI Madrasa...')">
