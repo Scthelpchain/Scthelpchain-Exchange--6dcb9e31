@@ -4232,7 +4232,81 @@ function updateSctLiveMetrics() {
             </div>
         `;
     }
-}
+}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HELPCHAIN APP</title>
+    <style>
+        body { background: #010409; color: #c9d1d9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; padding: 0; }
+        .app-container { max-width: 450px; margin: auto; height: 100vh; display: flex; flex-direction: column; border: 1px solid #30363d; }
+        .header { padding: 20px; text-align: center; border-bottom: 1px solid #30363d; background: #161b22; }
+        .header h1 { color: #58a6ff; font-size: 20px; margin: 0; letter-spacing: 2px; }
+        
+        .main-content { flex: 1; padding: 20px; overflow-y: auto; }
+        .card { background: linear-gradient(135deg, #1f6feb, #2ea043); padding: 20px; border-radius: 15px; margin-bottom: 20px; box-shadow: 0 10px 20px rgba(0,0,0,0.5); position: relative; }
+        .card h2 { margin: 0; font-size: 14px; color: #fff; opacity: 0.8; }
+        .card .balance { font-size: 24px; font-weight: bold; margin: 10px 0; }
+        .card .number { font-family: monospace; letter-spacing: 2px; font-size: 14px; }
+
+        .action-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+        .btn-action { background: #21262d; border: 1px solid #30363d; padding: 15px; border-radius: 12px; text-align: center; cursor: pointer; transition: 0.3s; }
+        .btn-action:hover { border-color: #58a6ff; background: #30363d; }
+        .btn-action span { display: block; font-size: 20px; margin-bottom: 5px; }
+        .btn-action label { font-size: 11px; font-weight: bold; color: #8b949e; cursor: pointer; }
+
+        .status-bar { background: #0d1117; padding: 15px; border-radius: 10px; margin-top: 20px; font-size: 12px; border: 1px solid #2ea043; }
+        .footer-nav { padding: 15px; background: #161b22; display: flex; justify-content: space-around; border-top: 1px solid #30363d; }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="header">
+        <h1>SCT EXECUTIVE</h1>
+    </div>
+
+    <div class="main-content">
+        <div class="card">
+            <h2>SCT LUXURY MASTER CARD</h2>
+            <div class="balance">SCT 3,000,000</div>
+            <div class="number">**** **** **** 2026</div>
+            <div style="margin-top:10px; font-size:10px; text-align:right;">FOUNDER EDITION</div>
+        </div>
+
+        <div class="action-grid">
+            <div class="btn-action" onclick="alert('Syncing AI Madrasa...')">
+                <span>🕌</span> <label>AI MADRASA</label>
+            </div>
+            <div class="btn-action" onclick="alert('Opening Charity Vault...')">
+                <span>🤝</span> <label>CHARITY</label>
+            </div>
+            <div class="btn-action" onclick="alert('Exchanging Tokens...')">
+                <span>💱</span> <label>EXCHANGE</label>
+            </div>
+            <div class="btn-action" onclick="alert('Checking Card Line...')">
+                <span>💳</span> <label>CARD ISSUE</label>
+            </div>
+        </div>
+
+        <div class="status-bar" id="system-status">
+            SYSTEM_STATUS: <span style="color:#2ea043;">● CONNECTED_TO_BLOCKCHAIN</span><br>
+            <small style="color:#8b949e;">Node: 0xF5D9...BB89 | Chairman: H R Antor</small>
+        </div>
+    </div>
+
+    <div class="footer-nav">
+        <span>🏠</span>
+        <span>📊</span>
+        <span>⚙️</span>
+        <span>👤</span>
+    </div>
+</div>
+
+</body>
+</html>
+
 
 // Global UI - Analytics Panel
 document.addEventListener("DOMContentLoaded", () => {
