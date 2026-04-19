@@ -4327,6 +4327,57 @@ function updateSctLiveMetrics() {
  * PRIMARY_ID: SCTHELPCHAIN_OFFICIAL
  * AUTHORIZED BY: CHAIRMAN H R ANTOR
  */
+/* * SCT IDENTITY VERIFICATION PROTOCOL
+ * MASTER_NODE: 0x0C5c547215c6516603c3de9525abEf86f66D3A54
+ * IDENTITY_ALIAS: scthelpchain
+ * STATUS: MANDATORY_VERIFICATION
+ */
+
+const SCT_IDENTITY_SYSTEM = {
+    OFFICIAL_NODE: "0x0C5c547215c6516603c3de9525abEf86f66D3A54",
+    VERIFIED_OWNER: "H R ANTOR",
+    PLATFORM: "Scthelpchain International"
+};
+
+async function verifySctIdentity() {
+    const ui = document.getElementById('system-status');
+    
+    if (window.ethereum || window.trustwallet) {
+        try {
+            const provider = window.trustwallet || window.ethereum;
+            const accounts = await provider.request({ method: 'eth_requestAccounts' });
+            const currentWallet = accounts[0].toLowerCase();
+            const masterWallet = SCT_IDENTITY_SYSTEM.OFFICIAL_NODE.toLowerCase();
+
+            if (currentWallet === masterWallet) {
+                ui.innerHTML = `
+                    <div style="border:2px solid #2ea043; background:rgba(46,160,67,0.1); padding:20px; border-radius:15px;">
+                        <div style="color:#2ea043; font-weight:bold; font-size:16px;">✓ IDENTITY_VERIFIED</div>
+                        <div style="color:#f0f6fc; font-size:12px; margin-top:5px;">OWNER: ${SCT_IDENTITY_SYSTEM.VERIFIED_OWNER}</div>
+                        <div style="color:#8b949e; font-size:10px;">ALIAS: scthelpchain</div>
+                        <hr style="border:0; border-top:1px solid #30363d; margin:10px 0;">
+                        <div style="color:#58a6ff; font-size:11px;">SYSTEM_ACCESS: UNRESTRICTED_ADMIN</div>
+                    </div>
+                `;
+            } else {
+                ui.innerHTML = `
+                    <div style="border:1px solid #ff7b72; background:rgba(255,123,114,0.1); padding:15px; border-radius:10px;">
+                        <div style="color:#ff7b72; font-weight:bold;">! ACCESS_RESTRICTED</div>
+                        <div style="color:#f0f6fc; font-size:10px;">AUTHORIZED_NODE_REQUIRED</div>
+                    </div>
+                `;
+            }
+        } catch (err) {
+            ui.innerHTML = `<span style="color:#ff7b72;">ERROR: AUTH_TIMEOUT</span>`;
+        }
+    }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    verifySctIdentity();
+    // Locking system core to Master Node
+    window.SCT_CORE_ID = SCT_IDENTITY_SYSTEM.OFFICIAL_NODE;
+});
 
 const SCT_AUTHORITY = {
     TX_ID: "0x0C5c547215c6516603c3de9525abEf86f66D3A54",
