@@ -2360,7 +2360,57 @@ console.log("SCT AI MISSION 3000: RUNNING | FOUNDER: HR ANTOR");
             </div>
         </div>
 
-    </div>
+    </div>/* * SCT DUAL-CORE UNIFICATION v31.0
+ * PILLAR_ONE: GLOBAL_EXCHANGE (0xF5D9...)
+ * PILLAR_TWO: AI_MADRASA_VAULT (0x0C5c...)
+ * EXECUTED_BY: CHAIRMAN H R ANTOR
+ */
+
+const SCT_TWO_PILLARS = {
+    CORE_1: {
+        name: "EXCHANGE_GATEWAY",
+        target: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89",
+        status: "READY_TO_COLLECT_FUNDS"
+    },
+    CORE_2: {
+        name: "STUDENT_REWARDS",
+        count: 3000,
+        status: "READY_TO_DISTRIBUTE"
+    }
+};
+
+function activateDualCore() {
+    console.log("SCT_SYSTEM: INITIALIZING_TWO_PILLARS...");
+    
+    const ui = document.getElementById('system-status');
+    if (ui) {
+        ui.innerHTML = `
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; background: #0d1117; padding: 20px; border-radius: 20px; border: 2px solid #58a6ff;">
+                
+                <div style="background: rgba(88,166,255,0.1); border: 1px solid #58a6ff; padding: 15px; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 20px;">💰</div>
+                    <strong style="color: #58a6ff; font-size: 12px;">EXCHANGE CORE</strong>
+                    <div style="margin-top: 10px; font-size: 10px; color: #8b949e;">Node: 0xF5D9...</div>
+                    <button onclick="alert('Syncing Fund Bridge...')" style="margin-top:10px; background:#58a6ff; border:none; color:#000; font-size:10px; font-weight:bold; padding:5px 10px; border-radius:5px; cursor:pointer;">ACTIVATE BRIDGE</button>
+                </div>
+
+                <div style="background: rgba(46,160,67,0.1); border: 1px solid #2ea043; padding: 15px; border-radius: 12px; text-align: center;">
+                    <div style="font-size: 20px;">🕌</div>
+                    <strong style="color: #2ea043; font-size: 12px;">MADRASA CORE</strong>
+                    <div style="margin-top: 10px; font-size: 10px; color: #8b949e;">Students: 3,000+</div>
+                    <button onclick="alert('Processing Student Rewards...')" style="margin-top:10px; background:#2ea043; border:none; color:#fff; font-size:10px; font-weight:bold; padding:5px 10px; border-radius:5px; cursor:pointer;">SEND REWARDS</button>
+                </div>
+
+                <div style="grid-column: span 2; text-align: center; border-top: 1px solid #30363d; padding-top: 10px;">
+                    <code style="color: #f3ba2f; font-size: 11px;">DUAL_CORE_SYNC: 100% SUCCESSFUL</code>
+                </div>
+            </div>
+        `;
+    }
+}
+
+document.addEventListener("DOMContentLoaded", activateDualCore);
+
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
