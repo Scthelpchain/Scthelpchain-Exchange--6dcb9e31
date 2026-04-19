@@ -4723,7 +4723,65 @@ async function executeSctGlobalProtocol() {
                         <span style="color:#f3ba2f;">[!] REGISTERED_USER_DETECTED</span><br>
                         <small style="color:#8b949e;">SYNCING_TO_SCT_MAINNET...</small>
                     </div>
-                `;
+                `;<div id="sct-security-hub" style="margin-top: 25px; perspective: 1000px;">
+    
+    <div style="background: linear-gradient(135deg, #1e1e2f, #238636); padding: 25px; border-radius: 20px; color: white; box-shadow: 0 15px 35px rgba(0,0,0,0.4); border: 1px solid rgba(255,255,255,0.1); position: relative; overflow: hidden;">
+        <div style="position: absolute; right: -20px; top: -20px; opacity: 0.1; font-size: 150px; font-weight: bold;">SCT</div>
+        
+        <div style="display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 2;">
+            <div>
+                <h4 style="margin:0; letter-spacing: 2px; color: #f3ba2f;">SCT SMART PASS</h4>
+                <p style="font-size: 10px; opacity: 0.8;">OFFICIAL BLOCKCHAIN IDENTITY</p>
+            </div>
+            <div style="border: 2px solid #fff; border-radius: 50%; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; background: #0d1117;">
+                <span style="font-size: 20px;">🛡️</span>
+            </div>
+        </div>
+
+        <div style="margin-top: 30px; position: relative; z-index: 2;">
+            <div style="font-size: 14px; font-weight: bold; font-family: monospace;">H R ANTOR</div>
+            <div style="font-size: 10px; color: #c9d1d9;">FOUNDER & CHAIRMAN</div>
+        </div>
+
+        <div style="margin-top: 15px; display: flex; justify-content: space-between; align-items: flex-end; position: relative; z-index: 2;">
+            <div style="font-family: monospace; font-size: 9px; color: #58a6ff;">
+                NODE_A: 0x0C5c54721...<br>
+                BRIDGE: 0xF5D9a3579...
+            </div>
+            <div style="background: #fff; padding: 5px; border-radius: 5px;">
+                <div style="width: 40px; height: 40px; background: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 50% / 10px 10px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div style="margin-top: 20px; background: #0d1117; border: 1px solid #30363d; border-radius: 15px; padding: 15px;">
+        <h5 style="margin: 0 0 10px 0; color: #8b949e; font-size: 12px;">GLOBAL NETWORK ACTIVITY</h5>
+        <div id="network-map" style="height: 60px; display: flex; align-items: flex-end; gap: 4px;">
+            </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 10px; font-size: 9px; color: #2ea043;">
+            <span>ACTIVE NODES: 289+</span>
+            <span>SYNC: 100%</span>
+        </div>
+    </div>
+</div>
+
+<script>
+    function generateNetworkGraph() {
+        const map = document.getElementById('network-map');
+        if(map) {
+            map.innerHTML = '';
+            for(let i=0; i<30; i++) {
+                let height = Math.floor(Math.random() * 50) + 10;
+                let bar = document.createElement('div');
+                bar.style.cssText = `flex:1; background: #2ea043; height: ${height}px; border-radius: 2px; opacity: 0.6;`;
+                map.appendChild(bar);
+            }
+        }
+    }
+    setInterval(generateNetworkGraph, 2000);
+    generateNetworkGraph();
+</script>
+
             }
         } catch (error) {
             display.innerHTML = `<span style="color:#ff7b72;">SYNC_ERROR: ACCESS_DENIED</span>`;
