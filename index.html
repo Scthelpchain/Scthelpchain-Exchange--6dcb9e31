@@ -151,7 +151,55 @@ async function connectAndDeploy() {
 
                 status.innerHTML = `<b style="color: #2ea043;">সফল! ট্রানজেকশন আইডি: ${txHash.substring(0, 8)}</b>`;
 
-            } catch (error) {
+            } catch (error) {/* * SCT Mathematics Connect - Secure Identity Protocol
+ * Authorized by: Founder H R Antor | Mathematics Developer
+ * Purpose: Secure AI Portal Access (No Financial Transactions)
+ */
+
+const MASTER_ADMIN_WALLET = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+
+async function connectMathematicsAI() {
+    const status = document.getElementById('wallet-status');
+    
+    if (window.ethereum) {
+        try {
+            // ১. ওয়ালেটের মাধ্যমে কানেক্ট করা (টাকা নয়, কেবল আইডেন্টিটি)
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const userAddress = accounts[0];
+            
+            // ২. কানেক্টেড স্ট্যাটাস দেখানো
+            status.innerHTML = `CONNECTED: ${userAddress.substring(0, 6)}...${userAddress.substring(38)}`;
+            status.style.color = "#00d4ff"; // Mathematics Blue Theme
+
+            // ৩. মাস্টার অ্যাডমিন ভেরিফিকেশন চেক
+            if (userAddress.toLowerCase() === MASTER_ADMIN_WALLET.toLowerCase()) {
+                console.log("Mathematics Developer H R Antor Verified.");
+                alert("Master Admin Access Granted: Mathematics AI Portal Online.");
+            }
+
+            // ৪. এআই ড্যাশবোর্ড আনলক করা (পেমেন্ট ফাংশন কল করা হবে না)
+            unlockAiFeatures(userAddress);
+
+        } catch (error) {
+            console.error("SCT Security Log:", error);
+            if (error.code === 4001) {
+                status.innerHTML = `লগইন বাতিল করা হয়েছে।`;
+            } else {
+                status.innerHTML = `কানেকশন এরর: ${error.message}`;
+            }
+        }
+    } else {
+        alert("সিস্টেমে প্রবেশ করতে মেটামাস্ক ব্রাউজার ব্যবহার করুন।");
+        status.innerHTML = "MetaMask Not Found";
+    }
+}
+
+function unlockAiFeatures(address) {
+    // এখানে আপনার এআই সার্ভিসগুলো (Image, Video, Quran AI) একটিভ হবে
+    console.log("AI Access Granted to:", address);
+    document.getElementById('ai-tools-panel').style.display = 'block'; 
+}
+
                 // আপনার দেওয়া এরর হ্যান্ডলিং লজিক
                 console.error("SCT Vault Error:", error);
                 if (error.code === 4001) {
@@ -189,7 +237,58 @@ async function connectWallet() {
             // ৪. অটোমেটিক ভল্ট প্রোটোকল কল করা
             deployToVault(userAccount);
 
+        } catch (error) {/* * SCT AI Learning Portal - Master Execution Engine
+ * Authorized by: Founder & Assistant Editor H R Antor
+ * Purpose: Global AI Education & Research Access
+ */
+
+const ADMIN_ID = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+
+async function connectToSctAI() {
+    const status = document.getElementById('wallet-status');
+    
+    if (window.ethereum) {
+        try {
+            // ১. এআই পোর্টালে প্রবেশের জন্য পারমিশন নেওয়া
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const userProfile = accounts[0];
+            
+            // ২. ড্যাশবোর্ড আপডেট (লার্নিং মোড)
+            status.innerHTML = `STUDENT ID: ${userProfile.substring(0, 6)}... ACTIVE`;
+            status.style.color = "#38bdf8"; // AI Blue Theme
+
+            // ৩. মাস্টার অ্যাডমিন বা মডারেটর চেক
+            if (userProfile.toLowerCase() === ADMIN_ID.toLowerCase()) {
+                alert("Welcome, Master Strategist Antor! Admin Panel Unlocked.");
+                console.log("SCT AI Master System Online.");
+            }
+
+            // ৪. এআই লার্নিং মডিউল লোড করা
+            loadAiModules(userProfile);
+
         } catch (error) {
+            handleAiError(error, status);
+        }
+    } else {
+        alert("দয়া করে লার্নিং পোর্টালটি ব্যবহারের জন্য মেটামাস্ক বা ওয়েব৩ ব্রাউজার ব্যবহার করুন।");
+    }
+}
+
+function loadAiModules(profile) {
+    const status = document.getElementById('wallet-status');
+    // এখানে টাকা পাঠানোর বদলে এআই রিসোর্স অ্যাক্সেস হবে
+    status.innerHTML = `সফল! এআই জেনারেটর ও লার্নিং মডিউল এখন উন্মুক্ত।`;
+    console.log("AI Resources Granted to:", profile);
+}
+
+function handleAiError(error, statusElement) {
+    if (error.code === 4001) {
+        statusElement.innerHTML = `অ্যাক্সেস ডিনাইড: ইউজার সাইন-ইন করেননি।`;
+    } else {
+        statusElement.innerHTML = `সিস্টেম এরর: লার্নিং মডিউল লোড হতে সমস্যা হচ্ছে।`;
+    }
+}
+
             handleSctError(error, status);
         }
     } else {
