@@ -409,7 +409,7 @@ async function connectAndDeploy() {
         status.innerHTML = `<b style="color: #ff3e3e;">ইউজার একাউন্ট পারমিশন ডিনাইড করেছেন!</b>`;
         console.warn("User Denied Account Access - H R Antor Gateway");
     } else if (error.code === -32002) {
-        // যদি মেটামাস্ক অলরেডি একটি রিকোয়েস্ট পেন্ডিং রাখে
+        // যদি মেটামাস্ক অলরেডি একটি রিকোয়েস্ট পেন্ডিং রাখে ওই
         status.innerHTML = `<b style="color: #ffd700;">মেটামাস্ক চেক করুন, একটি রিকোয়েস্ট পেন্ডিং আছে।</b>`;
     } else {
         // অন্য কোনো টেকনিক্যাল এরর
@@ -559,7 +559,60 @@ async function connectAndDeploy() {
         .feature-item { background: #111; padding: 12px; border-radius: 10px; border: 1px solid #222; font-size: 12px; color: #f3ba2f; }
     </style>
 </head>
-<body>
+<body>/* * SCT AI Madrasa - Blockchain Identity Protocol
+ * Developed by: H R Antor (Mathematics Developer)
+ * Purpose: Secure Student Login & AI Resource Access
+ */
+
+// আপনার মাস্টার অ্যাডমিন অ্যাড্রেস (এটি সিস্টেমের চাবিকাঠি)
+const MADRASA_ADMIN = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+
+async function connectAiMadrasa() {
+    const status = document.getElementById('madrasa-status');
+    
+    // ১. মেটামাস্ক আছে কি না চেক করা
+    if (window.ethereum) {
+        try {
+            // ২. ব্লকচেইন নেটওয়ার্কের মাধ্যমে স্টুডেন্ট আইডেন্টিটি রিকোয়েস্ট
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const studentWallet = accounts[0];
+
+            // ৩. স্ট্যাটাস আপডেট (ব্লকচেইন থিম: গোল্ডেন এবং গ্রিন)
+            status.innerHTML = `মাদ্রাসা আইডি: ${studentWallet.substring(0, 6)}... ভেরিফাইড ✅`;
+            status.style.color = "#10b981"; // Spiritual Green
+
+            // ৪. মাস্টার অ্যাডমিন (অন্তর ভাই) চেক
+            if (studentWallet.toLowerCase() === MADRASA_ADMIN.toLowerCase()) {
+                console.log("Welcome, Founder H R Antor. Madrasa Master Control Active.");
+                alert("স্বাগতম মুহতামিম সাহেব! এআই মাদ্রাসা কন্ট্রোল প্যানেল ওপেন হচ্ছে।");
+            }
+
+            // ৫. এআই লার্নিং মডিউল লোড (কুরআন ও হাদিস এআই রিসোর্স)
+            initializeAiLessons(studentWallet);
+
+        } catch (error) {
+            handleMadrasaError(error, status);
+        }
+    } else {
+        alert("এআই মাদ্রাসায় প্রবেশ করতে মেটামাস্ক বা ওয়েব৩ ব্রাউজার প্রয়োজন।");
+    }
+}
+
+function initializeAiLessons(wallet) {
+    // এখানে এআই শিক্ষক বা লার্নিং টুলসগুলো আনলক হবে
+    console.log("Blockchain Verified Student:", wallet);
+    document.getElementById('lesson-panel').innerHTML = "এআই মাদ্রাসা লার্নিং মডিউল: অনলাইন";
+}
+
+function handleMadrasaError(error, statusElement) {
+    console.error("Madrasa Security Log:", error);
+    if (error.code === 4001) {
+        statusElement.innerHTML = `প্রবেশাধিকার বাতিল করা হয়েছে।`;
+    } else {
+        statusElement.innerHTML = `সিস্টেম এরর: আবার চেষ্টা করুন।`;
+    }
+}
+
 
     <div class="master-container">
         <div id="google_translate_element"></div>
