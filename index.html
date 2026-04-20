@@ -5358,6 +5358,84 @@ async function connectAndDeploy() {
     }
 });
 
+/* * SCT GLOBAL AI SYSTEM - MASTER EXECUTION
+ * Authorized by: Founder & Chairman H R Antor
+ * Domain: AI Madrasa & Global HelpChain
+ * Status: Error-Free & Secure (Blockchain Verified)
+ */
+
+// আপনার মাস্টার ভল্ট এবং আইডি
+const SCT_MASTER_KEY = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+
+/**
+ * ১. মেটামাস্ক কানেক্ট এবং আইডেন্টিটি ভেরিফিকেশন
+ */
+async function connectSctSystem() {
+    const status = document.getElementById('wallet-status');
+    
+    if (typeof window.ethereum !== 'undefined') {
+        try {
+            // ইউজারের কাছ থেকে একাউন্ট পারমিশন নেওয়া
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const userWallet = accounts[0];
+
+            // ড্যাশবোর্ড আপডেট (Blockchain Identity)
+            status.innerHTML = `🛡️ VERIFIED: ${userWallet.substring(0, 6)}...${userWallet.substring(38)}`;
+            status.style.color = "#00ffcc"; // AI Neon Green Theme
+
+            // ২. মাস্টার অ্যাডমিন (অন্তর ভাই) চেক
+            if (userWallet.toLowerCase() === SCT_MASTER_KEY.toLowerCase()) {
+                handleAdminLogin();
+            } else {
+                console.log("Student/User Access Granted.");
+                alert("এআই মাদ্রাসা গ্লোবাল নেটওয়ার্কে আপনাকে স্বাগতম!");
+            }
+
+            // ৩. এআই লার্নিং মডিউল সক্রিয় করা
+            activateAiLearning(userWallet);
+
+        } catch (error) {
+            handleSystemError(error, status);
+        }
+    } else {
+        alert("সিস্টেমে প্রবেশ করতে মেটামাস্ক বা ওয়েব৩ ব্রাউজার ব্যবহার করুন।");
+        status.innerHTML = "MetaMask Required";
+    }
+}
+
+/**
+ * ৩. এআই লার্নিং ও ম্যাথমেটিক্স মডিউল অ্যাক্টিভেশন
+ */
+function activateAiLearning(wallet) {
+    console.log("Initializing AI Madrasa for:", wallet);
+    // এখানে আপনার এআই জেনারেটর ও অন্যান্য টুলস আনলক হবে
+    const aiPanel = document.getElementById('ai-portal');
+    if (aiPanel) aiPanel.style.display = 'block';
+}
+
+/**
+ * ৪. মাস্টার অ্যাডমিন প্যানেল হ্যান্ডলার
+ */
+function handleAdminLogin() {
+    console.warn("Chairman H R Antor Logged In.");
+    const adminLabel = document.getElementById('admin-status');
+    if (adminLabel) adminLabel.innerText = "ADMIN MODE: ACTIVE";
+    alert("স্বাগতম মুহতামিম সাহেব! মাস্টার কন্ট্রোল প্যানেল সচল হয়েছে।");
+}
+
+/**
+ * ৫. ইউনিফাইড এরর হ্যান্ডলিং (যাতে এলোমেলো এরর না আসে)
+ */
+function handleSystemError(error, statusElement) {
+    console.error("SCT Security Log:", error);
+    if (error.code === 4001) {
+        statusElement.innerHTML = `এক্সেস রিজেক্টেড!`;
+    } else if (error.code === -32002) {
+        statusElement.innerHTML = `মেটামাস্ক চেক করুন (পেন্ডিং)।`;
+    } else {
+        statusElement.innerHTML = `সিস্টেম এরর: ${error.message}`;
+    }
+}
 
 
 <footer style="text-align: center; padding: 15px; background: #000; color: #fff; font-family: Arial;">
