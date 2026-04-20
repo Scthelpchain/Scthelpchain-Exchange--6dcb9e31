@@ -5417,7 +5417,7 @@ function activateAiLearning(wallet) {
  * ৪. মাস্টার অ্যাডমিন প্যানেল হ্যান্ডলার
  */
 function handleAdminLogin() {
-    console.warn("Chairman H R Antor Logged In.");
+    console.warn("Chairman H R Antor Logged In."); কি 
     const adminLabel = document.getElementById('admin-status');
     if (adminLabel) adminLabel.innerText = "ADMIN MODE: ACTIVE";
     alert("স্বাগতম মুহতামিম সাহেব! মাস্টার কন্ট্রোল প্যানেল সচল হয়েছে।");
@@ -5435,7 +5435,381 @@ function handleSystemError(error, statusElement) {
     } else {
         statusElement.innerHTML = `সিস্টেম এরর: ${error.message}`;
     }
+}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOBAL AI MADRASA & SCT HELPCHAIN - FOUNDER: HABIBUR RAHMAN ANTOR</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- General CSS --- */
+        :root {
+            --primary-bg: #111111; /* Black Background */
+            --accent-gold: #d4af37; /* Gold for Titles */
+            --text-main: #ffffff; /* White Text */
+            --teal-green: #00cc88; /* Teal for Sub-titles & AI theme */
+            --panel-bg: rgba(255, 255, 255, 0.05); /* Transparent Panels */
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-main);
+            scroll-behavior: smooth;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Header / Navigation --- */
+        header {
+            background-color: #000;
+            border-bottom: 2px solid var(--accent-gold);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .main-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .connect-btn {
+            background-color: var(--teal-green);
+            color: #000;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .connect-btn:hover { background-color: var(--accent-gold); }
+
+        /* --- Hero Section (Like image_4.png Layout) --- */
+        .hero {
+            background: radial-gradient(circle, #1a1a1a, #0a0a0a);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero h2 {
+            font-size: 26px;
+            color: var(--teal-green);
+            font-weight: 600;
+            margin-bottom: 40px;
+        }
+
+        .project-details {
+            background: var(--panel-bg);
+            border: 1px solid var(--accent-gold);
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .panel-title { color: var(--accent-gold); font-size: 20px; font-weight: 600; }
+        .founder-name { color: #fff; font-size: 24px; font-weight: 700; }
+        .tin-number { color: #aaa; font-size: 14px; margin-top: 5px; }
+
+        /* --- Vision Section --- */
+        .vision { padding: 60px 0; background-color: #000; }
+        .vision-panels {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .vision-item {
+            background: var(--panel-bg);
+            border: 1px solid var(--accent-gold);
+            padding: 25px;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .vision-item:hover { transform: translateY(-5px); border-color: var(--teal-green); }
+        .icon-gold { color: var(--accent-gold); font-size: 40px; margin-bottom: 15px; }
+        .v-title { color: var(--teal-green); font-size: 18px; font-weight: 600; margin-bottom: 10px; }
+
+        /* --- Donation & Technology (Key Section) --- */
+        .donate {
+            background-color: #0d0d0d;
+            padding: 80px 0;
+            border-top: 2px solid var(--accent-gold);
+        }
+
+        .donate-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .donate-text { max-width: 600px; }
+        .donate-text h3 { font-size: 32px; color: var(--accent-gold); }
+        .donate-text p { color: #ccc; margin-bottom: 25px; }
+
+        .tech-list ul { list-style: none; padding: 0; }
+        .tech-list li { color: #fff; margin-bottom: 12px; font-size: 16px; }
+        .tech-list i { color: var(--teal-green); margin-right: 10px; }
+
+        .donation-panel {
+            background: #000;
+            border: 2px solid var(--teal-green);
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .wallet-label { color: var(--accent-gold); font-size: 14px; font-weight: 600; margin-bottom: 10px; }
+        .wallet-address {
+            color: var(--teal-green);
+            font-size: 14px;
+            background: #111;
+            padding: 10px;
+            border-radius: 5px;
+            word-break: break-all;
+            margin-bottom: 20px;
+        }
+
+        .input-donate {
+            width: 100%;
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #333;
+            background: #111;
+            color: #fff;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        .donate-btn {
+            background-color: var(--accent-gold);
+            color: #000;
+            width: 100%;
+            font-weight: 700;
+            padding: 15px 0;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .donate-btn:hover { background-color: var(--teal-green); }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #000;
+            padding: 40px 0;
+            border-top: 1px solid var(--accent-gold);
+            text-align: center;
+        }
+
+        .footer-text { color: #777; font-size: 14px; }
+
+        /* --- Metamask Integration Code --- */
+        .status-box {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #1a1a1a;
+            border: 1px solid var(--accent-gold);
+            padding: 15px 25px;
+            border-radius: 8px;
+            color: var(--teal-green);
+            display: none;
+            z-index: 2000;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container header-content">
+        <div class="main-logo">GLOBAL AI MADRASA</div>
+        <div class="connect-btn" onclick="connectMetamask()">CONNECT METAMASK</div>
+    }
+</header>
+
+<section class="hero">
+    <div class="container">
+        <h1>GLOBAL AI MADRASA & SCT HELPCHAIN</h1>
+        <h2>FOUNDER & CHAIRMAN: HABIBUR RAHMAN ANTOR</h2>
+        
+        <div class="project-details">
+            <p class="panel-title">OPERATED BY</p>
+            <p class="founder-name">HABIBUR RAHMAN ANTOR</p>
+            <p class="tin-number">TIN: 129836322560</p>
+            <p style="color:var(--accent-gold); font-weight:600; margin-top:20px;">Dedicated Institution for Underprivileged Children</p>
+        }
+    }
+</section>
+
+<section class="vision">
+    <div class="container vision-panels">
+        <div class="vision-item">
+            <i class="fas fa-hand-holding-heart icon-gold"></i>
+            <p class="v-title">FREE RELIGIOUS EDUCATION</p>
+            <p>100% Free Complete Religious Learning for Underprivileged Children.</p>
+        }
+        <div class="vision-item">
+            <i class="fas fa-brain icon-gold"></i>
+            <p class="v-title">ADVANCED AI LEARNING</p>
+            <p>Teaching Kids with Cutting-Edge Artificial Intelligence Tools.</p>
+        }
+        <div class="vision-item">
+            <i class="fas fa-network-wired icon-gold"></i>
+            <p class="v-title">GLOBAL NETWORKING</p>
+            <p>Connecting Children with International Resources via Blockchain.</p>
+        }
+    }
+</section>
+
+<section class="donate">
+    <div class="container donate-content">
+        <div class="donate-text">
+            <h3>DONATE & COOPERATE</h3>
+            <p>Your cooperation provides religious education and inspiration for survival to underprivileged children. Support our mission.</p>
+            
+            <div class="tech-list">
+                <p class="panel-title">TECHNOLOGY INTEGRATION</p>
+                <ul>
+                    <li><i class="fab fa-google"></i> Powered by GOOGLE AI</li>
+                    <li><i class="fas fa-cubes"></i> Blockchain Security Active</li>
+                    <li><i class="fas fa-plug"></i> Metamask Direct Connect</li>
+                    <li><i class="fas fa-earth-americas"></i> Everyone is a Partner</li>
+                </ul>
+            }
+        }
+        
+        <div class="donation-panel">
+            <p class="wallet-label">CHARITY DONATION ADDRESS</p>
+            <p class="wallet-address">0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89</p>
+            
+            <input type="number" id="donate-amount" class="input-donate" placeholder="Amount (ETH / BNB)" step="0.001">
+            <button class="donate-btn" onclick="sendDonation()">DONATE DIRECTLY</button>
+        }
+    }
+</section>
+
+<footer>
+    <div class="container">
+        <div class="footer-text">&copy; 2026 Scthelpchain | Project: GLOBAL AI MADRASA | Founder: Habibur Rahman Antor</div>
+    }
+</footer>
+
+<div class="status-box" id="metamask-status">
+    <i class="fas fa-link"></i> Connected Address: <span id="user-wallet"></span>
 }
+
+<script>
+    // --- Metamask direct integration (0xF5D9...BB89) ---
+    
+    // ১. ওয়ালেট কানেক্ট করা
+    async function connectMetamask() {
+        if (window.ethereum) {
+            try {
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const userWallet = accounts[0];
+                document.getElementById('user-wallet').innerText = `${userWallet.substring(0, 6)}...${userWallet.substring(38)}`;
+                document.getElementById('metamask-status').style.display = 'block';
+                console.log("SCT HelpChain Connected:", userWallet);
+                alert("Metamask Connected Successfully.");
+            } catch (error) {
+                console.error("Metamask Connection Error:", error);
+                alert("Connection failed.");
+            }
+        } else {
+            alert("Metamask Required! Please use a Web3-enabled browser (MetaMask, Trust Wallet, etc.).");
+        }
+    }
+
+    // ২. সরাসরি ডোনেশন সেন্ড করা (0xF5D9...BB89 অ্যাড্রেসে)
+    async function sendDonation() {
+        if (!window.ethereum) {
+            alert("Please connect Metamask first.");
+            return;
+        }
+
+        const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+        if (accounts.length === 0) {
+            alert("Please connect Metamask first.");
+            return;
+        }
+
+        const senderWallet = accounts[0];
+        const receiverWallet = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89"; // আপনার অফিসিয়াল অ্যাড্রেস
+        const amountElement = document.getElementById('donate-amount');
+        const amountEth = amountElement.value;
+
+        if (!amountEth || amountEth <= 0) {
+            alert("Please enter a valid amount.");
+            return;
+        }
+
+        // এমাউন্টকে হেক্সে কনভার্ট করা (১ ইথার = ১০^১৮ Wei)
+        const amountWei = BigInt(Math.round(amountEth * 1e18));
+        const amountHex = `0x${amountWei.toString(16)}`;
+
+        const transactionParameters = {
+            to: receiverWallet,
+            from: senderWallet,
+            value: amountHex,
+            gas: '0x5208' // ২১০০০ গ্যাস লিমিট
+        };
+
+        try {
+            const txHash = await window.ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [transactionParameters],
+            });
+            console.log("SCT Donation Success:", txHash);
+            alert(`Donation Successful! Tx ID: ${txHash}`);
+            amountElement.value = ''; // ক্লিয়ার করা
+        } catch (error) {
+            console.error("SCT Donation Error:", error);
+            if (error.code === 4001) {
+                alert("User rejected the transaction.");
+            } else {
+                alert("Cash Error: Insufficient funds or system error.");
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
+
 
 
 <footer style="text-align: center; padding: 15px; background: #000; color: #fff; font-family: Arial;">
