@@ -444,7 +444,59 @@ async function connectAndDeploy() {
         <span style="color: #d4af37;">●</span> Member, Bangladesh Film Producers & Distributors Association <br>
         <span style="color: #d4af37;">●</span> Member, CDAB
     </p>
-</div>
+</div>/* * Global AI Madrasa - Blockchain Connectivity Protocol
+ * Authorized by: Founder & Chairman H R Antor
+ * Project: SCT HelpChain Global Initiative
+ */
+
+const SCT_ADMIN_VAULT = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+
+async function globalMadrasaConnect() {
+    const status = document.getElementById('wallet-status');
+    
+    if (window.ethereum) {
+        try {
+            // ১. গ্লোবাল নেটওয়ার্ক আইডেন্টিটি রিকোয়েস্ট
+            const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+            const userID = accounts[0];
+
+            // ২. ড্যাশবোর্ড আপডেট (গ্লোবাল থিম: গোল্ডেন ও হোয়াইট)
+            status.innerHTML = `🛡️ GLOBAL ID: ${userID.substring(0, 8)}... VERIFIED`;
+            status.style.color = "#fbbf24"; // Golden Glow
+
+            // ৩. মাস্টার কন্ট্রোল চেক (Chairman Antor Check)
+            if (userID.toLowerCase() === SCT_ADMIN_VAULT.toLowerCase()) {
+                console.log("Welcome Founder H R Antor. Global Master Node Active.");
+                alert("স্বাগতম মুহতামিম সাহেব! গ্লোবাল এআই মাদ্রাসা নেটওয়ার্ক এখন আপনার নিয়ন্ত্রণে।");
+            }
+
+            // ৪. এআই লার্নিং ড্যাশবোর্ড লোড (Blockchain Verified)
+            launchGlobalAiCore(userID);
+
+        } catch (error) {
+            handleGlobalError(error, status);
+        }
+    } else {
+        alert("গ্লোবাল এআই মাদ্রাসায় যুক্ত হতে মেটামাস্ক বা ওয়েব৩ ব্রাউজার ইনস্টল করুন।");
+    }
+}
+
+function launchGlobalAiCore(wallet) {
+    console.log("Accessing Global AI Nodes for:", wallet);
+    // এখানে আপনার এআই কোর ফাংশনগুলো (Veo Video, Quran AI) ট্রিগার হবে
+    const portal = document.getElementById('ai-portal');
+    if(portal) portal.style.display = 'block';
+}
+
+function handleGlobalError(error, statusElement) {
+    console.error("Blockchain Security Log:", error);
+    if (error.code === 4001) {
+        statusElement.innerHTML = `অ্যাক্সেস রিজেক্টেড: সিকিউরিটি চেক ফেইল।`;
+    } else {
+        statusElement.innerHTML = `নেটওয়ার্ক এরর: ডাটা সিঙ্ক্রোনাইজ করা সম্ভব হচ্ছে না।`;
+    }
+}
+
 
         <h3>Admin Dashboard: H R Antor</h3>
         <p>Assistant Editor (Crime) | Mathematics Developer</p>
