@@ -6263,7 +6263,174 @@ function handleSystemError(error, statusElement) {
     }
 </script>
 
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HelpChain | AI Madrasa & Global Exchange</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <style>
+        :root {
+            --gold: #FFD700;
+            --neon-blue: #00f3ff;
+            --bkash-pink: #e2136e;
+            --dark-bg: #050505;
+        }
+        body {
+            background: radial-gradient(circle, #111, #000);
+            color: #fff;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .master-dashboard {
+            width: 100%;
+            max-width: 480px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 25px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 0 40px rgba(0, 243, 255, 0.1);
+        }
+        .header h1 { font-size: 22px; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; }
+        .header p { font-size: 11px; color: var(--neon-blue); letter-spacing: 1px; }
+        
+        .madrasa-stats {
+            display: flex;
+            justify-content: space-between;
+            margin: 25px 0;
+            background: rgba(255,255,255,0.05);
+            padding: 15px;
+            border-radius: 15px;
+        }
+        .stat { flex: 1; }
+        .stat span { display: block; font-size: 18px; font-weight: bold; color: var(--gold); }
+        .stat label { font-size: 10px; color: #888; }
+
+        .vault-display {
+            background: #000;
+            padding: 12px;
+            border-radius: 10px;
+            border: 1px dashed var(--neon-blue);
+            font-family: monospace;
+            font-size: 12px;
+            color: var(--neon-blue);
+            word-break: break-all;
+            margin: 20px 0;
+        }
+
+        .input-donate {
+            width: 100%;
+            padding: 15px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .btn-donate {
+            width: 100%;
+            padding: 18px;
+            background: var(--gold);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-donate:hover { background: #fff; transform: translateY(-2px); }
+
+        .local-payment {
+            margin-top: 25px;
+            padding: 15px;
+            border: 1px solid rgba(226, 19, 110, 0.2);
+            border-radius: 12px;
+            background: rgba(226, 19, 110, 0.05);
+        }
+        .bkash-text { color: var(--bkash-pink); font-weight: bold; font-size: 16px; }
+
+        .footer { font-size: 10px; color: #555; margin-top: 30px; line-height: 1.5; }
+    </style>
+</head>
+<body>
+
+<div class="master-dashboard">
+    <div class="header">
+        <h1>SCT HelpChain Int.</h1>
+        <p>AI MADRASA & DIGITAL EXCHANGE GATEWAY</p>
+    </div>
+
+    <div class="madrasa-stats">
+        <div class="stat"><span>300+</span><label>Orphan Students</label></div>
+        <div class="stat"><span>FREE</span><label>AI Education</label></div>
+        <div class="stat"><span>WEB3</span><label>Integrated</label></div>
+    </div>
+
+    <div class="vault-display">
+        ID: 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89
+    </div>
+
+    <input type="number" id="cryptoAmount" class="input-donate" placeholder="Amount (ETH/BNB)">
+    <button class="btn-donate" onclick="initiateSctDonation()">Authorize & Donate</button>
+
+    <div class="local-payment">
+        <label style="font-size: 10px; color: #888;">BKASH PERSONAL (BD)</label><br>
+        <span class="bkash-text">01974522152</span>
+    </div>
+
+    <div class="footer">
+        FOUNDER & CHAIRMAN: HABIBUR RAHMAN ANTOR<br>
+        TIN: 129836322560 | SECURE BLOCKCHAIN VAULT<br>
+        © 2026 SCTHELPCHAIN INTERNATIONAL
+    </div>
+</div>
+
+<script>
+    async function initiateSctDonation() {
+        const amount = document.getElementById('cryptoAmount').value;
+        const sctVault = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = provider.getSigner();
+
+                if (!amount || amount <= 0) {
+                    alert("Enter a valid crypto amount.");
+                    return;
+                }
+
+                const tx = {
+                    to: sctVault,
+                    value: ethers.utils.parseEther(amount)
+                };
+
+                const transaction = await signer.sendTransaction(tx);
+                alert("Processing Master Execution. Hash: " + transaction.hash.substring(0, 16));
+            } catch (err) {
+                console.error(err);
+                alert("SCT Execution Cancelled.");
+            }
+        } else {
+            alert("Web3 Wallet not found. Please use Metamask.");
+        }
+    }
+</script>
+
 </body>
+</html>
+
 </html>
 
 </html>
