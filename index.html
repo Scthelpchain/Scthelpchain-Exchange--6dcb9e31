@@ -290,7 +290,19 @@ function handleAiError(error, statusElement) {
 }
 
             handleSctError(error, status);
-        }
+        }<!-- Ensure this exists -->
+<div id="display"></div>
+
+<script>
+  // Wait for DOM to load
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const display = document.getElementById('display');
+    if (display) {
+      display.innerHTML = 'ERROR: WEB3_BROWSER_NOT_FOUND';
+    }
+  });
+</script>
+
     } else {
         alert("Please install MetaMask or use a Web3 Browser!");
         status.innerHTML = "METAMASK NOT FOUND";
