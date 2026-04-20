@@ -6107,7 +6107,165 @@ function handleSystemError(error, statusElement) {
     }
 </script>
 
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HelpChain | Global AI Madrasa</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <style>
+        :root {
+            --gold: #FFD700;
+            --neon: #00f3ff;
+            --glass: rgba(255, 255, 255, 0.05);
+        }
+        body {
+            background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+            color: #fff;
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            width: 90%;
+            max-width: 500px;
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 0 50px rgba(0, 243, 255, 0.1);
+            text-align: center;
+        }
+        .header h1 { color: var(--gold); margin: 0; font-size: 24px; text-transform: uppercase; }
+        .header p { color: var(--neon); font-size: 12px; margin-top: 5px; }
+        
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+            padding: 15px;
+            background: rgba(0,0,0,0.3);
+            border-radius: 15px;
+        }
+        .stat-item span { display: block; font-size: 18px; font-weight: bold; color: var(--gold); }
+        .stat-item label { font-size: 10px; color: #888; }
+
+        .vault-box {
+            background: #000;
+            border: 1px dashed var(--neon);
+            padding: 15px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 13px;
+            color: var(--neon);
+            margin-bottom: 25px;
+            cursor: pointer;
+        }
+        
+        .input-group input {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .btn-action {
+            width: 100%;
+            padding: 18px;
+            background: var(--gold);
+            color: #000;
+            border: none;
+            border-radius: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+        .btn-action:hover { background: #fff; transform: scale(1.02); }
+
+        .bkash-panel {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid rgba(226, 19, 110, 0.3);
+            border-radius: 10px;
+            color: #e2136e;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>SCT HelpChain Int.</h1>
+        <p>Founder & Chairman: Habibur Rahman Antor</p>
+    </div>
+
+    <div class="stats">
+        <div class="stat-item"><span>300+</span><label>Students</label></div>
+        <div class="stat-item"><span>100%</span><label>Free AI Education</label></div>
+    </div>
+
+    <div class="vault-box">
+        0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89
+    </div>
+
+    <div class="input-group">
+        <input type="number" id="ethVal" placeholder="0.00 ETH / BNB">
+    </div>
+
+    <button class="btn-action" onclick="donateCrypto()">Connect & Donate</button>
+
+    <div class="bkash-panel">
+        Bkash Personal: 01974522152
+    </div>
+
+    <p style="font-size: 10px; color: #555; margin-top: 20px;">
+        TIN: 129836322560 | Verified by Blockchain Identity
+    </p>
+</div>
+
+<script>
+    async function donateCrypto() {
+        const amount = document.getElementById('ethVal').value;
+        const vault = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = provider.getSigner();
+
+                if (!amount || amount <= 0) {
+                    alert("Please enter a valid amount.");
+                    return;
+                }
+
+                const tx = { to: vault, value: ethers.utils.parseEther(amount) };
+                const transaction = await signer.sendTransaction(tx);
+                alert("Processing! Tx Hash: " + transaction.hash.substring(0, 15));
+            } catch (err) {
+                alert("Execution Failed: " + err.message);
+            }
+        } else {
+            alert("Please use MetaMask or a Web3 Browser.");
+        }
+    }
+</script>
+
 </body>
+</html>
+
 </html>
 
 </body>
