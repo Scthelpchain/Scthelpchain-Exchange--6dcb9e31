@@ -404,5 +404,43 @@
     }
 </script>
 
+<section id="global-english-panel" style="margin-top: 50px; padding: 25px; background: #000; border-top: 4px solid #FFD700; border-radius: 20px 20px 0 0;">
+    <h2 style="color: #FFD700; text-align: center; font-size: 22px; text-transform: uppercase;">
+        <i class="fas fa-globe-americas"></i> SCT Global Operations
+    </h2>
+    
+    <div style="background: rgba(0, 243, 255, 0.05); border: 1px solid #222; padding: 15px; border-radius: 12px; margin-top: 15px;">
+        <h4 style="color: #00f3ff; margin-bottom: 5px;">English Interface & AI Support</h4>
+        <p style="font-size: 11px; color: #aaa; line-height: 1.6;">
+            The big-letter Index.html version is now integrated into this master portal. 
+            Lead Developer: <strong>Habibur Rahman Antor</strong>. 
+            International gateway for AI Madrasa & Charity Exchange is active.
+        </p>
+    </div>
+
+    <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <button onclick="activateEnglishAI()" style="flex: 1; padding: 15px; background: transparent; border: 2px solid #00f3ff; color: #00f3ff; border-radius: 12px; font-weight: 900; font-size: 12px; cursor: pointer;">
+            ENGLISH CALLING
+        </button>
+        <button onclick="connectGlobalVault()" style="flex: 1; padding: 15px; background: #FFD700; border: none; color: #000; border-radius: 12px; font-weight: 900; font-size: 12px; cursor: pointer;">
+            CONNECT VAULT
+        </button>
+    </div>
+</section>
+
+<script>
+    // ডিলিট হওয়া ইংলিশ লজিক রিকভারি
+    function activateEnglishAI() {
+        const speech = new SpeechSynthesisUtterance("Welcome back, Chairman Antor. The Global English version has been successfully restored to your new index file.");
+        speech.lang = 'en-US';
+        speech.rate = 0.9;
+        window.speechSynthesis.speak(speech);
+        alert("SCT AI: English Mode Restored & Active.");
+    }
+
+    function connectGlobalVault() {
+        alert("Connecting to Wallet: 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89");
+    }
+</script>
 
 
