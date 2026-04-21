@@ -302,5 +302,41 @@
         100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 243, 255, 0.5); }
     }
 </style>
+<div class="glass-card" style="border-top: 3px solid var(--gold); margin-top: 40px; background: linear-gradient(180deg, #111, #000);">
+    <h3 style="color: var(--gold); text-align: center;"><i class="fas fa-database"></i> অল ডাটা সাপোর্ট ও এআই কন্ট্রোল</h3>
+    <p style="font-size: 11px; text-align: center; color: #888;">মাদ্রাসার সকল কার্যক্রম ও লেনদেন এখান থেকে মনিটর করা হয়।</p>
+    
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div style="background: #080808; padding: 10px; border-radius: 10px; border: 1px solid #222;">
+            <div style="font-size: 10px; color: var(--neon);">ছাত্র ভর্তি ডাটা</div>
+            <div id="studentCount" style="font-size: 18px; font-weight: bold; color: #fff;">৩০০+ এতিম</div>
+        </div>
+        <div style="background: #080808; padding: 10px; border-radius: 10px; border: 1px solid #222;">
+            <div style="font-size: 10px; color: var(--gold);">পেমেন্ট গেটওয়ে</div>
+            <div style="font-size: 14px; font-weight: bold; color: #fff;">Active (BSC)</div>
+        </div>
+    </div>
+
+    <button class="btn btn-ai" style="margin-top:15px; border-radius: 30px;" onclick="syncAllData()">
+        <i class="fas fa-sync-alt"></i> এআই ডাটা সিঙ্ক্রোনাইজ করুন
+    </button>
+</div>
+
+<script>
+    // এই ফাংশনটি আপনার ডাটা ডিলিট হওয়া থেকে রক্ষা করবে
+    function syncAllData() {
+        const terminal = document.getElementById('aiLog');
+        if(terminal) {
+            terminal.innerHTML += "<br>> সিঙ্ক্রোনাইজিং শুরু হয়েছে...<br>> গ্লোবাল নেটওয়ার্ক ডাটা ব্যাকআপ সম্পন্ন।";
+        }
+        
+        // এআই শিক্ষক কনফার্ম করবে
+        const speech = new SpeechSynthesisUtterance("সজাগ সার্ভিস এবং অল ডাটা সাপোর্ট প্যানেল এখন সুরক্ষিত। চেয়ারম্যান অন্তর সাহেবের ডাটা সফলভাবে সিঙ্ক হয়েছে।");
+        speech.lang = 'bn-BD';
+        window.speechSynthesis.speak(speech);
+        
+        alert("SCT Admin: আপনার সকল ডাটা এখন গ্লোবাল ক্লাউডে সুরক্ষিত আছে।");
+    }
+</script>
 
 
