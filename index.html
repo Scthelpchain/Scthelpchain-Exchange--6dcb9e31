@@ -173,7 +173,93 @@ const studentData = {
 
 </script>
 
+</body><!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HELPCHAIN | GLOBAL AI MADRASA</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --gold: #FFD700; --neon: #00f3ff; --bg: #050505; }
+        body { background: var(--bg); color: #fff; font-family: 'Arial', sans-serif; margin: 0; padding: 0; }
+        .header { background: #000; padding: 30px 15px; text-align: center; border-bottom: 2px solid var(--gold); }
+        .container { padding: 20px; max-width: 1000px; margin: auto; }
+        .card { background: rgba(255,255,255,0.03); border: 1px solid #222; border-radius: 20px; padding: 25px; margin-bottom: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .vault-box { background: #000; padding: 15px; border-radius: 10px; border: 1px dashed var(--neon); color: var(--neon); font-family: monospace; word-break: break-all; margin: 15px 0; font-size: 14px; cursor: pointer; }
+        .btn { width: 100%; padding: 18px; border-radius: 12px; border: none; font-weight: 900; cursor: pointer; text-transform: uppercase; transition: 0.3s; margin-top: 10px; }
+        .btn-gold { background: var(--gold); color: #000; }
+        .btn-wa { background: #25D366; color: #fff; text-decoration: none; display: block; text-align: center; box-sizing: border-box; }
+        input { width: 100%; padding: 15px; margin: 10px 0; background: #111; border: 1px solid #333; color: #fff; border-radius: 10px; box-sizing: border-box; font-size: 18px; text-align: center; }
+        .footer { text-align: center; padding: 40px; color: #555; font-size: 11px; border-top: 1px solid #111; line-height: 1.8; }
+        .ai-badge { color: var(--gold); font-size: 12px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div style="font-size: 28px; font-weight: 900; color: var(--gold);">SCT HELPCHAIN GLOBAL</div>
+    <div class="ai-badge">AI MADRASA & WEB3 GATEWAY</div>
+</div>
+
+<div class="container">
+    
+    <div class="card">
+        <h3 style="margin-top:0;"><i class="fas fa-brain"></i> AI কন্ট্রোল রুম</h3>
+        <p style="color:#888; font-size:14px;">মাখরাজ ও তাজবিদ বিশ্লেষণের জন্য এআই ভয়েস চেকার সচল আছে।</p>
+        <button class="btn" style="background:#222; color:#fff;" onclick="alert('AI Scanning System Active')">এআই সার্ভিস চালু করুন</button>
+        <a href="https://wa.me/8801974522152" class="btn btn-wa"><i class="fab fa-whatsapp"></i> সরাসরি হোয়াটসঅ্যাপ সাপোর্ট</a>
+    </div>
+
+    <div class="card" style="border-color: var(--gold);">
+        <h3 style="margin-top:0; color: var(--gold);"><i class="fas fa-global"></i> গ্লোবাল পেমেন্ট গেটওয়ে</h3>
+        <p style="font-size:13px;">যেকোনো ডিজিটাল এক্সচেঞ্জ বা ওয়ালেট থেকে সরাসরি নিচের অ্যাড্রেসে ফান্ড ট্রান্সফার করুন।</p>
+        
+        <div class="vault-box" id="vAddress" onclick="copyAddr()">0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89</div>
+        <p style="font-size:10px; color:var(--gold);">* ক্লিক করলে অ্যাড্রেসটি কপি হয়ে যাবে</p>
+
+        <input type="number" id="amt" placeholder="Amount (ETH / BNB / USDT)">
+        <button class="btn btn-gold" onclick="directPay()">এখুনি ফান্ড প্রদান করুন</button>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>চেয়ারম্যান: হাবিবুর রহমান অন্তর (হিরো এইচ আর অন্তর)</p>
+    <p>সহকারী সম্পাদক (ক্রাইম): জাতীয় দৈনিক ভোরের চেতনা</p>
+    <p>© 2026 SCTHELPCHAIN INTERNATIONAL | ALL RIGHTS RESERVED</p>
+</div>
+
+<script>
+    function copyAddr() {
+        const addr = document.getElementById('vAddress').innerText;
+        navigator.clipboard.writeText(addr);
+        alert("অ্যাড্রেস কপি হয়েছে!");
+    }
+
+    async function directPay() {
+        const val = document.getElementById('amt').value;
+        if(!val || val <= 0) { alert("সঠিক পরিমাণ দিন।"); return; }
+        
+        if (window.ethereum) {
+            const provider = new ethers.providers.Web3Provider(window.ethereum);
+            await provider.send("eth_requestAccounts", []);
+            const signer = provider.getSigner();
+            try {
+                const tx = { to: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89", value: ethers.utils.parseEther(val) };
+                await signer.sendTransaction(tx);
+                alert("ট্রানজ্যাকশন প্রসেস হচ্ছে...");
+            } catch (e) { alert("ট্রানজ্যাকশন বাতিল হয়েছে।"); }
+        } else {
+            alert("আপনার ডিজিটাল ওয়ালেট অ্যাপ থেকে সরাসরি ওই অ্যাড্রেসে পাঠান।");
+        }
+    }
+</script>
+
 </body>
+</html>
+
 </html>
 
 </html>
