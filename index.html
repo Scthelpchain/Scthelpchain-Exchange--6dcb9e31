@@ -3,45 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCT HELPCHAIN | GLOBAL GATEWAY</title>
+    <title>SCT HELPCHAIN | GLOBAL AI MADRASA</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background: #000; color: #FFD700; font-family: sans-serif; text-align: center; padding-top: 100px; margin: 0; }
-        .card { border: 1px solid #FFD700; display: inline-block; padding: 40px; border-radius: 20px; background: rgba(255,215,0,0.05); }
-        .vault { font-family: monospace; color: #00f3ff; font-size: 14px; margin: 20px 0; }
-        .btn { background: #FFD700; color: #000; padding: 15px 30px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; text-transform: uppercase; }
-        .footer { margin-top: 30px; color: #fff; font-size: 14px; }
+        :root { --gold: #FFD700; --neon: #00f3ff; --bg: #050505; }
+        body { background: radial-gradient(circle, #1a1a1a 0%, #000 100%); color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow: hidden; }
+        .master-card { width: 92%; max-width: 480px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,215,0,0.3); border-radius: 35px; padding: 40px; text-align: center; backdrop-filter: blur(25px); box-shadow: 0 0 50px rgba(0, 243, 255, 0.1); }
+        .logo { font-size: 26px; font-weight: 900; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; letter-spacing: 2px; }
+        .vault-box { background: #000; padding: 15px; border-radius: 12px; border: 1px dashed var(--neon); font-family: monospace; font-size: 11px; color: var(--neon); margin-bottom: 25px; word-break: break-all; }
+        input { width: 100%; padding: 18px; background: rgba(0,0,0,0.5); border: 1px solid #333; border-radius: 15px; color: #fff; font-size: 20px; text-align: center; margin-bottom: 20px; box-sizing: border-box; outline: none; }
+        .btn-main { width: 100%; padding: 20px; background: var(--gold); color: #000; border: none; border-radius: 15px; font-weight: 900; font-size: 17px; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+        .bkash-footer { margin-top: 30px; padding: 15px; border-radius: 15px; background: rgba(226, 19, 110, 0.1); border: 1px solid rgba(226, 19, 110, 0.3); color: #e2136e; font-weight: bold; }
+        .legal-footer { font-size: 10px; color: #666; margin-top: 30px; border-top: 1px solid #222; padding-top: 20px; line-height: 1.6; }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>SCT HELPCHAIN</h1>
-        <p>Global Payment Gateway Active</p>
-        <div class="vault">Vault: 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89</div>
-        <input type="number" id="amt" style="width:80%; padding:10px; margin-bottom:20px; border-radius:5px; text-align:center;" placeholder="ETH / BNB Amount">
-        <br>
-        <button class="btn" onclick="startPay()">Execute Fund</button>
-        <div class="footer">
-            Bkash (Personal): 01974522152<br><br>
-            <strong>CHAIRMAN: HABIBUR RAHMAN ANTOR</strong>
-        </div>
-    </div>
-
-    <script>
-        async function startPay() {
-            const val = document.getElementById('amt').value;
-            if (window.ethereum) {
-                try {
-                    const provider = new ethers.providers.Web3Provider(window.ethereum);
-                    await provider.send("eth_requestAccounts", []);
-                    const signer = provider.getSigner();
-                    const tx = { to: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89", value: ethers.utils.parseEther(val) };
-                    await signer.sendTransaction(tx);
-                    alert("Processing Success!");
-                } catch (e) { alert("Failed or Cancelled."); }
-            } else { alert("Please Install MetaMask."); }
-        }
-    </script>
+<div class="master-card">
+    <div class="logo">SCT HELPCHAIN</div>
+    <div style="color:var(--neon); margin-bottom:20px; font-size:12px;">GLOBAL AI MADRASA GATEWAY</div>
+    <div class="vault-box">0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89</div>
+    <input type="number" id="amt" placeholder="Amount ETH/BNB">
+    <button class="btn-main" onclick="startPay()">EXECUTE FUND</button>
+    <div class="bkash-footer">Bkash: 01974522152</div>
+    <div class="legal-footer">CHAIRMAN: HABIBUR RAHMAN ANTOR<br>© 2026 SCTHELPCHAIN INTERNATIONAL</div>
+</div>
+<script>
+    async function startPay() {
+        const val = document.getElementById('amt').value;
+        if (window.ethereum) {
+            try {
+                const provider = new ethers.providers.Web3Provider(window.ethereum);
+                await provider.send("eth_requestAccounts", []);
+                const signer = provider.getSigner();
+                const tx = { to: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89", value: ethers.utils.parseEther(val) };
+                await signer.sendTransaction(tx);
+                alert("Success!");
+            } catch (e) { alert("Failed."); }
+        } else { alert("Install MetaMask."); }
+    }
+</script>
 </body>
 </html>
 
