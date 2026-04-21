@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,68 +7,74 @@
     <title>SCT HELPCHAIN | GLOBAL AI MADRASA</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root { --gold: #FFD700; --neon: #00f3ff; --bg: #050505; }
-        body { background: var(--bg); color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
-        .master-card { width: 95%; max-width: 480px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,215,0,0.3); border-radius: 25px; padding: 40px; text-align: center; backdrop-filter: blur(15px); box-shadow: 0 0 50px rgba(0, 243, 255, 0.1); }
+        body { background: radial-gradient(circle, #1a1a1a 0%, #000 100%); color: #fff; font-family: 'Segoe UI', sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; }
+        .master-card { width: 92%; max-width: 480px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,215,0,0.3); border-radius: 30px; padding: 40px; text-align: center; backdrop-filter: blur(20px); box-shadow: 0 0 50px rgba(0, 243, 255, 0.1); }
         .logo { font-size: 28px; font-weight: 900; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; letter-spacing: 2px; }
-        .badge { background: rgba(0, 243, 255, 0.1); color: var(--neon); padding: 5px 15px; border-radius: 20px; font-size: 11px; border: 1px solid var(--neon); display: inline-block; margin-bottom: 20px; }
-        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 25px 0; }
-        .stat-box { background: rgba(255,255,255,0.05); padding: 20px; border-radius: 15px; border: 1px solid rgba(255, 215, 0, 0.1); }
-        .stat-box i { font-size: 24px; color: var(--gold); margin-bottom: 10px; display: block; }
-        .stat-box b { font-size: 22px; color: #fff; }
-        .stat-box span { display: block; font-size: 10px; color: #888; text-transform: uppercase; margin-top: 5px; }
-        .vault { background: #000; padding: 15px; border-radius: 10px; border: 1px dashed var(--neon); font-family: monospace; font-size: 12px; color: var(--neon); margin-bottom: 25px; word-break: break-all; }
-        input { width: 100%; padding: 18px; background: rgba(0,0,0,0.5); border: 1px solid #333; border-radius: 12px; color: #fff; font-size: 20px; text-align: center; margin-bottom: 20px; box-sizing: border-box; }
-        .btn { width: 100%; padding: 20px; background: var(--gold); color: #000; border: none; border-radius: 12px; font-weight: 900; font-size: 16px; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
-        .btn:hover { background: #fff; transform: scale(1.02); }
-        .bkash { margin-top: 30px; padding: 15px; border-radius: 12px; background: rgba(226, 19, 110, 0.05); border: 1px solid rgba(226, 19, 110, 0.2); color: #e2136e; font-weight: bold; }
-        .footer { font-size: 10px; color: #555; margin-top: 30px; line-height: 1.6; border-top: 1px solid #222; padding-top: 20px; }
+        .badge { background: rgba(0, 243, 255, 0.1); color: var(--neon); padding: 6px 16px; border-radius: 20px; font-size: 11px; border: 1px solid var(--neon); display: inline-block; margin-bottom: 25px; text-transform: uppercase; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px; }
+        .stat-box { background: rgba(255, 255, 255, 0.05); padding: 20px; border-radius: 20px; border: 1px solid rgba(255, 215, 0, 0.1); }
+        .stat-box i { font-size: 24px; color: var(--gold); margin-bottom: 10px; }
+        .stat-box b { display: block; font-size: 22px; color: #fff; }
+        .stat-box label { font-size: 10px; color: #777; text-transform: uppercase; }
+        .vault-box { background: #000; padding: 15px; border-radius: 12px; border: 1px dashed var(--neon); font-family: monospace; font-size: 12px; color: var(--neon); margin-bottom: 25px; word-break: break-all; }
+        input { width: 100%; padding: 18px; background: rgba(0,0,0,0.5); border: 1px solid #333; border-radius: 15px; color: #fff; font-size: 18px; text-align: center; margin-bottom: 20px; box-sizing: border-box; }
+        .btn-main { width: 100%; padding: 20px; background: var(--gold); color: #000; border: none; border-radius: 15px; font-weight: 900; font-size: 16px; cursor: pointer; text-transform: uppercase; transition: 0.3s; }
+        .btn-main:hover { background: #fff; transform: scale(1.02); box-shadow: 0 0 20px rgba(255,215,0,0.4); }
+        .bkash-footer { margin-top: 30px; padding: 15px; border-radius: 15px; background: rgba(226, 19, 110, 0.05); border: 1px solid rgba(226, 19, 110, 0.2); }
+        .bkash-footer b { color: #e2136e; font-size: 18px; }
+        .legal-footer { font-size: 10px; color: #555; margin-top: 30px; border-top: 1px solid #222; padding-top: 20px; line-height: 1.6; }
     </style>
 </head>
 <body>
 
 <div class="master-card">
     <div class="logo">SCT HELPCHAIN</div>
-    <div class="badge">GLOBAL NETWORK ACTIVE</div>
+    <div class="badge">World Active Engine</div>
 
     <div class="stats-grid">
-        <div class="stat-box"><i class="fas fa-user-graduate"></i><b>300+</b><span>Students</span></div>
-        <div class="stat-box"><i class="fas fa-microchip"></i><b>AI</b><span>Education</span></div>
+        <div class="stat-box"><i class="fas fa-graduation-cap"></i><b>300+</b><label>Students</label></div>
+        <div class="stat-box"><i class="fas fa-microchip"></i><b>AI</b><label>Enabled</label></div>
     </div>
 
-    <div class="vault">Vault: 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89</div>
-
-    <input type="number" id="amt" placeholder="0.00 ETH / BNB">
-    <button class="btn" onclick="sendSCT()">Connect & Execute Fund</button>
-
-    <div class="bkash">
-        <label style="font-size: 9px; color: #888;">LOCAL BKASH (PERSONAL)</label><br>
-        01974522152
+    <div class="vault-box">
+        0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89
     </div>
 
-    <div class="footer">
+    <input type="number" id="cryptoVal" placeholder="0.00 ETH / BNB">
+    <button class="btn-main" onclick="startSctTransaction()">
+        <i class="fas fa-wallet"></i> Execute Transaction
+    </button>
+
+    <div class="bkash-footer">
+        <label style="font-size: 10px; color: #888;">LOCAL BKASH (PERSONAL)</label><br>
+        <b>01974522152</b>
+    </div>
+
+    <div class="legal-footer">
         <strong>CHAIRMAN: HABIBUR RAHMAN ANTOR</strong><br>
-        TIN: 129836322560 | SECURE WEB3 GATEWAY<br>
+        TIN: 129836322560 | SECURE BLOCKCHAIN SYSTEM<br>
         © 2026 SCTHELPCHAIN INTERNATIONAL
     </div>
 </div>
 
 <script>
-    async function sendSCT() {
-        const amount = document.getElementById('amt').value;
-        const target = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
+    async function startSctTransaction() {
+        const amount = document.getElementById('cryptoVal').value;
+        const vault = "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89";
         if (typeof window.ethereum !== 'undefined') {
             try {
                 const provider = new ethers.providers.Web3Provider(window.ethereum);
                 await provider.send("eth_requestAccounts", []);
                 const signer = provider.getSigner();
                 if (!amount || amount <= 0) { alert("Please enter amount."); return; }
-                const tx = { to: target, value: ethers.utils.parseEther(amount) };
+                const tx = { to: vault, value: ethers.utils.parseEther(amount) };
                 const transaction = await signer.sendTransaction(tx);
-                alert("Success! Tx ID: " + transaction.hash);
-            } catch (err) { alert("Transaction Failed."); }
-        } else { alert("Please install MetaMask."); }
+                alert("Success! Hash: " + transaction.hash.substring(0, 15));
+            } catch (err) { alert("Execution Failed."); }
+        } else { alert("Please use MetaMask."); }
     }
 </script>
 
