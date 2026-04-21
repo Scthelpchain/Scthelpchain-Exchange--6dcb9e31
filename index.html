@@ -150,7 +150,27 @@
         } else {
             alert("অনুগ্রহ করে আপনার ফোনে MetaMask অ্যাপটি ওপেন করুন।");
         }
-    }
+    }// ১. এআই কন্ট্রোল রুম লজিক (AI Voice Monitor)
+function startAIControl() {
+    console.log("AI Madrasa Monitoring Active...");
+    // এটি ছাত্রদের মাখরাজ ঠিক আছে কি না তা যাচাই করার সিগন্যাল পাঠাবে
+    alert("SCT AI: ছাত্রদের তিলাওয়াত স্ক্যানিং শুরু হয়েছে।");
+}
+
+// ২. হোয়াটসঅ্যাপ সার্ভিস সেন্টার কানেকশন
+function connectToService() {
+    const message = "আসসালামু আলাইকুম, আমি SCT HelpChain সার্ভিস সেন্টার থেকে বলছি।";
+    window.open(`https://wa.me/8801974522152?text=${encodeURIComponent(message)}`, '_blank');
+}
+
+// ৩. মাদ্রাসা স্টুডেন্ট ডাটা ম্যানেজমেন্ট
+const studentData = {
+    total: 300,
+    activeClasses: 12,
+    location: "Purana Paltan, Dhaka",
+    chairman: "Hero H R Antor"
+};
+
 </script>
 
 </body>
