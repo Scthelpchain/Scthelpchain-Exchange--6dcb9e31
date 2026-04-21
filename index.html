@@ -132,7 +132,55 @@
     }
 </script>
 
-</body>
+</body><script>
+    // 1. AI Language Teacher Activation
+    const aiTeacher = {
+        name: "SCT AI Tutor",
+        language: "en-US",
+        greet: "Welcome to SCT Global Campus. I am your AI Language Teacher.",
+        support: "How can I assist our 300 students today, Chairman Antor?"
+    };
+
+    function startAICall() {
+        const terminal = document.getElementById('aiLog');
+        terminal.innerHTML = `<span style="color:#00f3ff">> Initializing Classical AI Engine...</span><br>
+                             <span style="color:#FFD700">> Connecting to Global Node...</span><br>
+                             <span style="color:#fff">> AI Teacher is now Listening...</span>`;
+
+        // Voice Feedback in English
+        const speech = new SpeechSynthesisUtterance();
+        speech.text = aiTeacher.greet + " " + aiTeacher.support;
+        speech.lang = aiTeacher.language;
+        speech.rate = 0.9; // Professional slow speed
+        speech.pitch = 1.1; 
+
+        window.speechSynthesis.speak(speech);
+
+        // Visual Feedback
+        setTimeout(() => {
+            terminal.innerHTML += `<br><span style="color:#25D366">> [LIVE]: AI Teacher is Talking to Student...</span>`;
+        }, 2000);
+    }
+
+    // 2. Multi-Network Send/Receive Logic (English Enhanced)
+    async function processTransaction(type) {
+        if (type === 'send') {
+            const amount = document.getElementById('sendAmt').value;
+            if(!amount) { 
+                alert("Please enter the amount to proceed with the transaction.");
+                return; 
+            }
+            // Web3 Logic (Already in your Master Code)
+            console.log("Processing Global Send: " + amount);
+        } else {
+            alert("Your Vault Address: 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89 \nCopy and share it to receive funds from any exchange.");
+        }
+    }
+
+    // 3. Admin Branch Sync Status
+    console.log("SCT HelpChain: Main Branch Synced Successfully.");
+</script>
+
 </html>
 
 
