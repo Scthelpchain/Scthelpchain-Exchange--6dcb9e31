@@ -73,6 +73,54 @@
             <button class="btn" style="flex:1; background:#222; color:#fff;" onclick="alert('আপনার ওয়ালেট অ্যাড্রেসটি দাতার সাথে শেয়ার করুন।')">রিসিভ</button>
         </div>
     </div>
+<div class="glass-card" style="border-left: 5px solid var(--neon);">
+    <h3 style="margin:0;"><i class="fas fa-handshake"></i> ব্র্যান্ড পার্টনারশিপ</h3>
+    <p style="font-size: 13px; color: #aaa;">SCTHELPCHAIN - **Swapnochoccitrow** এর একটি সহযোগী প্রতিষ্ঠান।</p>
+</div>
+
+<div class="glass-card">
+    <h3><i class="fas fa-network-wired"></i> ওয়ানডে গ্লোবাল নেটওয়ার্ক</h3>
+    <p style="font-size: 12px; color: #888;">নিজস্ব মোবাইল ডাটা ও গ্লোবাল নেটওয়ার্ক সার্ভিস এখানে সচল করা হচ্ছে।</p>
+    <div style="display:flex; gap:10px;">
+        <button class="btn btn-ai" style="flex:1;">ডাটা সার্ভিস চেক</button>
+        <button class="btn btn-gold" style="flex:1;">নেটওয়ার্ক স্ট্যাটাস</button>
+    </div>
+</div>
+
+<div class="glass-card" style="border: 2px solid var(--neon);">
+    <h3><i class="fas fa-user-plus"></i> নতুন ছাত্র ভর্তি ও এআই সাপোর্ট</h3>
+    <p style="font-size: 13px;">অসহায়, পথশিশু ও প্রতিবন্ধীদের জন্য **১০০% ফ্রি সার্ভিস**।</p>
+    <button class="btn btn-gold" id="aiActivationBtn" onclick="activateAIService()">
+        <i class="fas fa-bolt"></i> এআই সজাগ সার্ভিস চালু করুন
+    </button>
+    <div id="enrollmentStatus" style="font-size: 11px; color: var(--neon); margin-top: 10px; display:none;">
+        > এআই ভর্তির কার্যক্রম শুরু করেছে... <br> > গ্লোবাল নেটওয়ার্ক: একটিভ।
+    </div>
+</div>
+
+<script>
+    // এআই সজাগ সার্ভিস ও কলিং লজিক
+    function activateAIService() {
+        const btn = document.getElementById('aiActivationBtn');
+        const status = document.getElementById('enrollmentStatus');
+        const aiLog = document.getElementById('aiStatus'); // আপনার আগের টার্মিনাল
+
+        status.style.display = 'block';
+        btn.innerHTML = "<i class='fas fa-sync fa-spin'></i> এআই প্রসেসিং...";
+        
+        // এআই ভয়েস কলিং (Voice Call Simulation)
+        const speech = new SpeechSynthesisUtterance();
+        speech.text = "আসসালামু আলাইকুম। এস সিটি হেল্প চেইন এআই সজাগ সার্ভিস এবং ভর্তি কার্যক্রম এখন সচল। অসহায় ও মেধাবী ছাত্রদের ফ্রি সেবা নিশ্চিত করা হচ্ছে।";
+        speech.lang = 'bn-BD';
+        speech.rate = 1.0;
+        window.speechSynthesis.speak(speech);
+
+        setTimeout(() => {
+            btn.innerHTML = "<i class='fas fa-check-circle'></i> সার্ভিস এখন লাইভ";
+            aiLog.innerHTML += "<br>> [ALERT]: AI সজাগ সার্ভিস অ্যাক্টিভেটেড।<br>> ছাত্রদের ভর্তি শুরু হয়েছে।";
+        }, 3000);
+    }
+</script>
 
     <div class="glass-card">
         <h3><i class="fas fa-credit-card"></i> ইন্টারন্যাশনাল মাস্টার কার্ড</h3>
