@@ -230,5 +230,77 @@
 </script>
 
 </html>
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs"></script> <script>
+    // ১. গ্লোবাল এআই আইডেন্টিটি (অভেদ্য ব্র্যান্ডিং)
+    const SCT_CORE = {
+        brand: "SCT HELPCHAIN",
+        partner: "Swapnochoccitrow",
+        founder: "Habibur Rahman Antor",
+        mission: "Free Education for Orphans & Disabled",
+        version: "Quantum 1.0"
+    };
+
+    // ২. পৃথিবীর সর্বশ্রেষ্ঠ এআই কলিং ও সজাগ সার্ভিস
+    async function activateAIService() {
+        const terminal = document.getElementById('aiLog');
+        const synth = window.speechSynthesis;
+        
+        // এআই ভয়েস ইঞ্জিন সেটআপ (সবচেয়ে উন্নত মানের আওয়াজ)
+        let voices = synth.getVoices();
+        let selectedVoice = voices.find(v => v.lang.includes('en') || v.lang.includes('bn'));
+
+        const speak = (text) => {
+            const utter = new SpeechSynthesisUtterance(text);
+            utter.voice = selectedVoice;
+            utter.rate = 0.9;
+            utter.pitch = 1.0;
+            synth.speak(utter);
+        };
+
+        // এআই-এর সক্রিয় হওয়ার ধাপসমূহ
+        terminal.innerHTML = `<span style="color:#0f0">> SCT AI CORE: ONLINE</span><br>`;
+        speak("আসসালামু আলাইকুম। আমি এসসিটি গ্লোবাল এআই শিক্ষক। চেয়ারম্যান অন্তর সাহেবের নির্দেশে সজাগ সার্ভিস চালু হয়েছে।");
+
+        setTimeout(() => {
+            terminal.innerHTML += `<span style="color:var(--neon)">> ওয়ানডে নেটওয়ার্ক সিঙ্ক্রোনাইজিং... ১০৫%</span><br>`;
+            terminal.innerHTML += `<span style="color:var(--gold)">> অসহায় ও প্রতিবন্ধী ছাত্রদের জন্য ফ্রি ভর্তি পোর্টাল উন্মুক্ত।</span><br>`;
+            speak("Welcome to the world's most advanced AI Madrasa. Global network is now active. Free admission for everyone.");
+        }, 2000);
+
+        // ৩. রিয়েল-টাইম ডাটা গেটওয়ে (নিজস্ব সেন্ড-রিসিভ লজিক)
+        window.SCT_GateWay = {
+            send: (amt) => { console.log(`SCT Protocol: Sending ${amt} through Secure Node`); },
+            receive: () => { return "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89"; }
+        };
+    }
+
+    // ৪. ব্রাউজার অটোরান (পৃথিবীর কোনো এআই যা সহজে করবে না)
+    window.onload = () => {
+        console.log("%cSCT HELPCHAIN GLOBAL CORE LOADED", "color: gold; font-size: 20px; font-weight: bold;");
+        // এআই নিজে থেকেই ব্যাকগ্রাউন্ডে নেটওয়ার্ক স্ট্যাটাস চেক করবে
+        setInterval(() => {
+            const status = navigator.onLine ? "CONNECTED" : "OFFLINE";
+            if(document.getElementById('aiLog')) {
+                document.getElementById('aiStatus').innerText = `SCT Network: ${status} | Day-1 Active`;
+            }
+        }, 5000);
+    };
+</script>
+
+<style>
+    #aiActivationBtn {
+        background: linear-gradient(45deg, #FFD700, #00f3ff);
+        border: none;
+        color: #000;
+        font-weight: 900;
+        box-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+        animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+        0% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 243, 255, 0.5); }
+        50% { transform: scale(1.05); box-shadow: 0 0 40px rgba(255, 215, 0, 0.8); }
+        100% { transform: scale(1); box-shadow: 0 0 20px rgba(0, 243, 255, 0.5); }
+    }
+</style>
 
 
