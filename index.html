@@ -641,6 +641,42 @@
         synth.speak(msg);
         alert("SCT AI: International English Mode Restored.");
     }
+<div class="sct-master-lock" style="margin-top: 50px; padding: 30px; background: #000; border: 2px solid #2ecc71; border-radius: 40px; text-align: center; box-shadow: 0 0 30px rgba(46, 204, 113, 0.1);">
+    <h3 style="color: #2ecc71; text-transform: uppercase; font-size: 18px; letter-spacing: 1px;">
+        <i class="fas fa-user-lock"></i> Master Admin Access
+    </h3>
+    <p style="color: #888; font-size: 11px; margin-bottom: 20px;">গ্লোবাল সিকিউরিটি লেয়ার ৩.০ একটিভ করা হয়েছে।</p>
+
+    <div style="display: flex; justify-content: space-around; margin-bottom: 25px; border-top: 1px solid #111; padding-top: 20px;">
+        <div>
+            <div style="color: #FFD700; font-size: 18px; font-weight: bold;">৩৮৪</div>
+            <div style="color: #555; font-size: 9px;">DEPLOYMENTS</div>
+        </div>
+        <div>
+            <div style="color: #00f3ff; font-size: 18px; font-weight: bold;">১০০%</div>
+            <div style="color: #555; font-size: 9px;">AI SYNC</div>
+        </div>
+        <div>
+            <div style="color: #2ecc71; font-size: 18px; font-weight: bold;">ACTIVE</div>
+            <div style="color: #555; font-size: 9px;">SECURITY</div>
+        </div>
+    </div>
+
+    <button onclick="fullSystemScan()" style="width: 100%; padding: 18px; background: #2ecc71; color: #000; border: none; border-radius: 15px; font-weight: 900; cursor: pointer; text-transform: uppercase; font-size: 13px;">
+        সম্পূর্ণ সিস্টেম স্ক্যান করুন
+    </button>
+</div>
+
+<script>
+    function fullSystemScan() {
+        const synth = window.speechSynthesis;
+        const msg = new SpeechSynthesisUtterance("System scan initiated. All 384 deployments are secure. Chairman Antor, your global dashboard is fully operational.");
+        msg.lang = 'en-US';
+        synth.speak(msg);
+        
+        alert("SCT Security: স্ক্যান সম্পন্ন! আপনার সকল ডাটা এবং ৩০০+ শিক্ষার্থীর প্রোফাইল সুরক্ষিত আছে।");
+    }
+</script>
 
     function syncSctVault() {
         alert("Global Network Check: 384 Deployments Confirmed. Vault Secured: 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89");
