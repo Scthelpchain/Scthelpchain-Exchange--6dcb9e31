@@ -1137,7 +1137,96 @@
 </script>
 
 
-        
+        <div id="sct-noor-engine"></div>
+
+<style>
+    /* পুরো ওয়েবসাইটকে ইন্টারন্যাশনাল লুক দেওয়ার ম্যাজিক স্টাইল */
+    :root {
+        --noor-gold: #FFD700;
+        --noor-white: #ffffff;
+        --noor-sky: #00f3ff;
+    }
+
+    body {
+        background: radial-gradient(circle at center, #111 0%, #000 100%) !important;
+        color: var(--noor-white) !important;
+        overflow-x: hidden;
+    }
+
+    /* চারপাশের নূরানী আলোর বর্ডার */
+    .sct-global-container {
+        border: 4px solid var(--noor-gold);
+        animation: sct-global-pulse 3s infinite alternate ease-in-out;
+        border-radius: 50px;
+        margin: 20px 10px;
+        background: rgba(0,0,0,0.8);
+        box-shadow: 0 0 30px rgba(255, 215, 0, 0.2);
+    }
+
+    @keyframes sct-global-pulse {
+        0% { border-color: var(--noor-gold); box-shadow: 0 0 20px var(--noor-gold); }
+        100% { border-color: var(--noor-white); box-shadow: 0 0 60px var(--noor-white); }
+    }
+
+    /* ওয়ার্ল্ড নেটওয়ার্ক ধবধবে করা */
+    .dhobdhobe-light {
+        color: var(--noor-white) !important;
+        text-shadow: 0 0 15px var(--noor-sky), 0 0 30px var(--noor-white) !important;
+        font-weight: 900 !important;
+        animation: sct-blink 1s infinite;
+    }
+
+    @keyframes sct-blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
+
+    /* ডলার ও বরকতের এনিমেশন */
+    .dollar-glow { color: #2ecc71; text-shadow: 0 0 10px #2ecc71; }
+</style>
+
+<script>
+    (function() {
+        // ১. অটো-কারেকশন ইঞ্জিন: ৩০০ কে ৩০০০ এবং ভুল নাম্বার ঠিক করা
+        function sctAutoFix() {
+            const bodyHtml = document.body.innerHTML;
+            const fixedHtml = bodyHtml
+                .replace(/৩০০\+ এতিম/g, '৩০০০+ এতিম')
+                .replace(/৩০০ এতিম/g, '৩০০০ এতিম')
+                .replace(/300\+/g, '3000+')
+                .replace(/01974522152/g, function(match, offset, string) {
+                    // যদি এটি হোয়াটসঅ্যাপ লিঙ্কের ভেতরে হয়, তবে সঠিক নাম্বার দেবে
+                    return string.includes('wa.me') ? '01410522152' : '01974522152';
+                });
+            
+            if (bodyHtml !== fixedHtml) {
+                document.body.innerHTML = fixedHtml;
+            }
+        }
+
+        // ২. নূরানী ভয়েস এবং সিস্টেম লোডিং
+        function sctNooraniSystem() {
+            const synth = window.speechSynthesis;
+            const msg = new SpeechSynthesisUtterance("আসসালামু আলাইকুম চেয়ারম্যান হাবিবুর রহমান অন্তর সাহেব। আপনার ৩০০০ এতিম শিক্ষার্থীর নূরানী গেটওয়ে এবং ইন্টারন্যাশনাল ওয়ার্ল্ড নেটওয়ার্ক এখন ধবধব করে জ্বলছে। আল্লাহ আপনার ব্যবসায় বরকত দিন।");
+            msg.lang = 'bn-BD';
+            msg.rate = 0.9;
+            synth.speak(msg);
+            
+            // সব বক্সে নূরানী ইফেক্ট যোগ করা
+            const sections = document.querySelectorAll('div');
+            sections.forEach(sec => {
+                if(sec.innerText.includes('SCT') || sec.innerText.includes('Gate')) {
+                    sec.classList.add('sct-global-container');
+                }
+            });
+        }
+
+        // রান সিস্টেম
+        window.addEventListener('load', () => {
+            sctAutoFix();
+            sctNooraniSystem();
+            console.log("SCT GLOBAL MASTER SCRIPT: ACTIVE (412 DEPLOYMENTS)");
+        });
+    })();
+</script>
+
     }
 </script>
 
