@@ -739,10 +739,49 @@
         msg.lang = 'bn-BD';
         synth.speak(msg);
         
-        // ৩ সেকেন্ড পর হোয়াটসঅ্যাপ ওপেন হবে
+        
+    <div class="sct-support-box" style="margin: 30px 15px; padding: 25px; background: #000; border: 2px solid #25D366; border-radius: 25px; text-align: center; box-shadow: 0 0 20px rgba(37, 211, 102, 0.2);">
+    
+    <h3 style="color: #25D366; font-size: 18px; text-transform: uppercase;">
+        <i class="fab fa-whatsapp"></i> এআই কলিং ও হোয়াটসঅ্যাপ সাপোর্ট
+    </h3>
+
+    <div style="display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 20px;">
+        
+        <button onclick="sctAiVoiceCall()" style="padding: 18px; background: #00f3ff; color: #000; border: none; border-radius: 15px; font-weight: 900; cursor: pointer; text-transform: uppercase; font-size: 12px;">
+            <i class="fas fa-robot"></i> এআই শিক্ষককে কল দিন
+        </button>
+
+        <a href="https://wa.me/8801974522152" style="text-decoration: none;">
+            <button style="width: 100%; padding: 18px; background: #25D366; color: #fff; border: none; border-radius: 15px; font-weight: 900; cursor: pointer; text-transform: uppercase; font-size: 12px;">
+                <i class="fab fa-whatsapp"></i> সরাসরি হোয়াটসঅ্যাপ কল
+            </button>
+        </a>
+
+    </div>
+
+    <p style="color: #666; font-size: 10px; margin-top: 15px; font-style: italic;">
+        আপনার যেকোনো প্রয়োজনে সরাসরি চেয়ারম্যান হাবিবুর রহমান অন্তর সাহেবের সাথে যোগাযোগ করুন।
+    </p>
+</div>
+
+<script>
+    function sctAiVoiceCall() {
+        const synth = window.speechSynthesis;
+        const msg = new SpeechSynthesisUtterance("আসসালামু আলাইকুম। আমি এসসিটি এআই শিক্ষক। আপনার হোয়াটসঅ্যাপ কলটি সরাসরি চেয়ারম্যান হাবিবুর রহমান অন্তর সাহেবের কাছে কানেক্ট করা হচ্ছে।");
+        msg.lang = 'bn-BD';
+        msg.rate = 0.9;
+        synth.speak(msg);
+        
+        // ভয়েস শেষ হওয়ার ৩ সেকেন্ড পর হোয়াটসঅ্যাপ ওপেন হবে
         setTimeout(() => {
             window.open("https://wa.me/8801974522152", "_blank");
-        }, 3000);
+        }, 4000);
+    }
+</script>
+
+
+        
     }
 </script>
 
