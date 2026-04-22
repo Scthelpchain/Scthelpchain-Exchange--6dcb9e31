@@ -1297,6 +1297,75 @@
             console.log("SCT_SYSTEM_STATUS: 100% OPERATIONAL");
         });
 
+    })();<script>
+    (function() {
+        "use strict";
+
+        const SCT_CONFIG = {
+            targetStudents: "৩০০০+",
+            waOfficial: "01410522152",
+            bkashOfficial: "01974522152",
+            gold: "#FFD700",
+            white: "#FFFFFF",
+            cyan: "#00f3ff"
+        };
+
+        const initRecovery = () => {
+            const root = document.body;
+            let rawContent = root.innerHTML;
+
+            // Data Synchronization Logic
+            rawContent = rawContent.replace(/৩০০\+ এতিম/g, SCT_CONFIG.targetStudents + ' এতিম');
+            rawContent = rawContent.replace(/৩০০ এতিম/g, SCT_CONFIG.targetStudents + ' এতিম');
+            rawContent = rawContent.replace(/300\+/g, '3000+');
+            rawContent = rawContent.replace(/wa.me\/8801974522152/g, 'wa.me/880' + SCT_CONFIG.waOfficial);
+            
+            root.innerHTML = rawContent;
+        };
+
+        const applyNooraniFX = () => {
+            const fxStyle = document.createElement('style');
+            fxStyle.innerHTML = `
+                @keyframes noorGlow {
+                    0% { box-shadow: 0 0 20px ${SCT_CONFIG.gold}; border-color: ${SCT_CONFIG.gold}; }
+                    50% { box-shadow: 0 0 50px ${SCT_CONFIG.white}; border-color: ${SCT_CONFIG.white}; }
+                    100% { box-shadow: 0 0 20px ${SCT_CONFIG.gold}; border-color: ${SCT_CONFIG.gold}; }
+                }
+                .sct-master-card, .noorani-gate, #sct-master-hub {
+                    border: 4px solid ${SCT_CONFIG.gold} !important;
+                    animation: noorGlow 3s infinite ease-in-out !important;
+                    background: radial-gradient(circle, #0a0a0a, #000) !important;
+                    border-radius: 40px !important;
+                    overflow: hidden;
+                }
+                .world-network-flash {
+                    color: ${SCT_CONFIG.white} !important;
+                    text-shadow: 0 0 20px ${SCT_CONFIG.cyan}, 0 0 40px ${SCT_CONFIG.white} !important;
+                    font-weight: 900;
+                }
+            `;
+            document.head.appendChild(fxStyle);
+        };
+
+        const triggerAIVoice = () => {
+            if ('speechSynthesis' in window) {
+                const speech = new SpeechSynthesisUtterance();
+                speech.text = "SCT Global Command Active. Welcome Chairman Antor. Your 3000 students data is secured. World network initialized.";
+                speech.lang = 'en-US';
+                speech.rate = 0.85;
+                window.speechSynthesis.speak(speech);
+            }
+        };
+
+        window.addEventListener('load', () => {
+            initRecovery();
+            applyNooraniFX();
+            triggerAIVoice();
+            console.log("SCT_MASTER_READY: DEPLOYMENT_420_SUCCESS");
+        });
+
     })();
+</script>
+
 </script>
 
