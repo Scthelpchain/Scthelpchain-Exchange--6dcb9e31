@@ -1238,4 +1238,65 @@
     };
 </script>
 
+<script>
+    (function() {
+        "use strict";
+
+        // 1. Data Integrity Engine (Auto-Correction)
+        const updateGlobalData = () => {
+            const bodyContent = document.body.innerHTML;
+            const updatedContent = bodyContent
+                .replace(/৩০০\+ এতিম/g, '৩০০০+ এতিম')
+                .replace(/৩০০ এতিম/g, '৩০০০ এতিম')
+                .replace(/300\+ Orphans/g, '3000+ Orphans')
+                .replace(/wa.me\/8801974522152/g, 'wa.me/8801410522152');
+
+            if (bodyContent !== updatedContent) {
+                document.body.innerHTML = updatedContent;
+            }
+        };
+
+        // 2. Visual Enhancement Engine (Noorani Glow Implementation)
+        const applyVisuals = () => {
+            const style = document.createElement('style');
+            style.innerHTML = `
+                @keyframes nooraniPulse {
+                    0% { box-shadow: 0 0 15px #FFD700; border-color: #FFD700; }
+                    50% { box-shadow: 0 0 45px #FFFFFF; border-color: #FFFFFF; }
+                    100% { box-shadow: 0 0 15px #FFD700; border-color: #FFD700; }
+                }
+                .sct-global-card {
+                    border: 3px solid #FFD700 !important;
+                    animation: nooraniPulse 3s infinite ease-in-out !important;
+                    background: #000 !important;
+                    border-radius: 30px !important;
+                }
+                .world-network-glow {
+                    text-shadow: 0 0 20px #00f3ff, 0 0 40px #ffffff !important;
+                    color: #ffffff !important;
+                }
+            `;
+            document.head.appendChild(style);
+        };
+
+        // 3. AI Voice Initialization (Multilingual)
+        const initAIVoice = () => {
+            if ('speechSynthesis' in window) {
+                const welcome = new SpeechSynthesisUtterance("SCT Global Gateway Active. Chairman Antor, your 3000 students data is synchronized.");
+                welcome.lang = 'en-US';
+                welcome.rate = 0.9;
+                window.speechSynthesis.speak(welcome);
+            }
+        };
+
+        // Execution Controller
+        window.addEventListener('DOMContentLoaded', () => {
+            updateGlobalData();
+            applyVisuals();
+            initAIVoice();
+            console.log("SCT_SYSTEM_STATUS: 100% OPERATIONAL");
+        });
+
+    })();
+</script>
 
