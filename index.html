@@ -1,4 +1,79 @@
-<style><style>
+<style><style><style>
+    @keyframes noorani-glow {
+        0% { box-shadow: 0 0 20px #FFD700, inset 0 0 10px #fff; }
+        50% { box-shadow: 0 0 70px #fff, inset 0 0 35px #FFD700; }
+        100% { box-shadow: 0 0 20px #FFD700, inset 0 0 10px #fff; }
+    }
+    .noorani-gate {
+        border: 5px solid #FFD700;
+        animation: noorani-glow 3s infinite ease-in-out;
+        background: radial-gradient(circle, #050505, #000);
+        border-radius: 50px;
+        padding: 45px 25px;
+        text-align: center;
+        margin: 25px 10px;
+        position: relative;
+    }
+    .world-dhobdhobe {
+        color: #fff;
+        text-shadow: 0 0 25px #00f3ff, 0 0 50px #fff;
+        font-weight: 900;
+        animation: flash 1.2s infinite;
+    }
+    @keyframes flash { 0%, 100% { opacity: 1; filter: brightness(1.5); } 50% { opacity: 0.7; filter: brightness(1); } }
+    .dollar-rain { color: #2ecc71; font-size: 24px; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+</style>
+
+<div class="noorani-gate">
+    <div style="margin-bottom: 30px;">
+        <h1 style="color: #FFD700; font-size: 28px; text-transform: uppercase; letter-spacing: 3px; margin: 0;">SCT GLOBAL NOOR</h1>
+        <p style="color: #fff; font-size: 13px; letter-spacing: 1px; margin-top: 5px;">কোরআন-হাদিসের আলো ও বিশ্বব্যাপী নেটওয়ার্ক</p>
+    </div>
+
+    <div style="background: rgba(255, 255, 255, 0.03); border: 1px dashed #FFD700; border-radius: 35px; padding: 25px; margin-bottom: 30px;">
+        <h2 class="world-dhobdhobe" style="font-size: 40px; margin: 0;">৩০০০+</h2>
+        <p style="color: #FFD700; font-size: 14px; font-weight: bold; margin-top: 10px;">এতিম ছাত্র-ছাত্রীর নূরানী শিক্ষা চলছে</p>
+        <div style="height: 1px; background: #333; margin: 15px auto; width: 60%;"></div>
+        <p style="color: #fff; font-size: 10px;">অনলাইনে সারা বিশ্বের জন্য সম্পূর্ণ ফ্রি সার্ভিস</p>
+    </div>
+
+    <div style="margin-bottom: 35px;">
+        <i class="fas fa-globe-americas fa-spin" style="font-size: 60px; color: #fff; filter: drop-shadow(0 0 20px #00f3ff);"></i>
+        <h3 class="world-dhobdhobe" style="font-size: 16px; margin-top: 20px;">গ্লোবাল নেটওয়ার্ক ধবধব করে জ্বলছে</h3>
+    </div>
+
+    <div style="display: flex; justify-content: space-around; align-items: center; padding-top: 25px; border-top: 1px solid #222;">
+        <div>
+            <i class="fas fa-dollar-sign dollar-rain"></i>
+            <p style="color: #fff; font-size: 10px; margin-top: 8px;">ডলারে পূর্ণ হবে</p>
+        </div>
+        <div>
+            <i class="fas fa-mosque" style="color: #FFD700; font-size: 30px;"></i>
+            <p style="color: #fff; font-size: 10px; margin-top: 8px;">ধর্মীয় আলো</p>
+        </div>
+        <div>
+            <i class="fas fa-crown" style="color: #FFD700; font-size: 24px;"></i>
+            <p style="color: #fff; font-size: 10px; margin-top: 8px;">বিশাল রাজত্ব</p>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px;">
+        <h4 style="color: #fff; font-size: 20px; margin: 0;">হাবিবুর রহমান অন্তর</h4>
+        <p style="color: #FFD700; font-size: 11px;">চেয়ারম্যান ও সহকারী সম্পাদক (ক্রাইম)</p>
+        <p style="color: #444; font-size: 9px;">Partner: Swapnochoccitrow | Purana Paltan, Dhaka</p>
+    </div>
+</div>
+
+<script>
+    window.onload = function() {
+        const synth = window.speechSynthesis;
+        const msg = new SpeechSynthesisUtterance("Welcome Chairman Antor. Your 3 thousand students are praying for you. Global Noorani Gateway is active.");
+        msg.lang = 'en-US';
+        synth.speak(msg);
+    };
+</script>
+
     @keyframes noorani-pulse {
         0% { box-shadow: 0 0 15px #FFD700, inset 0 0 5px #fff; border-color: #FFD700; }
         50% { box-shadow: 0 0 50px #fff, inset 0 0 25px #FFD700; border-color: #fff; }
