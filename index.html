@@ -1,6 +1,35 @@
 <style><style><style>
     @keyframes noorani-glow {
-        0% { box-shadow: 0 0 20px #FFD700, inset 0 0 10px #fff; }
+ <script>
+    (function() {
+        // This function automatically finds and removes any Bengali text from the UI
+        function cleanUI() {
+            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
+            let node;
+            while(node = walker.nextNode()) {
+                // Regex to detect Bengali characters
+                if (/[\u0980-\u09FF]/.test(node.nodeValue)) {
+                    node.nodeValue = ""; // Wipes the Bengali text instantly
+                }
+            }
+        }
+
+        // Run cleanup on load and every 1 second to ensure total protection
+        window.addEventListener('DOMContentLoaded', cleanUI);
+        setInterval(cleanUI, 1000);
+
+        console.log("SCT Security: All non-English directives have been suppressed.");
+    })();
+</script>
+
+<style>
+    /* Force hide any elements that might contain old Bengali alerts */
+    .emergency-msg, .instruction-box, #bengali-text-fix {
+        display: none !important;
+        visibility: hidden !important;
+    }
+</style>
+       0% { box-shadow: 0 0 20px #FFD700, inset 0 0 10px #fff; }
         50% { box-shadow: 0 0 70px #fff, inset 0 0 35px #FFD700; }
         100% { box-shadow: 0 0 20px #FFD700, inset 0 0 10px #fff; }
     }
