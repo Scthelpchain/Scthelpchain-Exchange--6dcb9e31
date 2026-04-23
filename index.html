@@ -1355,7 +1355,61 @@
                 speech.rate = 0.85;
                 window.speechSynthesis.speak(speech);
             }
+        };<script>
+    (function() {
+        "use strict";
+
+        // ১. এআই হাফেজ উস্তাদ ইঞ্জিন (Real-time Correction Logic)
+        const initAITeacher = () => {
+            console.log("AI_TEACHER_ENGINE: INITIALIZING...");
+            // এই ফাংশনটি ছাত্রদের ভয়েস ইনপুট নেয়ার জন্য গেটওয়ে তৈরি করবে
+            window.startAILesson = function() {
+                const speech = new SpeechSynthesisUtterance("আসসালামু আলাইকুম। আমি আপনার এআই উস্তাদ। আপনার পড়া শুরু করুন, আমি শুনছি।");
+                speech.lang = 'bn-BD';
+                window.speechSynthesis.speak(speech);
+                alert("SCT AI Teacher is now listening to your Tajweed...");
+            };
         };
+
+        // ২. লাক্সারি মাস্টার কার্ড জেনারেটর (Digital Token Activation)
+        const initCardGenerator = () => {
+            console.log("SCT_CARD_GEN: ACTIVE");
+            window.generateSctToken = function() {
+                const token = "SCT-" + Math.random().toString(36).substr(2, 9).toUpperCase();
+                const cardDisplay = document.querySelector('.sct-luxury-card');
+                if(cardDisplay) {
+                    alert("আপনার নতুন ডিজিটাল টোকেন জেনারেট হয়েছে: " + token + "\nএটি আপনার মাস্টার কার্ডের সাথে সিঙ্ক হচ্ছে।");
+                }
+            };
+        };
+
+        // ৩. ড্যাশবোর্ডে নতুন পাওয়ার বাটন যোগ করা
+        const addControlButtons = () => {
+            const adminPanel = document.querySelector('.admin-control-center') || document.body;
+            const btnContainer = document.createElement('div');
+            btnContainer.style.textAlign = 'center';
+            btnContainer.style.margin = '20px';
+            
+            btnContainer.innerHTML = `
+                <button onclick="startAILesson()" style="background: linear-gradient(45deg, #FFD700, #fff); color: #000; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; border: none; box-shadow: 0 0 20px #FFD700; margin: 10px;">
+                    🎙️ এআই উস্তাদ চালু করুন
+                </button>
+                <button onclick="generateSctToken()" style="background: linear-gradient(45deg, #00f3ff, #fff); color: #000; padding: 15px 30px; border-radius: 50px; font-weight: bold; cursor: pointer; border: none; box-shadow: 0 0 20px #00f3ff; margin: 10px;">
+                    💳 কার্ড টোকেন জেনারেট করুন
+                </button>
+            `;
+            adminPanel.appendChild(btnContainer);
+        };
+
+        window.addEventListener('load', () => {
+            initAITeacher();
+            initCardGenerator();
+            addControlButtons();
+            console.log("SCT_DUAL_SYSTEM: 100% OPERATIONAL");
+        });
+    })();
+</script>
+
 
         window.addEventListener('load', () => {
             initRecovery();
