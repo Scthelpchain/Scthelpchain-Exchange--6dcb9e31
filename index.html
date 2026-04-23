@@ -1418,7 +1418,34 @@
             console.log("SCT_MASTER_READY: DEPLOYMENT_420_SUCCESS");
         });
 
-    })();
+    })();<div id="super-admin-panel" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: none;">
+    <div style="background: rgba(0,0,0,0.9); border: 2px solid #FFD700; padding: 20px; border-radius: 15px; box-shadow: 0 0 30px #FFD700; color: #fff; width: 280px;">
+        <h4 style="text-align: center; color: #FFD700; margin-bottom: 15px;">👑 চেয়ারম্যান কন্ট্রোল সেন্টার</h4>
+        
+        <button onclick="startAILesson()" style="width: 100%; margin-bottom: 10px; background: #fff; color: #000; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">🎙️ এআই উস্তাদ ম্যানেজ করুন</button>
+        
+        <button onclick="generateSctToken()" style="width: 100%; margin-bottom: 10px; background: #fff; color: #000; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">💳 কার্ড ট্রানজ্যাকশন চেক</button>
+        
+        <button onclick="window.open('https://github.com/scthelpchain-ai/Scthelpchain-Exchange--6dcb9e31')" style="width: 100%; margin-bottom: 10px; background: #24292e; color: #fff; border: 1px solid #fff; padding: 10px; border-radius: 5px; cursor: pointer;">📂 গিটহাব ফাইল এডিট</button>
+        
+        <p style="font-size: 10px; text-align: center; color: #aaa;">স্বপ্নচলচ্চিত্র ইন্টারন্যাশনাল - অল রাইটস রিজার্ভড</p>
+    </div>
+</div>
+
+<script>
+    // এই ফাংশনটি দিয়ে আপনি কিবোর্ডের 'A' চাপলে বা স্ক্রিনের নির্দিষ্ট জায়গায় ক্লিক করলে প্যানেলটি আসবে
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'a' || e.key === 'A') { // 'A' চাপলে এডমিন প্যানেল হাইড বা শো হবে
+            var panel = document.getElementById('super-admin-panel');
+            if (panel.style.display === 'none') {
+                panel.style.display = 'block';
+            } else {
+                panel.style.display = 'none';
+            }
+        }
+    });
+</script>
+
 </script>
 
 </script>
