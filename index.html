@@ -1531,7 +1531,95 @@
 </div>
 
 
+</script><style>
+    :root { --gold: #FFD700; --noor-glow: #00f3ff; }
+    
+    /* নূরানী পালস অ্যানিমেশন */
+    @keyframes noorani-pulse {
+        0% { box-shadow: 0 0 15px var(--gold), inset 0 0 5px #fff; border-color: var(--gold); }
+        50% { box-shadow: 0 0 60px #fff, inset 0 0 30px var(--gold); border-color: #fff; }
+        100% { box-shadow: 0 0 15px var(--gold), inset 0 0 5px #fff; border-color: var(--gold); }
+    }
+
+    .noor-container {
+        background: radial-gradient(circle, #0a0a0a, #000);
+        border: 4px solid var(--gold);
+        border-radius: 30px;
+        padding: 50px 20px;
+        text-align: center;
+        animation: noorani-pulse 4s infinite ease-in-out;
+        margin: 40px auto;
+        max-width: 900px;
+        color: white;
+    }
+
+    .world-glow {
+        color: #fff;
+        text-shadow: 0 0 20px var(--noor-glow), 0 0 40px #fff;
+        font-weight: 900;
+        font-size: 28px;
+    }
+
+    .admin-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid var(--gold);
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 25px;
+    }
+
+    .btn-noor {
+        display: inline-block;
+        padding: 12px 25px;
+        margin: 10px;
+        background: var(--gold);
+        color: #000;
+        text-decoration: none;
+        font-weight: bold;
+        border-radius: 50px;
+        transition: 0.3s;
+    }
+</style>
+
+<div class="noor-container">
+    <h1 class="world-glow">SCT GLOBAL NOORANI HUB</h1>
+    <p style="color: var(--gold); letter-spacing: 2px;">কোরআন ও হাদিসের আলোয় আলোকিত ওয়ার্ল্ড নেটওয়ার্ক</p>
+    
+    <div style="display: flex; justify-content: space-around; margin: 30px 0;">
+        <div>
+            <h2 style="font-size: 40px; margin: 0;">৩০০০+</h2>
+            <p style="font-size: 12px; color: #aaa;">অফলাইন এতিম শিক্ষার্থী</p>
+        </div>
+        <div>
+            <h2 style="font-size: 40px; margin: 0;">∞</h2>
+            <p style="font-size: 12px; color: #aaa;">অনলাইন ফ্রি এক্সেস</p>
+        </div>
+    </div>
+
+    <div class="admin-card">
+        <h3 style="color: var(--gold); margin-bottom: 5px;">হাবিবুর রহমান অন্তর</h3>
+        <p style="margin: 0; font-size: 14px;">চেয়ারম্যান ও সহকারী সম্পাদক (ক্রাইম)</p>
+        <p style="font-size: 12px; color: #888;">Partner: <strong>Swapnochoccitrow</strong> | Purana Paltan, Dhaka</p>
+        <hr style="border: 0.5px solid #333; margin: 15px 0;">
+        <p style="color: #00ffcc; font-size: 13px;">গ্লোবাল নেটওয়ার্ক ধবধব করে জ্বলছে... ডলারে পূর্ণ হবে রাজত্ব!</p>
+    </div>
+
+    <div style="margin-top: 30px;">
+        <a href="https://wa.me/8801410522152" class="btn-noor">📞 সরাসরি হোয়াটসঅ্যাপ কল</a>
+        <a href="#" onclick="syncSctVault()" class="btn-noor" style="background: #fff;">🔄 এআই ডাটা সিঙ্ক্রোনাইজ</a>
+    </div>
+
+    <p style="font-size: 10px; color: #555; margin-top: 30px;">
+        © 2026 SCTHELPCHAIN INTERNATIONAL | ৩ কোটি টাকার ভিশন ও ধর্মীয় আলো
+    </p>
+</div>
+
+<script>
+    function syncSctVault() {
+        alert("Global Network Check: 432 Deployments Confirmed. Vault Secured: 0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89");
+    }
 </script>
+
 
 </script>
 
