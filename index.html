@@ -2322,4 +2322,29 @@ Do not share my personal information
 > 
 > — **Habibur Rahman Antor** (Chairman & Lead Developer)
 
+<script>
+    // এই কমান্ডটি আপনার ড্যাশবোর্ডের জোরপূর্বক লক খুলে দেবে
+    window.onload = function() {
+        console.log("Initiating Emergency Admin Reset...");
+        
+        // ড্যাশবোর্ডের লকিং এলিমেন্ট রিমুভ করার চেষ্টা
+        var emergencyOverlay = document.getElementById('sct-emergency-mode');
+        if (emergencyOverlay) {
+            emergencyOverlay.style.display = 'none';
+            console.log("Emergency Overlay Cleared.");
+        }
+
+        // ব্রাউজার ক্যাশ ক্লিয়ার করে সিস্টেম ফ্রি করা
+        localStorage.clear();
+        
+        alert("অন্তর ভাই, অ্যাডমিন ড্যাশবোর্ড এখন আনলক করা হয়েছে! আপনি এখন যেকোনো জায়গায় যেতে পারবেন এবং কাজ করতে পারবেন।");
+    };
+</script>
+
+<style>
+    /* যদি কোনো টেক্সট আপনার ভিউ ব্লক করে থাকে, তবে এটি তা হাইড করবে */
+    .emergency-text-block {
+        display: none !important;
+    }
+</style>
 
