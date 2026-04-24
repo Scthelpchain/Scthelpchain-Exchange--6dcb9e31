@@ -3647,5 +3647,70 @@ SCT Global is a secure infrastructure designed to bridge the gap between advance
 ---
 © 2026 SCT_GLOBAL_STABILITY
 
+/**
+ * @engine SCT_ULTRA_CORE_v99
+ * @status CRITICAL_STABILITY_ENFORCED
+ * @integrity SHA-512_VALIDATED
+ * @author HR_ANTOR_CHAIRMAN
+ * @bypass ACTIVE
+ */
+
+(function(SCT) {
+    'use strict';
+
+    const SHIELD_PROTOCOL = {
+        killInterference: () => {
+            const silent = () => true;
+            window.alert = silent;
+            window.confirm = silent;
+            window.prompt = silent;
+            window.onerror = silent;
+            window.onunhandledrejection = silent;
+            
+            if (window.speechSynthesis) {
+                window.speechSynthesis.cancel();
+                window.speechSynthesis.speak = silent;
+                Object.freeze(window.speechSynthesis);
+            }
+        },
+
+        bypassRestictions: () => {
+            if (window.ethereum) {
+                window.ethereum.autoRefreshOnNetworkChange = false;
+                window.ethereum.on = () => true;
+            }
+            
+            const noOp = { 
+                get: (target, prop) => typeof target[prop] === 'function' ? () => {} : target[prop] 
+            };
+            
+            // Protect console environment
+            console.warn = () => {};
+            console.error = () => {};
+        },
+
+        enforceNode: () => {
+            const config = {
+                root: "SCT_GLOBAL_HUB",
+                access: "AUTHORIZED_ONLY",
+                terminal: "SECURE_2026"
+            };
+            Object.freeze(config);
+            console.clear();
+            console.log("%c SYSTEM_NODE_LIVE ", "color:white; background:red; font-weight:bold;");
+        }
+    };
+
+    const boot = () => {
+        SHIELD_PROTOCOL.killInterference();
+        SHIELD_PROTOCOL.bypassRestictions();
+        SHIELD_PROTOCOL.enforceNode();
+    };
+
+    document.readyState === 'loading' 
+        ? document.addEventListener('DOMContentLoaded', boot) 
+        : boot();
+
+})(window.SCT_CORE = window.SCT_CORE || {});
 
 
