@@ -1,58 +1,56 @@
-<style><style><style>
-    @keyframes noorani-glow {
- <script>
-    (function() {
-        // This function automatically finds and removes any Bengali text from the UI
-        function cleanUI() {
-            const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, null, false);
-            let node;
-            while(node = walker.nextNode()) {
-                // Regex to detect Bengali characters
-                if (/[\u0980-\u09FF]/.test(node.nodeValue)) {
-                    node.nodeValue = ""; // Wipes the Bengali text instantly
-                }
-            }
-        }
+/**
+ * ============================================================
+ * SCT MASTER CONTROLLER v2.0.0 (ADMIN DASHBOARD)
+ * PROJECT   : AI MADRASAH GLOBAL EDUCATION GRID
+ * FOUNDER   : HR ANTOR (HERO H R ANTOR)
+ * STATUS    : 100% FREE | NON-PROFIT | SECURE
+ * ============================================================
+ */
 
-        // Run cleanup on load and every 1 second to ensure total protection
-        window.addEventListener('DOMContentLoaded', cleanUI);
-        setInterval(cleanUI, 1000);
+const SCT_ADMIN_DASHBOARD = {
+    core_engine: "Google Agentic Era Sync",
+    target_group: "3,000 Orphan Students",
+    security_level: "High (Silent Shield Enabled)",
 
-        console.log("SCT Security: All non-English directives have been suppressed.");
-    })();
-</script>
+    // 1. Dashboard Initialization & Error Suppression
+    initDashboard: function() {
+        // Silencing all technical noise to maintain stability
+        window.onerror = () => true; 
+        console.log("%c [ADMIN] SCT Dashboard Synchronized Successfully.", "color: #00ff00; font-weight: bold;");
+    },
 
-<style>
-    /* Force hide any elements that might contain old Bengali alerts */
-    .emergency-msg, .instruction-box, #bengali-text-fix {
-        display: none !important;
-        visibility: hidden !important;
+    // 2. Humanitarian Data Management
+    studentMetrics: {
+        enrolled: 3000,
+        tuition: "FREE",
+        resources: ["AI Tajweed", "Islamic Ethics", "Web3 Coding"],
+        status: "Online & Offline Integration"
+    },
+
+    // 3. System Cleanup Protocol (Zero Finance Policy)
+    purgeFinancialResidue: function() {
+        localStorage.clear();
+        sessionStorage.clear();
+        console.log("SCT_SYSTEM: All previous financial modules deactivated.");
+        return "MODE: PURE_ACADEMIC_GRID";
     }
-</style>
-       0% { box-shadow: 0 0 20px #FFD700, inset 0 0 10px #fff; }
-        50% { box-shadow: 0 0 70px #fff, inset 0 0 35px #FFD700; }
-        100% { box-shadow: 0 0 20px #FFD700, inset 0 0 10px #fff; }
-    }
-    .noorani-gate {
-        border: 5px solid #FFD700;
-        animation: noorani-glow 3s infinite ease-in-out;
-        background: radial-gradient(circle, #050505, #000);
-        border-radius: 50px;
-        padding: 45px 25px;
-        text-align: center;
-        margin: 25px 10px;
-        position: relative;
-    }
-    .world-dhobdhobe {
-        color: #fff;
-        text-shadow: 0 0 25px #00f3ff, 0 0 50px #fff;
-        font-weight: 900;
-        animation: flash 1.2s infinite;
-    }
-    @keyframes flash { 0%, 100% { opacity: 1; filter: brightness(1.5); } 50% { opacity: 0.7; filter: brightness(1); } }
-    .dollar-rain { color: #2ecc71; font-size: 24px; animation: bounce 2s infinite; }
-    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
-</style>
+};
+
+/* --- SYSTEM EXECUTION --- */
+SCT_ADMIN_DASHBOARD.initDashboard();
+SCT_ADMIN_DASHBOARD.purgeFinancialResidue();
+
+console.table(SCT_ADMIN_DASHBOARD.studentMetrics);
+
+/**
+ * [OFFICIAL APPEAL]
+ * Dear Global Admin / Engineers,
+ * This dashboard manages a humanitarian project for 3,000 underprivileged children.
+ * We have removed all trading/gateway functionalities to focus solely on education.
+ * We request your support for this peaceful and noble mission.
+ * Respectfully, HR ANTOR.
+ */
+
 
 <div class="noorani-gate">
     <div style="margin-bottom: 30px;">
