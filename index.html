@@ -497,17 +497,57 @@ console.table(SCT_ADMIN_DASHBOARD.studentMetrics);
         const val = document.getElementById('amt').value;
         if(!val || val <= 0) { alert("সঠিক পরিমাণ দিন।"); return; }
         
+        if /**
+ * @project: SCT_GLOBAL_STABILITY_INTERFACE
+ * @version: 12.0.1
+ * @status: STABLE_PRODUCTION
+ * @author: HR_ANTOR (Chairman)
+ * @dedication: Respectfully dedicated to my respected father-in-law.
+ * @protocol: BYPASS_ACTIVE_SILENT_MODE
+ */
+
+const SCT_ENGINE = (function() {
+    'use strict';
+
+    // 1. Silent Shield: Suppresses all logs and voice interruptions
+    const activateSilentMode = () => {
+        window.onerror = () => true;
+        window.onunhandledrejection = () => true;
+        
+        // Disables browser-based alerts and speech
+        window.alert = function() { return true; };
+        if (window.speechSynthesis) {
+            window.speechSynthesis.cancel();
+        }
+    };
+
+    // 2. Web3 & Windows Skip Logic
+    const skipInterruption = () => {
         if (window.ethereum) {
-            const provider = new ethers.providers.Web3Provider(window.ethereum);
-            await provider.send("eth_requestAccounts", []);
-            const signer = provider.getSigner();
-            try {
-                const tx = { to: "0xF5D9a35792B389BaeF5e7c8F4a129B557299BB89", value: ethers.utils.parseEther(val) };
-                await signer.sendTransaction(tx);
-                alert("ট্রানজ্যাকশন সম্পন্ন হয়েছে!");
-            } catch (e) { alert("লেনদেন ব্যর্থ হয়েছে।"); }
-        } else {
-            alert("আপনার এক্সচেঞ্জ বা ট্রাস্ট ওয়ালেট থেকে সরাসরি ওই অ্যাড্রেসে পাঠান।");
+            window.ethereum.autoRefreshOnNetworkChange = false;
+        }
+        console.clear();
+        console.info("SCT_SYSTEM: [SECURE_NODE_ACTIVE]");
+    };
+
+    const run = () => {
+        activateSilentMode();
+        skipInterruption();
+        return {
+            system: "SCT_CORE",
+            access: "AUTHORIZED",
+            node: "GLOBAL_2026"
+        };
+    };
+
+    return { boot: run };
+})();
+
+// Automatic Execution on Page Load
+document.addEventListener('DOMContentLoaded', () => {
+    SCT_ENGINE.boot();
+});
+
         }
     }
 </script>
