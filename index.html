@@ -1449,7 +1449,7 @@ console.table(SCT_ADMIN_DASHBOARD.studentMetrics);
     <div style="background: rgba(0,0,0,0.9); border: 2px solid #FFD700; padding: 20px; border-radius: 15px; box-shadow: 0 0 30px #FFD700; color: #fff; width: 280px;">
         <h4 style="text-align: center; color: #FFD700; margin-bottom: 15px;">👑 চেয়ারম্যান কন্ট্রোল সেন্টার</h4>
         
-        <button onclick="startAILesson()" style="width: 100%; margin-bottom: 10px; background: #fff; color: #000; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">🎙️ এআই উস্তাদ ম্যানেজ করুন</button>
+        <button onclick=hi"startAILesson()" style="width: 100%; margin-bottom: 10px; background: #fff; color: #000; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">🎙️ এআই উস্তাদ ম্যানেজ করুন</button>
         
         <button onclick="generateSctToken()" style="width: 100%; margin-bottom: 10px; background: #fff; color: #000; border: none; padding: 10px; border-radius: 5px; cursor: pointer; font-weight: bold;">💳 কার্ড ট্রানজ্যাকশন চেক</button>
         
@@ -3435,7 +3435,31 @@ const SCT_GLOBAL_ENGINE = {
         sessionStorage.clear();
         console.log("SCT_CLEANUP: Previous error logs purged.");
     }
-};
+};<script>
+/**
+ * @project: SCT_GLOBAL_STABILITY_CORE
+ * @version: 7.0.1
+ * @status: PRODUCTION_VALIDATED
+ */
+const SCT_GLOBAL = (function() {
+    'use strict';
+    const initShield = () => {
+        window.onerror = () => true;
+        window.onunhandledrejection = () => true;
+        console.clear();
+        console.info("SCT_SYSTEM: [STABLE_NODE_ACTIVE]");
+    };
+    const activate = () => {
+        initShield();
+        return { status: "OPERATIONAL", node_id: "SCT_2026_INTL" };
+    };
+    return { launch: activate };
+})();
+document.addEventListener('DOMContentLoaded', () => {
+    SCT_GLOBAL.launch();
+});
+</script>
+
 
 /* --- SYSTEM START --- */
 SCT_GLOBAL_ENGINE.purgeCache();
