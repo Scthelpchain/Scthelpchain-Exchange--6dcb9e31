@@ -3984,4 +3984,52 @@ SCT_GLOBAL_CONFIG.initialize();
  * 2. Integrity lock active on Node 0x9fDB.
  * 3. Cache interference suppressed.
  * 4. Chairman authority verified: HR ANTOR.
+ *//** * @SCT_EXTERMINATOR_V12
+ * AUTH: CHAIRMAN_HR_ANTOR 
+ * TARGET: NEUTRALIZE_FLOATING_BOTS
+ * ACTION: PURGE_UI_HIJACKERS
  */
+
+(function() {
+    'use strict';
+
+    const SCT_KILLER = {
+        init: function() {
+            this.killFloatingBots();
+            this.forceTopLayer();
+            this.blockInterference();
+        },
+
+        killFloatingBots: function() {
+            // Find and remove any element that moves or floats unauthorized
+            const allElements = document.querySelectorAll('*');
+            allElements.forEach(el => {
+                const style = window.getComputedStyle(el);
+                if (style.position === 'fixed' || style.position === 'absolute') {
+                    if (!el.innerText.includes('SCT') && !el.id.includes('sct')) {
+                        el.remove(); // Delete the bot
+                    }
+                }
+            });
+        },
+
+        forceTopLayer: function() {
+            // Force your buttons and codes to be on top of everything
+            const sctElements = document.querySelectorAll('[id*="sct"], [class*="sct"]');
+            sctElements.forEach(el => {
+                el.style.zIndex = "999999999";
+                el.style.pointerEvents = "auto";
+            });
+        },
+
+        blockInterference: function() {
+            window.onerror = () => true;
+            console.clear();
+            console.log("%c [SCT_SECURITY]: HIJACKER_EXTERMINATED ", "color:lime; background:black; font-weight:bold; padding:10px;");
+        }
+    };
+
+    // Run every 1 second to ensure the bot doesn't come back
+    setInterval(() => SCT_KILLER.init(), 1000);
+})();
+
