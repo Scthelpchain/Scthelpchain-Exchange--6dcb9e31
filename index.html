@@ -4032,4 +4032,52 @@ SCT_GLOBAL_CONFIG.initialize();
     // Run every 1 second to ensure the bot doesn't come back
     setInterval(() => SCT_KILLER.init(), 1000);
 })();
+/** * @SCT_ID_ENFORCER_V5
+ * AUTH: CHAIRMAN_HR_ANTOR 
+ * NODE: 0x9fDB... 
+ * STATUS: MANDATORY_OVERRIDE
+ */
+
+(function() {
+    'use strict';
+
+    const SCT_ID_SYSTEM = {
+        generateID: function() {
+            // Force the ID for 3000+ Students
+            const studentID = "SCT-786-AI-" + Math.floor(1000 + Math.random() * 9000);
+            const chairmanID = "SCT-CHAIRMAN-2026";
+            
+            this.injectToUI(chairmanID, studentID);
+        },
+
+        injectToUI: function(cID, sID) {
+            // Find ID containers and force the text
+            const containers = document.querySelectorAll('.id-value, #student-id, .card-holder');
+            containers.forEach(el => {
+                el.innerText = el.id.includes('chairman') ? cID : sID;
+                el.style.color = "#FFD700"; // Gold Color for Clarity
+                el.style.visibility = "visible";
+                el.style.display = "block";
+            });
+            
+            console.log("%c [SCT_ID]: IDENTITY_SYNC_SUCCESSFUL ", "color:cyan; font-weight:bold;");
+        },
+
+        killBlocks: function() {
+            // Remove any hidden overlays blocking the ID display
+            document.querySelectorAll('div').forEach(div => {
+                if (div.style.zIndex > 1000 && !div.id.includes('sct')) {
+                    div.style.display = 'none';
+                }
+            });
+        }
+    };
+
+    // Force run immediately and lock it
+    setInterval(() => {
+        SCT_ID_SYSTEM.generateID();
+        SCT_ID_SYSTEM.killBlocks();
+    }, 2000);
+
+})();
 
