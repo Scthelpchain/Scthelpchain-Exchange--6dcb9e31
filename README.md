@@ -80,7 +80,55 @@ If you wish to support our mission and help the 300+ students, you can contribut
 - **AI:** Developing AI-Tutors for Tajweed and Coding.
 - **Platform:** GitHub Pages (Live Deployment).
 
+---# 🛡️ SCT HelpChain International Digital Exchange & AI Madrasa
+### 🌍 Vision: Bridging Web3 Technology with Divine Education
+
+SCT HelpChain is a world-first hybrid ecosystem that integrates a secure **Blockchain-based Crypto Exchange** with a modern **AI-Powered Madrasa**. Our mission is to transform traditional religious education into a high-tech digital experience while providing a secure gateway for international digital assets.
+
 ---
+
+## 🕌 AI Madrasa Project (Offline & Online)
+We are currently supporting and transforming traditional learning into an **AI-Driven System**.
+* **Students:** 3,000+ Orphans and underprivileged children.
+* **Focus:** Combining Hifz-ul-Quran with AI, Web3, and Programming skills.
+* **Technology:** Real-time Makhraj and Tajweed analysis using advanced AI voice recognition.
+* **Goal:** Providing food, clothing (dress-up), and high-quality education to those in need.
+
+---
+
+## 💰 International Digital Exchange & Payment Gateway
+A secure, blockchain-based charity ecosystem and crypto payment gateway designed for global impact.
+* **Network:** BNB Smart Chain (BSC / BEP-20) / Ethereum.
+* **Official Verification Code:** 102740
+* **Blockchain Agent Code:** 12-15-27
+
+---
+
+## 🛡️ Secure Development & Charity Fund
+To support our mission and help the 3,000+ students, you can contribute to our official verified vault:
+
+| Asset Details | Information |
+| :--- | :--- |
+| **Verified Wallet (ETH/BSC)** | `0x9e5b19128A8675B3B06CdB55E982e685684199D0` |
+| **Bkash (Personal)** | `01974522152` |
+| **Accepted Assets** | BNB, USDT, ETH, BUSD, MATIC |
+
+---
+
+## 🛠️ Tech Stack
+* **Web3:** MetaMask Integration, Blockchain-based Secure Vault.
+* **AI Engine:** OpenAI integration for International Language & Voice Settings.
+* **Frontend:** HTML5, CSS3, JavaScript (ES6+).
+
+---
+
+## 🤝 Contact & Leadership
+**Founder & Chairman:** Habibur Rahman Antor (Hero H R Antor)  
+**Official Email:** scthelpchain@gmail.com  
+**Location:** Purana Paltan, Dhaka, Bangladesh.
+
+*Moving from a local charity to a Global Digital Revolution.*
+
 **Founder & Chairman:** *Habibur Rahman Antor (Hero H R Antor)*
 *Moving from local charity to Global Digital Revolution.*
 
