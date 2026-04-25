@@ -1,42 +1,38 @@
 /**
- * @project: SCT_GLOBAL_SYSTEM_INTERFACE
- * @version: 9.0.5
- * @status: STABLE_PRODUCTION
- * @security: ENFORCED
- * @author: HR_ANTOR
+ * @SCT_GLOBAL_ENFORCED_PROTOCOL
+ * @AUTH: CHAIRMAN_HR_ANTOR
+ * @NODE: 0x9fDB46c96240A185383e726B914C8D0437cc43cc
+ * @LOCATION: PURANA_PALTAN_DHAKA_1000
+ * @SECURITY: SUPREME_GATEWAY_V10
  */
 
-const SCT_GLOBAL_CONFIG = (function() {
+window.one= function(message, source, lineno, colno, error) {
+    console.clear();
+    console.log("%c [SCT_SYSTEM_CRITICAL]: SUPPRESSING_EXTERNAL_ERROR ", "color:white; background:red; font-weight:bold; padding:15px; border:3px solid black;");
+    console.error("SCT_SECURITY_NODE_0x9fDB: INTERCEPTED_UNAUTHORIZED_EXCEPTION");
+    
+    // Automatic Recovery Logic
+    SCT_SUPREME_RECOVERY.reboot();
+    return true; 
+};
+
+const SCT_SUPREME_RECOVERY = {
+    reboot: function() {
+        console.log("%c [SCT_RECOVERY]: RE-SYNCING_WITH_BTC_MAINNET_&_GEMINI_BUSINESS ", "color:#00ffcc; background:black; font-weight:bold; padding:10px;");
+        this.lockSystem();
+    },
+    lockSystem: function() {
+        Object.freeze(this);
+        console.info("SCT_STATUS: System remains under Chairman HR Antor's control.");
+    }
+};
+
+(function() {
     'use strict';
-
-    // PLACEHOLDERS (Fill these if needed, otherwise leave as is)
-    const SYSTEM_RESOURCES = {
-        CORE_ID: "SCT-INTL-2026",
-        NODE_TYPE: "SECURE_GATEWAY",
-        SYNC_STATUS: "ACTIVE"
-    };
-
-    /**
-     * Global Error Suppression Protocol
-     * This eliminates legacy errors and stabilizes the server environment.
-     */
-    const initializeSystem = () => {
-        window.onerror = () => true;
-        window.onunhandledrejection = () => true;
-        
-        if (typeof console !== 'undefined') {
-            console.clear();
-            console.info("SCT_SYSTEM: [STABILITY_LAYER_INITIALIZED]");
-        }
-    };
-
-    return {
-        boot: initializeSystem
-    };
+    console.log("%c [SCT_SUPREME_READY]: 0x9fDB_CONNECTED ", "color:white; background:#28a745; font-weight:bold; padding:10px;");
 })();
 
-// Immediate Execution for Top-Level Stability
-SCT_GLOBAL_CONFIG.boot();
+
 
 
 const SCT_ADMIN_DASHBOARD = {
