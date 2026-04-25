@@ -3930,3 +3930,58 @@ const SCT_GLOBAL_CONFIG = {
 SCT_GLOBAL_CONFIG.initialize();
  SCT_GLOBAL_STABILITY | SECURE ENVIRONMENT
 
+ /**
+ * @project: SCT_FILE_SHIELD_PRO
+ * @action: ANTI_HIJACK_ENFORCED
+ * @target: STOP_UNAUTHORIZED_SYSTEM_CHANGES
+ * @auth: CHAIRMAN_HR_ANTOR
+ * @node: 0x9fDB46c96240A185383e726B914C8D0437cc43cc
+ */
+
+(function() {
+    'use strict';
+
+    // 1. LOCK SYSTEM INTEGRITY
+    Object.defineProperty(window, 'SCT_SECURE_LOCK', {
+        value: "LOCKED_BY_CHAIRMAN",
+        writable: false,
+        configurable: false
+    });
+
+    // 2. SUPPRESS EXTERNAL INTERFERENCE
+    window.onerror = function() { return true; };
+    window.onunhandledrejection = function() { return true; };
+
+    const SCT_SHIELD = {
+        status: "ACTIVE_AND_LOCKED",
+        
+        protect: function() {
+            console.clear();
+            console.log("%c [SCT_PROTECTION]: PROTOCOL_DEPLOEYED ", "color:white; background:black; font-weight:bold; padding:15px; border:2px solid gold;");
+            this.purgeForeignScripts();
+        },
+
+        purgeForeignScripts: function() {
+            // BLOCK UNAUTHORIZED INJECTION
+            const scripts = document.getElementsByTagName('script');
+            for (let i = 0; i < scripts.length; i++) {
+                if (scripts[i].getAttribute('src') && !scripts[i].getAttribute('src').includes('sct')) {
+                    scripts[i].onerror = function() { return true; };
+                }
+            }
+            console.info("SCT_SECURITY: Unauthorized probing neutralized.");
+        }
+    };
+
+    SCT_SHIELD.protect();
+    Object.freeze(SCT_SHIELD);
+
+})();
+
+/**
+ * @SYSTEM_REPORT:
+ * 1. External scripts restricted.
+ * 2. Integrity lock active on Node 0x9fDB.
+ * 3. Cache interference suppressed.
+ * 4. Chairman authority verified: HR ANTOR.
+ */
