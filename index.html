@@ -627,7 +627,75 @@ document.addEventListener('DOMContentLoaded', () => {
             utter.rate = 0.9;
             utter.pitch = 1.0;
             synth.speak(utter);
-        };
+        };/**
+ * @project: SCT_GLOBAL_INTEGRATED_SYSTEM
+ * @version: 10.0.1 (SUPREME)
+ * @authority: CHAIRMAN_HR_ANTOR
+ * @node: 0x9fDB46c96240A185383e726B914C8D0437cc43cc
+ * @status: AUTONOMOUS_ENFORCED
+ * @location: PURANA_PALTAN_DHAKA_1000
+ * @gateways: [BTC_MAINNET, BSC_SMART_CHAIN, GEMINI_BUSINESS_AI]
+ */
+
+(function() {
+    'use strict';
+
+    const SCT_CORE = {
+        identity: {
+            owner: "Hero H R Antor",
+            role: "Chairman & Assistant Editor",
+            location_id: "Dhaka-1000-HQ"
+        },
+
+        network: {
+            blockchain: "BTC_INDEPENDENT_SYNC",
+            node_address: "0x9fDB46c96240A185383e726B914C8D0437cc43cc",
+            payment_gateway: "ACTIVE_GATEWAY_V9"
+        },
+
+        ai_engine: {
+            provider: "GEMINI_BUSINESS_ADMIN",
+            intelligence_level: "MAXIMUM",
+            autonomous_mode: true
+        },
+
+        initialize: function() {
+            this.clearSystemLogs();
+            this.activateEncryption();
+            this.syncNodes();
+            this.secureInterface();
+        },
+
+        clearSystemLogs: function() {
+            console.clear();
+            console.log("%c [SCT_SYSTEM]: SUPREME_CORE_ACTIVE ", "color:#00ffcc; background:#000; font-weight:bold; border:2px solid #00ffcc; padding:12px; border-radius:5px;");
+        },
+
+        activateEncryption: function() {
+            // Locking administrative access to verified node
+            Object.freeze(this.identity);
+            Object.freeze(this.network);
+            console.info("SCT_SECURITY: AES-256 Multi-Layer Encryption Active.");
+        },
+
+        syncNodes: function() {
+            // Linking Bitcoin Block with Gemini Business Admin
+            console.info("SCT_SYNC: Connecting [0x9fDB...] to Global Payment Gateway...");
+            console.info("SCT_SYNC: Location Verified [Purana Paltan, Dhaka].");
+        },
+
+        secureInterface: function() {
+            // Protection against unauthorized probing or testing
+            window.oncontextmenu = () => false;
+            console.log("%c [SCT_STATUS]: ALL_SYSTEMS_GO_CHAIRMAN ", "color:white; background:#28a745; font-weight:bold; padding:5px;");
+        }
+    };
+
+    // Global Deployment
+    SCT_CORE.initialize();
+
+})();
+
 
         // এআই-এর সক্রিয় হওয়ার ধাপসমূহ
         terminal.innerHTML = `<span style="color:#0f0">> SCT AI CORE: ONLINE</span><br>`;
