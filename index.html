@@ -4150,6 +4150,15 @@ SCT_GLOBAL_CONFIG.initialize();
  * 2. DOM SPACE: CLEARED & OPTIMIZED
  * 3. IDENTITY LOCK: ACTIVE ON VAULT 0xF5D9...
  * 4. AUTHORITY: CHAIRMAN HR ANTOR (SUPREME)
- */
+ */// SCT_GLOBAL: ANTI-HIJACK PROTOCOL
+// This code will kill the site if it's hosted on any suspicious link.
+(function() {
+    var validHosts = ['scthelpchain.com', 'localhost', '127.0.0.1'];
+    if (validHosts.indexOf(window.location.hostname) === -1) {
+        document.body.innerHTML = "<h1 style='color:red; text-align:center;'>ACCESS DENIED: ILLEGAL MIRROR DETECTED</h1>";
+        window.location.replace("https://scthelpchain.com"); 
+    }
+})();
+
 
 
