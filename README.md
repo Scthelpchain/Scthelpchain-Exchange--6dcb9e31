@@ -131,4 +131,15 @@ To support our mission and help the 3,000+ students, you can contribute to our o
 
 **Founder & Chairman:** *Habibur Rahman Antor (Hero H R Antor)*
 *Moving from local charity to Global Digital Revolution.*
+🤝 **Contact & Leadership**
+
+**Founder & Chairman:** Habibur Rahman Antor (Hero H R Antor)
+**Official Email:** scthelpchain@gmail.com
+
+**📍 Strategic Hubs:**
+* **Mission Center:** Maulana Bhashani Road, Ramna, Dhaka-1000.
+* **Work Office:** Purana Paltan, Dhaka, Bangladesh.
+
+---
+*Moving from a local charity to a Global Digital Revolution.*
 
