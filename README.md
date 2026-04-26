@@ -142,4 +142,20 @@ To support our mission and help the 3,000+ students, you can contribute to our o
 
 ---
 *Moving from a local charity to a Global Digital Revolution.*
+## 🗺️ SCT GLOBAL STRATEGIC ROADMAP (2026-2030)
+
+### 🚀 Phase 1: Foundation & AI Launch (2026)
+* **Q1-Q2:** Deployment of AI Tajweed Engine for 3,000 students at Ramna Hub.
+* **Q3-Q4:** Official Launch of SCT Luxury Master Card (Beta) for local testing.
+* **Goal:** Moving from 'Danger Zone' to 'Verified Global Entry'.
+
+### 💳 Phase 2: Financial Integration (2027)
+* **Digital Exchange:** Full integration of BNB/ETH cross-chain payment gateway.
+* **Madrasa Expansion:** Transitioning from 3,000 to 10,000 students globally.
+* **FinTech:** Global rollout of SCT Crypto-Fiat Debit Cards.
+
+### 🌐 Phase 3: Global Ecosystem (2028-2030)
+* **Smart Cities for Charity:** Building AI-driven medical centers and orphanages.
+* **SCT HelpChain DAO:** Decentalized governance where donors vote on charity projects.
+* **Vision:** Becoming the world's #1 Blockchain-based Islamic Financial Ecosystem.
 
