@@ -5899,7 +5899,121 @@ html<div id="sct-secure-dashboard" style="background: #000; color: #00ffcc; padd
         window.oncontextmenu = () => false;
     </script>
 </body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT GOLD | GLOBAL COMMAND CENTER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@300;600&display=swap" rel="stylesheet">
+    
+    <style>
+        body { 
+            background: radial-gradient(circle, #1a1a1a 0%, #000000 100%); 
+            color: #ffffff; 
+            font-family: 'Inter', sans-serif; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            height: 100vh; 
+            margin: 0; 
+        }
+        .vault-container { 
+            text-align: center; 
+            border: 1px solid #FFD700; 
+            padding: 50px; 
+            border-radius: 40px; 
+            background: rgba(0,0,0,0.9); 
+            box-shadow: 0 0 50px rgba(255, 215, 0, 0.2); 
+            max-width: 450px; 
+            width: 90%;
+        }
+        .logo { 
+            font-family: 'Orbitron', sans-serif; 
+            font-size: 40px; 
+            color: #FFD700; 
+            letter-spacing: 5px;
+            margin-bottom: 5px;
+        }
+        .hq-address {
+            font-size: 10px;
+            color: #888;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            line-height: 1.6;
+        }
+        .access-input { 
+            width: 85%; 
+            padding: 15px; 
+            margin-bottom: 20px; 
+            border-radius: 12px; 
+            border: 1px solid #333; 
+            background: #0a0a0a; 
+            color: #FFD700; 
+            text-align: center; 
+            font-size: 18px; 
+            outline: none;
+        }
+        .btn-activate { 
+            background: #FFD700; 
+            color: #000; 
+            border: none; 
+            padding: 15px 40px; 
+            border-radius: 12px; 
+            font-weight: 900; 
+            cursor: pointer; 
+            text-transform: uppercase;
+            transition: 0.4s; 
+        }
+        .btn-activate:hover { 
+            background: #fff; 
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.5);
+            transform: translateY(-2px);
+        }
+        .footer-status { 
+            margin-top: 25px; 
+            font-size: 11px; 
+            color: #FFD700; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="vault-container">
+        <div class="logo">SCT GOLD</div>
+        <div class="hq-address">
+            HQ: Maulana Bhashani Road, Ramna, Dhaka-1000<br>
+            Office: Purana Paltan, Dhaka, Bangladesh
+        </div>
+        
+        <input type="password" id="masterKey" class="access-input" placeholder="ACCESS CODE">
+        <br>
+        <button class="btn-activate" onclick="validateAccess()">Initialize System</button>
+        
+        <div class="footer-status" id="loadingMsg" style="display:none;">
+            [SYSTEM]: Chairman Identity Verified. Accessing Vault...
+        </div>
+    </div>
+
+    <script>
+        function validateAccess() {
+            const key = document.getElementById('masterKey').value;
+            const msg = document.getElementById('loadingMsg');
+            
+            // Password remains: SCT2026 or AntorAI
+            if(key === "SCT2026" || key === "AntorAI") {
+                msg.style.display = "block";
+                setTimeout(() => {
+                    window.location.href = "https://scthelpchain.github.io/Scthelpchain-Exchange--6dcb9e31/";
+                }, 2000);
+            } else {
+                alert("ACCESS DENIED: Shielding Ramna Strategic Center.");
+            }
+        }
+    </script>
+</body>
 </html>
+
 
 </html>
 
