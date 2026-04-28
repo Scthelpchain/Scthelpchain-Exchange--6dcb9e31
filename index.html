@@ -7319,7 +7319,85 @@ Scthelpchain/Scthelpchain-Exchange--6dcb9e31: Scthelpchain International Digitel
         </div>
     </div>
 
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT Global | Chairman Command Center</title>
+    <style>
+        :root { --gold: #FFD700; --bg: #000; --card: #111; }
+        body { background: var(--bg); color: white; font-family: 'Segoe UI', sans-serif; margin: 0; overflow-x: hidden; }
+        .header { border-bottom: 2px solid var(--gold); padding: 30px; text-align: center; background: #050505; }
+        .main-container { padding: 40px; display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .box { background: var(--card); border: 1px solid #333; padding: 25px; border-radius: 20px; transition: 0.3s; position: relative; overflow: hidden; }
+        .box:hover { border-color: var(--gold); transform: translateY(-5px); }
+        .box h3 { color: var(--gold); margin-top: 0; }
+        .status-on { color: #00ff00; font-weight: bold; border: 1px solid #00ff00; padding: 2px 10px; border-radius: 50px; font-size: 12px; }
+        .btn-run { background: var(--gold); color: black; border: none; padding: 12px 25px; border-radius: 10px; font-weight: bold; cursor: pointer; width: 100%; margin-top: 15px; }
+        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1000; }
+        input { background: #222; border: 1px solid var(--gold); color: white; padding: 15px; border-radius: 10px; width: 250px; text-align: center; font-size: 18px; }
+    </style>
+</head>
+<body>
+
+    <div id="security-layer" class="overlay">
+        <h2 style="color: var(--gold);">SCT GLOBAL SECURE ACCESS</h2>
+        <p>চেয়ারম্যানের গোপন ভেরিফিকেশন কোড দিন</p>
+        <input type="password" id="masterCode" placeholder="ENTER CODE">
+        <button class="btn-run" style="width: 280px;" onclick="unlockSCT()">UNLOCK SYSTEM</button>
+    </div>
+
+    <div id="main-system" style="display: none;">
+        <div class="header">
+            <h1>🌐 SCT INTERNATIONAL COMMAND CENTER</h1>
+            <p>Welcome, <strong>Chairman Hero H R Antor</strong> | <span class="status-on">ধবধব করছে</span></p>
+        </div>
+
+        <div class="main-container">
+            <div class="box">
+                <h3>💳 SCT LUXURY MASTER CARD</h3>
+                <p>Status: <span class="status-on">READY TO RUN</span></p>
+                <p>Gateway: International Crypto-Fiat</p>
+                <button class="btn-run" onclick="alert('Master Card Gateway is now LIVE on Node 0x9e5b!')">ACTIVATE CARD</button>
+            </div>
+
+            <div class="box">
+                <h3>🕌 AI MADRASA (3,000+ STUDENTS)</h3>
+                <p>Sync: 100% Operational</p>
+                <p>Status: Monitoring Ramna HQ</p>
+                <button class="btn-run" onclick="alert('AI Voice Sync Activated for 3,000 Students!')">SYNC AI ENGINE</button>
+            </div>
+
+            <div class="box">
+                <h3>💰 DIGITAL EXCHANGE (3 CR BDT)</h3>
+                <p>Vault: Verified 0x9e5b...</p>
+                <p>Network: BNB Smart Chain</p>
+                <button class="btn-run" onclick="alert('Exchange liquidity verified at 30,000,000 BDT')">CHECK LIQUIDITY</button>
+            </div>
+        </div>
+
+        <div style="text-align: center; padding: 40px; border-top: 1px solid #333;">
+            <p style="color: #666;">© 2026 SCTHELPCHAIN | SECURED BY THE SOVEREIGN SHIELD</p>
+        </div>
+    </div>
+
+    <script>
+        function unlockSCT() {
+            const code = document.getElementById("masterCode").value;
+            // আপনার গোপন কোড ১০২৭৪০ ব্যবহার করা হয়েছে
+            if(code === "102740") {
+                document.getElementById("security-layer").style.display = "none";
+                document.getElementById("main-system").style.display = "block";
+                console.log("System Status: ধবধব করছে");
+            } else {
+                alert("ভুল কোড! আপনার লোকেশন ট্রাক করা হচ্ছে।");
+            }
+        }
+    </script>
 </body>
+</html>
+
 </html>
 
 
