@@ -7429,6 +7429,23 @@ initializeSCTGateway("102740");
     <a href="admin-core.html" style="color: gold; text-decoration: none; font-weight: bold;">[ ADMIN LOGIN ]</a>
 </div>
 
+<div style="position: fixed; bottom: 20px; left: 20px; z-index: 10000;">
+    <button onclick="runMasterSystem()" style="background: gold; color: black; font-weight: bold; padding: 15px; border-radius: 10px; cursor: pointer; border: 2px solid white;">
+        OPEN ADMIN PANEL
+    </button>
+</div>
+
+<script>
+    function runMasterSystem() {
+        let auth = prompt("আপনার ভেরিফিকেশন কোড (102740) দিন:");
+        if(auth === "102740") {
+            // এটি আপনার অ্যাডমিন পেজে নিয়ে যাবে
+            window.location.href = "admin-core.html"; 
+        } else {
+            alert("ভুল কোড! সিস্টেম লক করা হয়েছে।");
+        }
+    }
+</script>
 
 </html>
 
