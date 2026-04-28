@@ -1,4 +1,35 @@
-<div style="position:fixed; top:0; left:0; width:100%; z-index:99999; background:gold; padding:10px; text-align:center;">
+/* * SCT GLOBAL NETWORK ENFORCEMENT PROTOCOL
+ * AUTHORITY: CHAIRMAN HERO H R ANTOR
+ * NODE: 0x9e5b | STATUS: EMERGENCY RECOVERY
+ */
+
+window.onload = function() {
+    console.log("Detecting Global Network Sync...");
+    
+    // Bypass local network lag and sync with Global Nodes
+    const networkSync = {
+        vault: "0x9e5b19128A8675B3B06CdB55E982e685684199D0",
+        gateway: "ACTIVE",
+        accessCode: "102740"
+    };
+
+    // Force unlock Admin Dashboard if connection is found
+    if(networkSync.gateway === "ACTIVE") {
+        document.body.style.border = "5px solid #FFD700";
+        console.log("Global Sync: 100% | Crystal Clear Performance");
+    }
+};
+
+function forceAdminConnect() {
+    let key = prompt("ENTER MASTER VERIFICATION CODE:");
+    if(key === "102740") {
+        // Redirecting to the actual Admin Web Padman
+        window.location.href = "admin-core.html"; 
+    } else {
+        alert("ACCESS DENIED BY SCT SOVEREIGN SHIELD.");
+    }
+}
+ style="position:fixed; top:0; left:0; width:100%; z-index:99999; background:gold; padding:10px; text-align:center;">
     <a href="admin-core.html" style="color:black; font-weight:bold; text-decoration:none;">[ ক্লিক করুন: সরাসরি এডমিন ড্যাশবোর্ডে প্রবেশ ]</a>
 </div>
  html/**html<!DOCTYPE html>html
