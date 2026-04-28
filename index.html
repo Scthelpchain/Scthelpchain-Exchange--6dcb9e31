@@ -444,7 +444,26 @@ console.table(SCT_ADMIN_DASHBOARD.studentMetrics);
 </head>
 <body>
 
-<header>
+<header>/* * PROJECT: SCT HELPCHAIN GLOBAL
+ * CONNECTIVITY: ENFORCED
+ * BYPASS: LOCAL_LAG_ENABLED
+ */
+const SCT_CORE = {
+    vault: "0x9e5b",
+    dns: "8.8.8.8",
+    sync: true
+};
+
+function forceGlobalSync() {
+    console.log("Re-establishing Global Sync via Ramna Hub...");
+    if (navigator.onLine) {
+        window.location.reload(true);
+    } else {
+        alert("OFFLINE MODE: System Cached. Standby for Signal.");
+    }
+}
+forceGlobalSync();
+
     <div class="brand-title">SCT HELPCHAIN GLOBAL</div>
     <div class="sub-title">AI MADRASA ECOSYSTEM & MULTI-NETWORK GATEWAY</div>
 </header>
