@@ -7448,6 +7448,69 @@ initializeSCTGateway("102740");
 </script>
 
 </html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HELPCHAIN | GLOBAL COMMAND CENTER</title>
+    <style>
+        :root { --gold: #FFD700; --dark: #000; }
+        body { background: var(--dark); color: #fff; font-family: 'Arial', sans-serif; margin: 0; text-align: center; }
+        .vault-layer { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .admin-panel { display: none; padding: 50px; }
+        .box { border: 2px solid var(--gold); padding: 20px; margin: 20px; border-radius: 15px; background: #111; }
+        input { padding: 15px; border-radius: 10px; border: 1px solid var(--gold); background: #222; color: #fff; width: 250px; text-align: center; }
+        button { background: var(--gold); color: #000; padding: 15px 30px; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        .status { color: #00ff00; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div id="gate" class="vault-layer">
+        <h1 style="color: var(--gold);">🛡️ SCT GLOBAL VAULT ACCESS</h1>
+        <p>সিস্টেম রান করতে ভেরিফিকেশন কোড (102740) দিন</p>
+        <input type="password" id="passCode" placeholder="ENTER MASTER CODE">
+        <button onclick="runEmpire()">ACTIVATE SYSTEM</button>
+    </div>
+
+    <div id="dashboard" class="admin-panel">
+        <h1 style="color: var(--gold);">🌐 SCT INTERNATIONAL COMMAND CENTER</h1>
+        <p>Chairman: <strong>Hero H R Antor</strong> | <span class="status">ONLINE (ধবধব করছে)</span></p>
+        
+        <div class="box">
+            <h3>💳 LUXURY MASTER CARD GATEWAY</h3>
+            <p>Node: 0x9e5b19128A8675B3B06CdB55E982e685684199D0</p>
+            <p>Status: <span class="status">GATEWAY RUNNING</span></p>
+            <button onclick="alert('Master Card API Link Active!')">MANAGE CARD</button>
+        </div>
+
+        <div class="box">
+            <h3>🕌 AI MADRASA SYSTEM</h3>
+            <p>Students: 3,000+ | Sync: Active</p>
+            <button onclick="alert('AI Voice Sync Updated for 3,000 Students!')">SYNC NOW</button>
+        </div>
+
+        <div class="box">
+            <h3>💰 EXCHANGE VAULT (30,000,000 BDT)</h3>
+            <p>Network: BNB Smart Chain | Status: <span class="status">SECURED</span></p>
+            <button onclick="alert('Liquidity Verified at Ramna HQ')">VIEW LEDGER</button>
+        </div>
+    </div>
+
+    <script>
+        function runEmpire() {
+            const code = document.getElementById("passCode").value;
+            if(code === "102740") {
+                document.getElementById("gate").style.display = "none";
+                document.getElementById("dashboard").style.display = "block";
+            } else {
+                alert("ভুল কোড! আপনার অ্যাক্সেস ডিনাই করা হয়েছে।");
+            }
+        }
+    </script>
+</body>
+</html>
 
 </html>
 
