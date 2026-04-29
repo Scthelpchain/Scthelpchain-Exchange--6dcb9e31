@@ -8123,7 +8123,67 @@ if (!navigator.onLine) {
         console.log("SCT Shield: Deployment #600 Stable. Status: Crystal Clear.");
     </script>
 </body>
-</html>html
+</html>html<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT VAULT | PRIVATE ACCESS</title>
+    <style>
+        :root { --gold: #FFD700; --safety: #00FF00; }
+        body { background: #0c0c0c; color: white; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .vault-card { background: #151515; border: 2px solid var(--gold); padding: 40px; border-radius: 20px; box-shadow: 0 0 20px rgba(255, 215, 0, 0.2); width: 350px; text-align: center; }
+        .shield-icon { font-size: 50px; margin-bottom: 20px; color: var(--gold); }
+        h2 { margin: 10px 0; letter-spacing: 2px; font-size: 18px; }
+        input[type="password"] { width: 90%; padding: 12px; margin: 20px 0; background: #000; border: 1px solid #444; color: var(--safety); text-align: center; font-size: 20px; border-radius: 5px; outline: none; }
+        input:focus { border-color: var(--gold); }
+        .btn-access { background: var(--gold); color: black; border: none; padding: 12px 30px; font-weight: bold; border-radius: 5px; cursor: pointer; width: 100%; transition: 0.3s; }
+        .btn-access:hover { background: white; transform: scale(1.02); }
+        .status-msg { font-size: 10px; color: #666; margin-top: 20px; text-transform: uppercase; }
+    </style>
+</head>
+<body>
+
+    <div class="vault-card">
+        <div class="shield-icon">🛡️</div>
+        <h2>SCT GLOBAL VAULT</h2>
+        <p style="font-size: 12px; color: #888;">CHAIRMAN AUTHORIZED ONLY</p>
+        
+        <input type="password" id="vaultKey" placeholder="ENTER MASTER KEY" maxlength="6">
+        
+        <button class="btn-access" onclick="verifyAccess()">ACTIVATE GATEWAY</button>
+
+        <div class="status-msg">
+            Security Status: <span style="color: var(--safety);">100% Encrypted</span><br>
+            Node: Ramna HQ | ID: 12-15-27
+        </div>
+    </div>
+
+    <script>
+        /**
+         * GLOBAL PRIVACY KEY: 102740
+         */
+        function verifyAccess() {
+            const key = document.getElementById('vaultKey').value;
+            const status = document.querySelector('.status-msg');
+
+            if (key === "102740") {
+                status.innerHTML = "ACCESS GRANTED. SYNCING DATABASE...";
+                status.style.color = "#00FF00";
+                
+                // Redirecting to your main management file
+                setTimeout(() => {
+                    window.location.href = "admin-core.html"; 
+                }, 1500);
+            } else {
+                alert("🛑 SECURITY BREACH: INVALID MASTER KEY!");
+                document.getElementById('vaultKey').value = "";
+            }
+        }
+    </script>
+</body>
+</html>
+
 
 
 </script>
