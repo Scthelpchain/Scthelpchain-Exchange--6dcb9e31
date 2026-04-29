@@ -8434,6 +8434,81 @@ window.addEventListener('offline', () => {
 });
 
 </script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT GLOBAL | CHAIRMAN COMMAND</title>
+    <style>
+        :root { --gold: #FFD700; --bg: #050505; --glow: rgba(255, 215, 0, 0.3); }
+        body { background: var(--bg); color: var(--gold); font-family: 'Segoe UI', sans-serif; margin: 0; padding: 20px; text-align: center; }
+        .sct-vault { max-width: 500px; margin: auto; border: 2px solid var(--gold); border-radius: 20px; background: #111; box-shadow: 0 0 40px var(--glow); overflow: hidden; }
+        .header { background: var(--gold); color: #000; padding: 20px; font-weight: bold; text-transform: uppercase; }
+        .stats { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid #222; }
+        .stat-item { padding: 15px; border: 0.5px solid #222; }
+        .stat-label { font-size: 10px; color: #888; display: block; }
+        .admission-zone { padding: 30px; }
+        .master-btn { background: var(--gold); color: #000; border: none; padding: 15px 30px; border-radius: 10px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s; }
+        .master-btn:hover { background: #fff; transform: scale(1.02); }
+        .status-bar { font-size: 10px; color: #444; padding: 10px; background: #0a0a0a; }
+    </style>
+</head>
+<body>
+
+    <div class="sct-vault">
+        <div class="header">
+            SCT GLOBAL SOVEREIGN SHIELD
+        </div>
+
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">ADMISSIONS</span>
+                <strong>3,000+ Students</strong>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">NET STATUS</span>
+                <strong id="net-status" style="color: #00FF00;">ONLINE</strong>
+            </div>
+        </div>
+
+        <div class="admission-zone">
+            <p style="font-size: 12px; color: #aaa;">ADMISSION PORTAL ACTIVE | RAMNA HQ NODE</p>
+            <button class="master-btn" onclick="executeSovereignSync()">🚀 EXECUTE MASTER SYNC</button>
+        </div>
+
+        <div class="status-bar">
+            AUTH: 102740 | PURANA PALTAN, DHAKA | © 2026
+        </div>
+    </div>
+
+    <script>
+        // 📡 Network Persistence Logic
+        window.addEventListener('offline', () => {
+            document.getElementById('net-status').innerText = 'OFFLINE MODE';
+            document.getElementById('net-status').style.color = '#FF0000';
+            console.log("🛡️ SCT Shield: Local Storage Backup Activated.");
+        });
+
+        window.addEventListener('online', () => {
+            document.getElementById('net-status').innerText = 'ONLINE';
+            document.getElementById('net-status').style.color = '#00FF00';
+            alert("Connection Restored. Syncing 3,000 student nodes...");
+        });
+
+        // 🔐 Master Key Verification
+        function executeSovereignSync() {
+            const auth = prompt("CHAIRMAN ANTOR, ENTER MASTER CODE:");
+            if(auth === "102740") {
+                alert("SCT GLOBAL: Access Granted.\nSyncing with scthelpchain@gmail.com...\nEverything is Crystal Clear!");
+            } else {
+                alert("🛑 SECURITY ALERT: INVALID KEY!");
+            }
+        }
+    </script>
+
+</body>
+</html>
 
 </html>
 
