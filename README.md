@@ -167,7 +167,7 @@ To support our mission and help the 3,000+ students, you can contribute to our o
   <img src="https://img.shields.io/badge/DEPLOYMENTS-500+-green?style=for-the-badge">
 </p>
 
----
+---markdown
 
 ## 🏛️ CHAIRMAN'S DIGITAL COMMAND CENTER
 > **"We don't just build websites; we build a global digital kingdom for 3,000+ Orphans."**
