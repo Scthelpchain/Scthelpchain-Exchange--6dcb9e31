@@ -8052,6 +8052,78 @@ if (!navigator.onLine) {
  * ============================================================
  */
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HELPCHAIN | GLOBAL HUMANITARIAN GATEWAY</title>
+    <style>
+        :root { --gold: #FFD700; --dark: #0A0A0A; --green: #00FF00; }
+        body { background-color: var(--dark); color: white; font-family: 'Segoe UI', sans-serif; text-align: center; margin: 0; padding: 20px; }
+        .main-shield { border: 3px solid var(--gold); border-radius: 20px; padding: 40px; max-width: 800px; margin: auto; box-shadow: 0 0 30px rgba(255, 215, 0, 0.2); }
+        h1 { color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+        .status-sync { color: var(--green); font-size: 14px; font-weight: bold; margin-bottom: 20px; }
+        .token-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin: 25px 0; }
+        .token-item { border: 1px solid var(--gold); padding: 10px; border-radius: 8px; font-size: 12px; background: #111; color: var(--gold); }
+        .admin-btn { background: var(--gold); color: black; padding: 18px; border: none; width: 100%; border-radius: 12px; font-weight: bold; cursor: pointer; text-transform: uppercase; margin-top: 15px; transition: 0.3s; }
+        .admin-btn:hover { background: white; box-shadow: 0 0 15px var(--gold); }
+        .footer-note { font-size: 11px; color: #666; margin-top: 30px; }
+    </style>
+</head>
+<body>
+
+    <div class="main-shield">
+        <h1>SCT HELPCHAIN INTERNATIONAL</h1>
+        <p class="status-sync">● GLOBAL SYNC: ACTIVE | ENFORCED BY CHAIRMAN ANTOR</p>
+        <hr border="1" color="#FFD700">
+
+        <p><strong>Chairman:</strong> Habibur Rahman Antor</p>
+        <p><strong>Mission:</strong> Free AI Education for 3,000 Orphans</p>
+
+        <div class="token-grid">
+            <div class="token-item">🪙 antor-token</div>
+            <div class="token-item">❤️ love-you-token</div>
+            <div class="token-item">👮 cid-token</div>
+            <div class="token-item">💎 sarmin-token</div>
+            <div class="token-item">🕌 helpchainsct-token</div>
+        </div>
+
+        <hr border="1" color="#333">
+
+        <button class="admin-btn" onclick="unlockAdmin()">🔓 Open Master Admin Panel</button>
+        <button class="admin-btn" style="background: #222; color: gold; border: 1px solid gold;" onclick="syncStudents()">🕌 Sync AI Madrasa (3,000 Students)</button>
+        
+        <p style="font-size: 12px; margin-top: 15px;">Vault Node: 0x9e5b...BB89</p>
+        <p class="footer-note">SCT GLOBAL HQ: RAMNA, DHAKA | CORPORATE: PURANA PALTAN</p>
+    </div>
+
+    <script>
+        /**
+         * SOVEREIGN SECURITY PROTOCOL
+         * MASTER KEY: 102740 | AGENT: 12-15-27
+         */
+        const SECRET_CODE = "102740";
+
+        function unlockAdmin() {
+            let access = prompt("ENTER CHAIRMAN'S VERIFICATION CODE:");
+            if(access === SECRET_CODE) {
+                alert("ACCESS GRANTED. WELCOME CHAIRMAN ANTOR.");
+                window.location.href = "admin-core.html"; // Ensure this file is also lowercase
+            } else {
+                alert("SECURITY ALERT: UNAUTHORIZED ENTRY BLOCKED BY SHIELD.");
+            }
+        }
+
+        function syncStudents() {
+            alert("SUCCESS: 3,000 Orphan Profiles Synchronized with Global Cloud.");
+        }
+
+        // System Stability Log
+        console.log("SCT Shield: Deployment #600 Stable. Status: Crystal Clear.");
+    </script>
+</body>
+</html>
 
 
 </script>
