@@ -211,5 +211,37 @@ To support our mission and help the 3,000+ students, you can contribute to our o
 ---
 <p align="center">
   <b>© 2026 SCTHELPCHAIN INTERNATIONAL | ALL SYSTEMS ENFORCED BY THE SHIELD</b>
-</p>
+</p># 🛡️ SCT HelpChain International | Digital Exchange & AI Madrasa
+### 👑 Authority: Chairman Habibur Rahman Antor (Hero H R Antor)
+
+Welcome to the official repository of the **SCT Global Digital Kingdom**. This project is dedicated to a **30,000,000 BDT Vision** and providing free AI-powered education to **3,000+ Orphans**.
+
+---
+
+## 🕌 Mission Dashboard
+* **Target:** 3,000+ Underprivileged Students.
+* **Technology:** Web3, AI Tajweed Engine, & Programming.
+* **Location:** Ramna HQ & Purana Paltan Office, Dhaka.
+* **Status:** 500+ Deployments Active (Persistent).
+
+## 🪙 Token Economy
+1.  **Antor Token (ANT):** Governance.
+2.  **Love You Token (LYT):** Community/Cinema.
+3.  **CID Token (CID):** Crime Journalism Security.
+4.  **Sarmin Token (SRM):** Team Collaboration.
+5.  **HelpChainSCT (SCT):** Charity Utility.
+
+## 🛠️ System Security (Sovereign Shield)
+- **Master Key:** 102740
+- **Agent ID:** 12-15-27
+- **Vault Node:** 0x9e5b19128A8675B3B06CdB55E982e685684199D0
+
+---
+### 🤝 Official Contact
+- **Lead Developer:** Habibur Rahman Antor
+- **Official Email:** scthelpchain@gmail.com
+- **Journalism:** Assistant Editor (Crime), Daily Vorer Chetona.
+
+© 2026 SCTHELPCHAIN INTERNATIONAL | **Everything is Crystal Clear!**
+
 
