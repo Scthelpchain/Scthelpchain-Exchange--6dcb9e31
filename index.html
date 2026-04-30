@@ -8578,6 +8578,87 @@ window.addEventListener('offline', () => {
 </body>
 </html>
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT GLOBAL | CHAIRMAN COMMAND</title>
+    <style>
+        :root { --gold: #FFD700; --bg: #050505; --glow: rgba(255, 215, 0, 0.4); }
+        body { background: var(--bg); color: #fff; font-family: 'Inter', sans-serif; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; overflow-x: hidden; }
+        .master-vault { width: 90%; max-width: 450px; background: #111; border: 2px solid var(--gold); border-radius: 24px; padding: 40px; box-shadow: 0 20px 60px var(--glow); text-align: center; position: relative; }
+        .master-vault::before { content: '🛡️ SOVEREIGN SHIELD'; position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--gold); color: #000; padding: 5px 20px; border-radius: 50px; font-weight: 800; font-size: 12px; }
+        h1 { color: var(--gold); font-size: 22px; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px; }
+        .sub-header { color: #888; font-size: 11px; margin-bottom: 25px; text-transform: uppercase; }
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 30px; }
+        .stat-card { background: #1a1a1a; padding: 15px; border-radius: 12px; border: 1px solid #222; }
+        .stat-card span { display: block; font-size: 10px; color: #666; margin-bottom: 5px; }
+        .stat-card strong { color: var(--gold); font-size: 14px; }
+        .btn-sync { background: var(--gold); color: #000; border: none; padding: 18px; width: 100%; border-radius: 12px; font-weight: 900; cursor: pointer; transition: 0.3s; text-transform: uppercase; font-size: 14px; }
+        .btn-sync:hover { background: #fff; transform: translateY(-3px); box-shadow: 0 10px 20px rgba(255,255,255,0.1); }
+        .footer-secure { margin-top: 30px; font-size: 10px; color: #444; border-top: 1px solid #222; padding-top: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="master-vault">
+        <h1>SCT HELPCHAIN GLOBAL</h1>
+        <div class="sub-header">Chairman: Habibur Rahman Antor</div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <span>BENEFICIARIES</span>
+                <strong>3,000+ ORPHANS</strong>
+            </div>
+            <div class="stat-card">
+                <span>VALUATION</span>
+                <strong>30M BDT</strong>
+            </div>
+            <div class="stat-card">
+                <span>NODE STATUS</span>
+                <strong id="status" style="color: #00FF00;">LIVE</strong>
+            </div>
+            <div class="stat-card">
+                <span>DEPLOYMENTS</span>
+                <strong>500+ ACTIVE</strong>
+            </div>
+        </div>
+
+        <button class="btn-sync" onclick="verifyChairman()">🚀 EXECUTE MASTER SYNC</button>
+
+        <div class="footer-secure">
+            MASTER: 102740 | AGENT ID: 12-15-27 | RAMNA HQ | PURANA PALTAN
+        </div>
+    </div>
+
+    <script>
+        // Emergency Network Monitor
+        window.addEventListener('offline', () => {
+            document.getElementById('status').innerText = 'OFFLINE/LOCAL';
+            document.getElementById('status').style.color = '#FF0000';
+            alert("Chairman, Network is down! Sovereign Shield has activated Local Vault for 3,000 Orphans.");
+        });
+
+        window.addEventListener('online', () => {
+            document.getElementById('status').innerText = 'LIVE';
+            document.getElementById('status').style.color = '#00FF00';
+            alert("Connection Restored. Everything is Crystal Clear!");
+        });
+
+        // Sovereign Auth System
+        function verifyChairman() {
+            const key = prompt("CHAIRMAN ANTOR, ENTER 6-DIGIT MASTER CODE:");
+            if(key === "102740") {
+                alert("ACCESS GRANTED.\nSynchronizing with scthelpchain@gmail.com...\nGlobal Admission Gateway is LIVE!");
+            } else {
+                alert("🛑 SECURITY BREACH: INVALID CODE LOGGED.");
+            }
+        }
+    </script>
+
+</body>
+</html>
 
 
 </html>
