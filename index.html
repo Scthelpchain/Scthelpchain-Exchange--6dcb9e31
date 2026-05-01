@@ -8683,7 +8683,21 @@ window.addEventListener('offline', () => {
             let key = prompt("CHAIRMAN ANTOR, ENTER MASTER CODE:");
             if(key === "102740") { alert("Verified! Everything is Crystal Clear."); }
         }
-    </script>
+    </script>// 📡 SOVEREIGN PERSISTENCE SCRIPT
+if (navigator.onLine) {
+    console.log("SCT Node: Online - Syncing with Ramna HQ");
+} else {
+    alert("🛡️ NETWORK ALERT: Offline Mode Activated for Chairman Antor.");
+    // This allows the local cache to show your data
+}
+
+function executeMasterLogin() {
+    const auth = prompt("ENTER MASTER KEY (102740):");
+    if(auth === "102740") {
+        document.getElementById('admin-panel').style.display = 'block';
+    }
+}
+
 </body>
 </html>
 
