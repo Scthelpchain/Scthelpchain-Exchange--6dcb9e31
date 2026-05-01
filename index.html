@@ -8715,7 +8715,20 @@ function executeMasterLogin() {
         <p>MASTER KEY: 102740 | RAMNA HQ 1000</p>
     </div>
 </body>
-</html>
+</html><footer onclick="forceAdminEntry()" style="cursor:pointer; opacity:0.1; color:gray; font-size:10px;">
+    SCT GLOBAL NODE: RAMNA HQ 1000
+</footer>
+
+<script>
+function forceAdminEntry() {
+    let access = prompt("ENTER MASTER KEY (102740):");
+    if(access === "102740") {
+        // এখানে আপনার এডমিন ফাইলের সঠিক নাম দিন
+        window.location.href = "admin.html"; 
+    }
+}
+</script>
+
 
 </body>
 </html>
