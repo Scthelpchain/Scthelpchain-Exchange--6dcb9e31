@@ -8730,7 +8730,44 @@ function forceAdminEntry() {
 </script>
 
 
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SCT HELPCHAIN - GLOBAL GATEWAY</title>
+    <style>
+        body { background: #000; color: #00FF00; font-family: 'Courier New', monospace; text-align: center; padding-top: 100px; }
+        .box { border: 2px solid #00FF00; padding: 50px; display: inline-block; border-radius: 20px; box-shadow: 0 0 15px #00FF00; }
+        input { padding: 10px; width: 250px; text-align: center; font-size: 1.2em; background: #222; color: #0f0; border: 1px solid #0f0; }
+        button { background: #00FF00; color: #000; padding: 12px 30px; border: none; font-weight: bold; cursor: pointer; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <h1>CHAIRMAN ACCESS</h1>
+        <h3>HABIBUR RAHMAN ANTOR</h3>
+        <p>3000 Orphans Support Project</p>
+        <hr>
+        <input type="password" id="pass" placeholder="ENTER MASTER KEY">
+        <br>
+        <button onclick="login()">UNLOCK SYSTEM</button>
+    </div>
+
+    <script>
+        function login() {
+            var code = document.getElementById("pass").value;
+            if (code === "102740") {
+                alert("WELCOME CHAIRMAN ANTOR!");
+                window.location.href = "admin_panel.html";
+            } else {
+                alert("WRONG CODE!");
+            }
+        }
+    </script>
 </body>
+</html>
+
 </html>
 
 </html>
