@@ -9917,5 +9917,23 @@ function accessSCTCommandCenter() {
         alert("UNAUTHORIZED KMID ATTEMPT DETECTED. IP LOGGED.");
     }
 }
+<button onclick="authorizeSCTAdmin()" style="background:none; border:1px solid #30363d; color:#8b949e; cursor:pointer; font-size:10px; padding:5px 10px; border-radius:5px;">
+    System Auth
+</button>
+
+<script>
+function authorizeSCTAdmin() {
+    const KMID_PRIMARY = "102740"; // Your Official Reg Code
+    const input = prompt("SCT GLOBAL COMMAND: Enter KMID Authorization Key");
+
+    if (input === KMID_PRIMARY) {
+        alert("KMID VERIFIED. Welcome, Chairman Hero H R Antor.");
+        // Redirect to your private management portal
+        window.location.href = "sct-admin-portal.html";
+    } else {
+        alert("ACCESS DENIED. KMID Failure Logged.");
+    }
+}
+</script>
 
 
