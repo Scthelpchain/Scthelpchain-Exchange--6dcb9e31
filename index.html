@@ -9997,6 +9997,30 @@ function accessSCTCommandCenter() {
         alert("UNAUTHORIZED KMID ATTEMPT DETECTED. ACCESS DENIED.");
     }
 }
+/* SCT GLOBAL COMMAND: STEALTH MODE 
+   Authorized Personnel: Chairman Hero H R Antor only.
+*/
+
+// This Hash represents your code. It is impossible to decode by looking at it.
+const SOVEREIGN_SHIELD_HASH = "8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92";
+
+async function authorizeChairman() {
+    const input = prompt("ENTER CHAIRMAN'S KMID:");
+    
+    // Convert user input to a SHA-256 Hash
+    const encoder = new TextEncoder();
+    const data = encoder.encode(input);
+    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const hashArray = Array.from(new Uint8Array(hashBuffer));
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+
+    if (hashHex === SOVEREIGN_SHIELD_HASH) {
+        alert("KMID VERIFIED. Welcome, Chairman Hero H R Antor.");
+        window.location.href = "admin_dashboard.html"; 
+    } else {
+        alert("ACCESS DENIED. SECURE LOG GENERATED.");
+    }
+}
 
 
 
