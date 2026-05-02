@@ -3,43 +3,120 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SCT HelpChain International | Sovereign Exchange</title>
+    <title>SCT HelpChain International | Sovereign Command</title>
     <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
     <style>
-        :root { --gold: #d4af37; --blue: #58a6ff; --bg: #0d1117; }
-        body { background-color: var(--bg); color: #c9d1d9; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; margin: 0; text-align: center; }
-        .hero { padding: 100px 20px; border-bottom: 1px solid #30363d; background: radial-gradient(circle at top, #161b22, #0d1117); }
-        .logo { width: 150px; filter: drop-shadow(0 0 15px var(--blue)); border-radius: 50%; margin-bottom: 20px; }
-        h1 { color: var(--blue); font-size: 3rem; letter-spacing: 2px; margin: 10px 0; }
-        .status-bar { display: inline-block; padding: 8px 20px; border-radius: 20px; background: rgba(88, 166, 255, 0.1); border: 1px solid var(--blue); color: var(--blue); font-weight: bold; margin-bottom: 30px; }
-        .card-container { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; padding: 50px; }
-        .card { background: #161b22; border: 1px solid #30363d; padding: 30px; border-radius: 15px; width: 300px; transition: 0.3s; }
-        .card:hover { border-color: var(--gold); transform: translateY(-10px); box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2); }
-        .btn { background: var(--blue); color: white; border: none; padding: 15px 30px; border-radius: 8px; font-weight: bold; cursor: pointer; font-size: 1rem; }
-        .footer { padding: 50px; color: #8b949e; font-size: 0.9rem; }
+        :root {
+            --primary: #58a6ff;
+            --gold: #d4af37;
+            --bg: #0d1117;
+            --card-bg: #161b22;
+        }
+        body {
+            background-color: var(--bg);
+            color: #c9d1d9;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .header {
+            padding: 80px 20px;
+            text-align: center;
+            background: radial-gradient(circle at top, #1c2128, var(--bg));
+            width: 100%;
+        }
+        .logo {
+            width: 130px;
+            border-radius: 50%;
+            filter: drop-shadow(0 0 15px var(--primary));
+            border: 2px solid var(--primary);
+            margin-bottom: 20px;
+        }
+        h1 {
+            color: var(--primary);
+            font-size: 2.8rem;
+            margin: 10px 0;
+            letter-spacing: 2px;
+        }
+        .status-badge {
+            display: inline-block;
+            padding: 6px 18px;
+            border-radius: 20px;
+            background: rgba(88, 166, 255, 0.1);
+            border: 1px solid var(--primary);
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 25px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            max-width: 1000px;
+            padding: 40px 20px;
+            width: 100%;
+        }
+        .card {
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .card:hover {
+            border-color: var(--gold);
+            transform: translateY(-5px);
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.1);
+        }
+        .card h3 { color: var(--gold); margin-top: 0; }
+        .btn {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: 0.2s;
+        }
+        .btn:hover { opacity: 0.9; transform: scale(1.05); }
+        .footer {
+            padding: 40px;
+            color: #8b949e;
+            font-size: 0.85rem;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
 
-    <div class="hero">
-        <img src="https://github.com/scthelpchain-ai.png" alt="SCT Sovereign Shield" class="logo">
+    <div class="header">
+        <img src="https://github.com/scthelpchain-ai.png" alt="SCT Logo" class="logo">
         <h1>SCT GLOBAL KINGDOM</h1>
-        <div class="status-bar">● SOVEREIGN SHIELD V2.0 ACTIVE</div>
-        <p style="font-size: 1.2rem; max-width: 700px; margin: 0 auto;">Bridging Islamic Education with Web3 Financial Technology. Empowering 3,000+ Orphans Worldwide.</p>
+        <div class="status-badge">● SOVEREIGN SHIELD V2.0 ACTIVE</div>
+        <p style="max-width: 600px; margin: 0 auto; line-height: 1.6;">
+            Transforming lives of 3,000+ Orphans through AI Madrasa and Web3 Technology.
+        </p>
     </div>
 
-    <div class="card-container">
+    <div class="grid">
         <div class="card">
             <h3>AI Madrasa Hub</h3>
-            <p>Real-time Tajweed & Voice Recognition Engine for Students.</p>
+            <p>Automated Tajweed & Quranic Voice Analysis Engine.</p>
         </div>
-        <div class="card">
+        <div class="grid-item card">
             <h3>Digital Exchange</h3>
-            <p>Secure Blockchain Gateway for International Assets.</p>
+            <p>Secure Cross-Chain Payment Gateway (BNB/ETH/USDT).</p>
         </div>
         <div class="card">
             <h3>Luxury Master Card</h3>
-            <p>Crypto-Fiat Interconnectivity for Global Transactions.</p>
+            <p>Exclusive Global Access to Digital Asset Payments.</p>
         </div>
     </div>
 
@@ -51,15 +128,15 @@
     </div>
 
     <script>
-        // Secret Access: Shift + S
+        // Secret Access: Press 'Shift' + 'S'
         document.addEventListener('keydown', function(e) {
             if (e.shiftKey && e.key === 'S') { 
-                let access = prompt("AUTHORIZATION REQUIRED: ENTER KMID");
+                let access = prompt("AUTHORIZATION REQUIRED: ENTER CHAIRMAN KMID");
                 if (access === "102740") {
-                    alert("Welcome back, Chairman Hero H R Antor. Accessing Command Center...");
+                    alert("Verification Confirmed. Welcome back, Hero H R Antor.");
                     window.location.href = "https://github.com/Scthelpchain/Scthelpchain-Exchange--6dcb9e31"; 
                 } else {
-                    alert("UNAUTHORIZED ACCESS BLOCKED.");
+                    alert("ACCESS DENIED.");
                 }
             }
         });
@@ -67,13 +144,13 @@
         async function connectWallet() {
             if (window.ethereum) {
                 try {
-                    await window.ethereum.request({ method: 'eth_requestAccounts' });
-                    alert("Wallet Connected to SCT Shield Node.");
+                    const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                    alert("Wallet Connected: " + accounts[0]);
                 } catch (error) {
-                    alert("Connection Refused.");
+                    alert("Connection Cancelled.");
                 }
             } else {
-                alert("Please install MetaMask to access the Kingdom.");
+                alert("Please install MetaMask to interact with the Kingdom.");
             }
         }
     </script>
