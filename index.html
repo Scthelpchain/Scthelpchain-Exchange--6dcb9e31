@@ -9934,6 +9934,21 @@ function authorizeSCTAdmin() {
         alert("ACCESS DENIED. KMID Failure Logged.");
     }
 }
-</script>
+</script>/* SCT HelpChain Administrative Access
+   Authorized Personnel: Chairman Habibur Rahman Antor 
+*/
+
+function accessSCTCommandCenter() {
+    let kmidPass = prompt("ENTER KMID SECURITY CODE:");
+    
+    // Master Password linked to your Registration Code: 102740
+    if (kmidPass === "102740") {
+        console.log("KMID VERIFIED. ACCESS GRANTED TO CHAIRMAN'S OFFICE.");
+        window.location.href = "admin_dashboard.html"; 
+    } else {
+        alert("UNAUTHORIZED KMID ATTEMPT DETECTED. IP LOGGED.");
+    }
+}
+
 
 
