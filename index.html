@@ -9894,4 +9894,13 @@ Everything is Crystal Clear!
     </div>
     <p style="font-size: 12px; color: #8b949e; margin-top: 20px;">Auth Code: 102740 | Agent ID: 12-15-27 | Verified by Chairman's Office</p>
 </div>
+function openAdminPanel() {
+    let pass = prompt("Enter Chairman's Security Key:");
+    if (pass === "102740") {
+        alert("Welcome, Hero H R Antor. Access Granted!");
+        window.location.href = "admin_dashboard.html"; // Your secret dashboard
+    } else {
+        alert("Unauthorized Access Detected! System Locked.");
+    }
+}
 
