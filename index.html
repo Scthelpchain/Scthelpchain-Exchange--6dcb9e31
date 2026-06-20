@@ -755,7 +755,279 @@
     <p>© 2026 SCTHELPCHAIN INTERNATIONAL | The Sovereign Digital Empire</p>
 </div>
 
+</body><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HelpChain International | Golden Empire Core</title>
+    <style>
+        :root {
+            --bg-dark: #070a13;
+            --panel-bg: #0f1424;
+            --accent-gold: #ffd700;
+            --text-main: #dae1e9;
+            --text-bright: #ffffff;
+            --border-glow: #1e2942;
+            --emerald-green: #00e676;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--panel-bg);
+            border-bottom: 3px solid var(--accent-gold);
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .emperor-panel {
+            background: linear-gradient(145deg, #13192e 0%, #090d1a 100%);
+            border: 2px solid var(--accent-gold);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.1);
+        }
+
+        h1, h2, h3 {
+            color: var(--accent-gold);
+            letter-spacing: 1px;
+        }
+
+        .btn-connect {
+            background-color: var(--emerald-green);
+            color: #000000;
+            border: none;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0, 230, 118, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .btn-connect:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 230, 118, 0.5);
+        }
+
+        .grid-layout {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .card {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-glow);
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            transition: border-color 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .badge-protocol {
+            background-color: rgba(255, 215, 0, 0.1);
+            color: var(--accent-gold);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 15px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+
+        .table-container {
+            overflow-x: auto;
+            margin-top: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: var(--panel-bg);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        th {
+            background-color: rgba(255, 215, 0, 0.05);
+            color: var(--accent-gold);
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid var(--border-glow);
+            font-size: 14px;
+            color: #64748b;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h2>🛡️ SCT HELPCHAIN INTERNATIONAL DIGITAL EXCHANGE</h2>
+    <p style="margin: 5px 0 0 0; color: var(--accent-gold); font-weight: bold;">Authorized Enforced Core Ecosystem by Chairman Hero H R Antor</p>
+</header>
+
+<div class="container">
+
+    <div class="emperor-panel">
+        <span class="badge-protocol">Ghost Admin Protocol v2.0 Activated</span>
+        <h1 style="font-size: 36px; margin: 10px 0;">SCT Global Digital Kingdom</h1>
+        <p style="font-size: 18px; max-width: 800px; margin: 0 auto 25px auto;">Bridging secure decentralized Layer-1 technology with divine educational initiatives for 3,000+ underprivileged orphans globally.</p>
+        <p style="font-family: monospace; color: #94a3b8; font-size: 14px;">Master Verification: 102740 | Operational Agent ID: 12-15-27</p>
+        <br>
+        <button class="btn-connect" id="walletActionBtn" onclick="initializeWeb3()">🔗 Initialize Sovereign Wallet Node</button>
+        <p id="nodeAddressOutput" style="margin-top: 20px; font-family: monospace; color: var(--accent-gold); font-size: 16px;"></p>
+    </div>
+
+    <h2>🪙 Token Asset Classifications</h2>
+    <div class="grid-layout">
+        <div class="card" style="border-left: 4px solid #ef4444;">
+            <h3>$ANT</h3>
+            <span class="badge-protocol">Antor Token</span>
+            <p>Ecosystem Administrative Privileges & Network Control Node.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #3b82f6;">
+            <h3>$SCT</h3>
+            <span class="badge-protocol">HelpChainSCT</span>
+            <p>Principal Humanitarian Utility Asset for Audited Global Distribution.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #ec4899;">
+            <h3>$LYT</h3>
+            <span class="badge-protocol">Love You Token</span>
+            <p>Cinema Hub Synchronization, Ticket Settlements & Media Production Launchpad.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #10b981;">
+            <h3>$CID</h3>
+            <span class="badge-protocol">CID Token</span>
+            <p>Crime Journalism Decentralized News Desk Verification Ledger.</p>
+        </div>
+        <div class="card" style="border-left: 4px solid #f59e0b;">
+            <h3>$SRM</h3>
+            <span class="badge-protocol">Sarmin Token</span>
+            <p>Core Management Grid Logistics Validation & Operation Verification.</p>
+        </div>
+    </div>
+
+    <div class="grid-layout" style="grid-template-columns: repeat(auto-fit, minmax(450px, 1fr)); margin-top: 40px;">
+        <div class="card" style="text-align: left;">
+            <span class="badge-protocol">Core Mission Profile</span>
+            <h3>🕌 AI Madrasa Global Initiative</h3>
+            <p>Deploying advanced speech-to-text models directly into local hubs for real-time Tajweed and Makhraj verification, while simultaneously cross-training students in modern software engineering and Web3 application architecture.</p>
+            <ul>
+                <li>Free premium daily nutritional mapping tracking system.</li>
+                <li>Secure structured local accommodation within the Dhaka central network hubs.</li>
+                <li>Comprehensive distribution of institutional curricula and digital study material.</li>
+            </ul>
+        </div>
+
+        <div class="card" style="text-align: left;">
+            <span class="badge-protocol">FinTech Pipeline</span>
+            <h3>💳 SCT Luxury Master Card System</h3>
+            <p>The premium cross-chain fiat-crypto bridge gateway providing zero-friction liquidity access for international asset synchronization and verified structural development tracking.</p>
+            <ul>
+                <li>Cross-chain settlement processing natively utilizing BNB, ETH, and MATIC layers.</li>
+                <li>Direct automated smart contract settlement channel pointing to verified vaults.</li>
+            </ul>
+        </div>
+    </div>
+
+    <h2>📊 Validation Node Ledger Stability</h2>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Infrastructure Module</th>
+                    <th>Integration Verification Target</th>
+                    <th>Network Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Sovereign System Anchor</strong></td>
+                    <td>Chairman Hero H R Antor Profile</td>
+                    <td style="color: var(--emerald-green); font-weight: bold;">🟢 VERIFIED ONLINE</td>
+                </tr>
+                <tr>
+                    <td><strong>Distributed Vault Security</strong></td>
+                    <td>0x9e5b19128A8675B3B06CdB55E982e685684199D0</td>
+                    <td style="color: var(--emerald-green); font-weight: bold;">🔒 LOCKED / PERSISTENT</td>
+                </tr>
+                <tr>
+                    <td><strong>Network Deployment Density</strong></td>
+                    <td>500+ Active Virtual Nodes Registered</td>
+                    <td style="color: var(--emerald-green); font-weight: bold;">⚡ QUEUED GLOBAL IMMUTABILITY</td>
+                </tr>
+                <tr>
+                    <td><strong>Ecosystem Target Capitalization</strong></td>
+                    <td>৳30,000,000 Sovereign Valuation Pool</td>
+                    <td style="color: var(--emerald-green); font-weight: bold;">🌍 SYNCHRONIZED</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<div class="footer">
+    <p>"Code is temporary, but the impact on 3,000 souls is eternal." — Chairman Hero H R Antor</p>
+    <p>© 2026 SCTHELPCHAIN INTERNATIONAL | ALL SYSTEM ARTIFACTS ENFORCED BY THE SOVEREIGN SHIELD</p>
+</div>
+
+<script>
+    async function initializeWeb3() {
+        if (typeof window.ethereum !== 'undefined') {
+            try {
+                const chainNodes = await window.ethereum.request({ method: 'eth_requestAccounts' });
+                const primaryNode = chainNodes[0];
+                document.getElementById('nodeAddressOutput').innerText = "✔ Node Connected: " + primaryNode;
+                document.getElementById('walletActionBtn').innerText = "System Matrix Active";
+                document.getElementById('walletActionBtn').style.backgroundColor = "#1d4ed8";
+                console.log("[EMPIRE PROTOCOL ACTIVATED] Successfully verified node identity: " + primaryNode);
+            } catch (error) {
+                console.error("Cryptographic authorization handshake rejected by client node.", error);
+                alert("Authorization rejected.");
+            }
+        } else {
+            alert("MetaMask client framework missing. Please attach a secure Layer-1 gateway extension to continue.");
+        }
+    }
+</script>
+
 </body>
+</html>
+
 </html>
 
 </html>
