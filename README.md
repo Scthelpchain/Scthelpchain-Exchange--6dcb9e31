@@ -181,7 +181,7 @@ To support our mission and help the 3,000+ students, you can contribute to our o
 ### 💳 SCT LUXURY GATEWAY (ACTIVATED)
 - **Master Card:** Global Crypto-Fiat Interconnectivity.
 - **Vault Node:** `0x9e5b19128A8675B3B06CdB55E982e685684199D0`
-- **Exchange:** 100% Transparent Blockchain Ledger.
+- **Exchange:** 100% Transparent Blockchain Ledger.m
 
 ---
 
