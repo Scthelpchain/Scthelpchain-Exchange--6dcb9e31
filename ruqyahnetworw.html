@@ -2,48 +2,64 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Ruqyah Ash-Shari'ah Global Network</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruqyah Ash-Shari'ah Global Network | SCTHelpChain</title>
     <style>
+        :root {
+            --gold: #d4af37;
+            --deep-blue: #0a0e17;
+            --white: #ffffff;
+        }
         body { 
-            background: linear-gradient(135deg, #0a0e17, #1a2a40); 
-            color: #d4af37; 
-            font-family: 'Segoe UI', serif; 
-            padding: 50px; 
+            background: linear-gradient(135deg, var(--deep-blue), #1a2a40); 
+            color: var(--white); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            margin: 0;
+            padding: 20px;
             text-align: center;
         }
-        .card { 
-            background: rgba(255, 255, 255, 0.05); 
-            padding: 50px; 
+        .container { 
+            background: rgba(255, 255, 255, 0.03); 
+            padding: 40px; 
             border-radius: 20px; 
-            border: 1px solid #d4af37; 
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.2); 
-            max-width: 800px; 
+            border: 1px solid var(--gold); 
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.15); 
+            max-width: 900px; 
             margin: auto;
         }
-        h1 { color: #ffffff; text-shadow: 0 0 15px #d4af37; }
-        p { color: #e0e0e0; font-size: 1.2rem; }
+        h1 { color: var(--gold); text-transform: uppercase; letter-spacing: 2px; text-shadow: 0 0 10px rgba(212, 175, 55, 0.5); }
+        h2 { color: var(--gold); margin-top: 30px; }
+        p { color: #d1d1d1; font-size: 1.1rem; line-height: 1.6; }
         .btn { 
             display: inline-block; 
-            padding: 18px 40px; 
-            background: #d4af37; 
+            padding: 15px 40px; 
+            background: var(--gold); 
             color: #000; 
             text-decoration: none; 
             font-weight: bold; 
             border-radius: 50px; 
+            margin-top: 30px;
             transition: 0.3s;
         }
-        .btn:hover { background: #ffffff; box-shadow: 0 0 20px #ffffff; }
+        .btn:hover { background: var(--white); box-shadow: 0 0 20px var(--white); }
+        .footer-info { margin-top: 50px; font-size: 0.9rem; color: var(--gold); opacity: 0.8; }
     </style>
 </head>
 <body>
-    <div class="card">
+    <div class="container">
         <h1>Ruqyah Ash-Shari'ah Global Network</h1>
-        <p>A journey towards spiritual peace and healing in the light of the Quran.</p>
-        <hr style="border: 0; height: 1px; background: #d4af37;">
-        <br>
-        <p>Advisor: <strong>Hero H R Antor</strong></p>
-        <br>
-        <a href="#" class="btn">Get Started</a>
+        <p>An initiative under the SCTHelpChain Global Digital Kingdom.</p>
+        <hr style="border: 0; height: 1px; background: var(--gold); margin: 30px 0;">
+        
+        <h2>Mission & Vision</h2>
+        <p>Bridging spiritual healing and divine education through advanced AI and Web3 technology for 3,000+ orphans and underprivileged children worldwide.</p>
+        
+        <a href="https://github.com/scthelpchain-ai" class="btn">Explore Official Portal</a>
+
+        <div class="footer-info">
+            <p>Authorized by Chairman: <strong>Hero H R Antor</strong></p>
+            <p>Official Verification Protocol: 102740 | Node: 0x9e5b...99D0</p>
+        </div>
     </div>
 </body>
 </html>
