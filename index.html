@@ -1218,7 +1218,92 @@
             try {
                 let w
 
-</html>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HelpChain - Network & USDT Vault</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #0b0f19; color: #fff; margin: 0; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; }
+        .card { background: #151c2c; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #232d42; }
+        h2, h3 { color: #38bdf8; text-align: center; }
+        input, select { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; box-sizing: border-box; }
+        button { width: 100%; padding: 12px; background: #10b981; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; margin-top: 8px; }
+        button:hover { background: #059669; }
+        .btn-send { background: #3b82f6; }
+        .btn-send:hover { background: #2563eb; }
+        .info-box { background: #1e293b; padding: 10px; border-radius: 6px; font-size: 14px; margin-top: 10px; border-left: 4px solid #10b981; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>🛡️ SCT HelpChain Network & AI Vault</h2>
+
+    <!-- 1. Member Login -->
+    <div class="card">
+        <h3>1. Member Login & Wallet Connect</h3>
+        <button onclick="connectWallet()">Connect Web3 / MetaMask Wallet</button>
+        <div id="accountInfo" class="info-box" style="display:none;">
+            Address: <span id="userAddress" style="color:#10b981;"></span>
+        </div>
+    </div>
+
+    <!-- 2. AI Investment (200 Days Double Calculator) -->
+    <div class="card">
+        <h3>2. AI Investment Vault (200 Days Pool)</h3>
+        <label>Enter Investment Amount (USDT):</label>
+        <input type="number" id="investAmount" placeholder="e.g. 100 USDT" oninput="calculateAI()">
+        
+        <div id="aiPrediction" class="info-box">
+            🤖 <strong>AI Forecast:</strong><br>
+            Daily Yield (1%): <span id="dailyEarn" style="color:#38bdf8;">0 USDT</span><br>
+            Total Return (200 Days): <span id="totalEarn" style="color:#10b981;">0 USDT (200%)</span>
+        </div>
+        <button onclick="depositUSDT()">Deposit USDT to Vault</button>
+    </div>
+
+    <!-- 3. Send & Receive USDT -->
+    <div class="card">
+        <h3>3. Transfer & Receive USDT</h3>
+        <label>Recipient Wallet Address:</label>
+        <input type="text" id="recipientAddress" placeholder="0x...">
+        <label>Amount (USDT):</label>
+        <input type="number" id="sendAmount" placeholder="0.00">
+        <button class="btn-send" onclick="sendUSDT()">Send USDT</button>
+    </div>
+</div>
+
+<script>
+    // Binance Smart Chain USDT Contract Address (BEP-20)
+    const usdtContractAddress = "0x55d398326f99059fF775485246999027B3197955";
+    const usdtABI = [
+        "function transfer(address to, uint256 value) public returns (bool)",
+        "function balanceOf(address owner) public view returns (uint256)"
+    ];
+
+    let provider, signer, userWallet;
+
+    async function connectWallet() {
+        if (window.ethereum) {
+            provider = new ethers.providers.Web3Provider(window.ethereum);
+            await provider.send("eth_requestAccounts", []);
+            signer = provider.getSigner();
+            userWallet = await signer.getAddress();
+            
+            document.getElementById('userAddress').innerText = userWallet.substring(0, 6) + "..." + userWallet.substring(userWallet.length - 4);
+            document.getElementById('accountInfo').style.display = 'block';
+        } else {
+            alert("Please install MetaMask or open in Web3 Browser.");
+        }
+    }
+
+    function calculateAI() {
+        const amount = parseFloat(document.getElementById('investAmount').value) || 0;
+        const daily = 
 
 </html>
 
