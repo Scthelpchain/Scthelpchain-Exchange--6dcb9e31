@@ -1143,7 +1143,80 @@
     }
 </script>
 
-</html>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HelpChain - Digital Wallet</title>
+    <!-- Ethers.js Library (Web3 Core Engine) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #0f172a; color: #fff; text-align: center; padding: 20px; }
+        .wallet-card { background: #1e293b; max-width: 500px; margin: 20px auto; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.3); border: 1px solid #334155; }
+        button { background: #006644; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 6px; cursor: pointer; margin: 8px 0; font-weight: bold; width: 100%; }
+        button:hover { background: #004d33; }
+        input { width: 100%; padding: 10px; margin: 8px 0; border-radius: 6px; border: 1px solid #475569; background: #0f172a; color: #fff; box-sizing: border-box; }
+        .result-box { background: #0f172a; padding: 12px; border-radius: 6px; word-break: break-all; margin-top: 10px; border: 1px dashed #64748b; font-size: 14px; text-align: left; }
+        .warning { color: #f59e0b; font-size: 12px; margin-top: 8px; }
+    </style>
+</head>
+<body>
+
+    <h2>🛡️ SCT HelpChain Digital Wallet</h2>
+
+    <!-- 1. Create New Wallet Section -->
+    <div class="wallet-card">
+        <h3>1. Create New Wallet</h3>
+        <p style="font-size: 14px; color: #94a3b8;">Generate a brand new blockchain wallet address and secret private key.</p>
+        <button onclick="createNewWallet()">Create Wallet</button>
+
+        <div id="newWalletResult" class="result-box" style="display: none;">
+            <p><strong>Wallet Address:</strong> <br><span id="outAddress" style="color:#10b981;"></span></p>
+            <p><strong>Private Key:</strong> <br><span id="outPrivateKey" style="color:#ef4444;"></span></p>
+            <p><strong>Recovery Phrase (12 Seed Words):</strong> <br><span id="outMnemonic" style="color:#f59e0b;"></span></p>
+            <p class="warning">⚠️ Warning: Store your Private Key and Recovery Phrase securely. If you lose them, your wallet access will be lost permanently!</p>
+        </div>
+    </div>
+
+    <!-- 2. Import Wallet & Check Balance Section -->
+    <div class="wallet-card">
+        <h3>2. Import Existing Wallet</h3>
+        <input type="password" id="inputPrivateKey" placeholder="Enter your Private Key or Seed Phrase">
+        <button onclick="importWallet()" style="background: #0c4a60;">Sign-In Wallet</button>
+
+        <div id="importResult" class="result-box" style="display: none;">
+            <p><strong>Connected Address:</strong> <span id="activeAddress" style="color:#10b981;"></span></p>
+            <p><strong>Network Balance:</strong> <span id="activeBalance" style="color:#38bdf8;">0.00 ETH/BNB</span></p>
+        </div>
+    </div>
+
+    <script>
+        const provider = new ethers.providers.JsonRpcProvider('https://binance.llamarpc.com');
+
+        function createNewWallet() {
+            try {
+                const randomWallet = ethers.Wallet.createRandom();
+
+                document.getElementById('outAddress').innerText = randomWallet.address;
+                document.getElementById('outPrivateKey').innerText = randomWallet.privateKey;
+                document.getElementById('outMnemonic').innerText = randomWallet.mnemonic.phrase;
+
+                document.getElementById('newWalletResult').style.display = 'block';
+            } catch (err) {
+                alert("Error creating wallet: " + err.message);
+            }
+        }
+
+        async function importWallet() {
+            const key = document.getElementById('inputPrivateKey').value.trim();
+            if (!key) {
+                alert("Please enter a Private Key or Seed Phrase.");
+                return;
+            }
+
+            try {
+                let w
 
 </html>
 
