@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCT HelpChain - Master Admin Dashboard</title>
+    <style>
+        body { font-family: 'Segoe UI', Arial, sans-serif; background: #080d1a; color: #fff; margin: 0; padding: 20px; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .card { background: #111827; padding: 20px; border-radius: 12px; margin-bottom: 20px; border: 1px solid #1f2937; }
+        h2, h3 { color: #38bdf8; margin-top: 0; }
+        input, select { width: 100%; padding: 10px; margin: 8px 0; border-radius: 6px; border: 1px solid #374151; background: #1f2937; color: #fff; box-sizing: border-box; }
+        button { background: #0284c7; color: white; border: none; padding: 10px 15px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+        button:hover { background: #0369a1; }
+        .btn-danger { background: #dc2626; }
+        .btn-danger:hover { background: #b91c1c; }
+        table { width: 100%; border-collapse: collapse; margin-top: 15px; text-align: left; }
+        th, td { padding: 12px; border-bottom: 1px solid #1f2937; font-size: 14px; }
+        th { background: #1f2937; color: #38bdf8; }
+        .badge-active { background: #059669; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+        .badge-blocked { background: #dc2626; padding: 3px 8px; border-radius: 4px; font-size: 12px; }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
+        .stat-box { background: #1e293b; padding: 15px; border-radius: 8px; border-left: 4px solid #38bdf8; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>👑 HelpChain System Admin Portal</h2>
+    <p style="color: #9ca3af; font-size: 14px;">Authorized Control Node | Chairman Hero H R Antor Protocol</p>
+
+    <!-- Admin Authentication -->
+    <div id="authSection" class="card">
+        <h3>🔐 Admin Security Verification</h3>
+        <label>Enter Master Verification Key:</label>
+        <input type="password" id="adminKeyInput" placeholder="Enter Security Key (e.g. 102740)">
+        <button onclick="verifyAdmin()">Login to Admin Panel</button>
+    </div>
+
+    <!-- Main Dashboard UI (Hidden by default) -->
+    <div id="dashboardSection" style="display: none;">
+        
+        <!-- Quick System Stats -->
+        <div class="stats-grid">
+            <div class="stat-box">
+                <small style="color:#9ca3af;">Total Registered Members</small>
+                <h3 id="statMembers">1,248</h3>
+            </div>
+            <div class="stat-box" style="border-color: #10b981;">
+                <small style="color:#9ca3af;">Total Vault Staking (USDT)</small>
+                <h3>$45,200 USDT</h3>
+            </div>
+            <div class="stat-box" style="border-color: #f59e0b;">
+                <small style="color:#9ca3af;">Orphans Welfare Fund Allocation</small>
+                <h3>৳30,000,000 BDT</h3>
+            </div>
+        </div>
+
+        <!-- System Announcement Control -->
+        <div class="card">
+            <h3>📢 Broadcast System Message</h3>
+            <input type="text" id="announcementText" placeholder="Enter global notice for member dashboard...">
+            <button onclick="broadcastNotice()">Send Notice</button>
+        </div>
+
+        <!-- Member Management Table -->
+        <div class="card">
+            <h3>👥 Member Network Management</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>User ID</th>
+                        <th>Wallet Address</th>
+                        <th>USDT Balance</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="memberTableBody">
+                    <tr>
+                        <td>#USR-101</td>
+                        <td>0x9e5b...199D0</td>
+    
